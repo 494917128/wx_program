@@ -1,0 +1,62 @@
+<view class='container'>
+  <myUserInfo phone="13111111111" bind_myCode="myCode" >
+    <myCode show="{{my_code_show}}" bind_myCode="myCode" />
+  </myUserInfo>
+  <myNavbar list="{{nav_list}}" list_index="{{nav_index}}" bind_myNavbar="navbar" />
+
+  <view hidden="{{notice_content}}">
+    <!-- 搜索 -->
+    <view class='notice_search'>
+      <view class='notice_search_view flex_row'>
+        <input type='text' placeholder='输入关键词搜索' class='notice_search_input' confirm-type="search" bindinput='searchValue' bindconfirm='search'></input>
+        <view class='iconfont icon-search flex_row flex_center main_color' bindtap="search"></view>
+      </view>
+    </view>
+
+    <!-- 公司通告 -->
+    <view class='notice_content'wx:if="{{nav_index==0}}">
+      <view class='notice_content_item flex_row' wx:for="{{meida}}" wx:key="{{index}}" bindtap='noticeContent'>
+        <view class='notice_content_info flex_column'>
+          <view class='notice_content_title one_line'>{{item.title}}</view>
+          <view class='notice_content_time'>{{item.date}}</view>
+          <view class='notice_content_text two_line'>{{item.digest}}</view>      
+        </view>
+        <image src='/images/image_none.png' class='notice_content_image' mode='aspectFill'></image>
+      </view>
+    </view>
+
+    <!-- 制度政策,使用问答 -->
+    <view class='notice_list' wx:if="{{nav_index==1||nav_index==2}}">
+      <view class='notice_item' wx:for="{{meida}}" wx:key="{{index}}" bindtap='noticeContent'>
+        <view class='notice_item_title one_line'>{{item.title}}</view>
+        <view class='notice_item_line'></view>
+        <view class='notice_item_time'>{{item.date}}</view>
+      </view>
+    </view>
+
+    <!-- 下拉加载 -->
+    <view class='notice_load flex_row flex_center'>
+      <button class='notice_load_button flex_row flex_center'>
+        <view class='iconfont icon-xialajiantou flex_row flex_center'></view>      
+        下拉加载更多
+      </button>
+    </view>
+  </view>
+
+  <!-- 公告内容页 -->
+  <view class='notice_detail flex_column flex_center' hidden="{{!notice_content}}">
+    <view class='iconfont icon-back' bindtap='noticeBack'></view>
+    <view class='notice_detail_title'>{{notice_detail.title}}</view>
+    <view class='notice_detail_time'>{{notice_detail.date}}</view>
+    <text decode class='notice_detail_content'>{{notice_detail.content}}</text>
+    <view class='notice_detail_button_view flex_row'>
+      <button class='notice_detail_button'>上一篇</button>
+      <button class='notice_detail_button'>下一篇</button>
+    </view>
+    
+  </view>
+
+  <myJoin />
+</view>
+
+<myTabbar tabbar_index="3"/>

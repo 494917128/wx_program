@@ -1,0 +1,47 @@
+<!--index.wxml-->
+<view class='container'>
+  <myUserInfo phone="13111111111" bind_myCode="myCode" >
+    <myCode show="{{my_code_show}}" bind_myCode="myCode" />
+  </myUserInfo>
+  <myNavbar list="{{nav_list}}" list_index="{{nav_index}}" bind_myNavbar="navbar" />
+
+  <!-- 代理商介绍 -->
+  <view class='aboutUs_content flex_column' wx:if="{{nav_index==0}}">
+    <image src='{{user.headimgurl}}' class='aboutUs_content_image' mode='widthFix'></image>
+    <text class='aboutUs_content_title'>名字 0岁</text>
+    <text class='aboutUs_content_text'>代理商介绍代理商介绍，代理商代理商介代理商介介绍代理商介绍。代理商介代理商介绍代理商介绍，代理商介绍代理商介绍代理商介代理商介代理商介。</text>
+    <navigator open-type='redirect' url='/pages/join/join' class='aboutUs_content_agent flex_row main_color'>
+      <view class='iconfont icon-service'></view>
+      成为TA的代理
+    </navigator>
+  </view>
+
+  <!-- 公司介绍 -->
+  <view class='aboutUs_content flex_column' wx:if="{{nav_index==1}}">
+    <text class='aboutUs_content_title'>企业介绍</text>
+    <view class='aboutUs_content_line main_bg'></view>
+    <text class='aboutUs_content_text'>XX · XX · XX</text>
+    <text class='aboutUs_content_text'>公司介绍公司介绍，公司公司介公司介介绍公司介绍。公司介公司介绍公司介绍，公司介绍公司介绍公司介公司介公司介。</text>
+    <image src='/images/image_none.png' class='aboutUs_content_image' mode='widthFix' style='margin:0'></image>
+    <text class='aboutUs_content_text'>公司介绍公司介绍，公司公司介公司介介绍公司介绍。公司介公司介绍公司介绍，公司介绍公司介绍公司介公司介公司介。
+    
+    公司介绍公司介绍，公司公司介公司介介绍公司介绍。公司介公司介绍公司介绍，公司介绍公司介绍公司介公司介公司介。</text>
+
+    <view class='aboutUs_develop'>
+      <view class='aboutUs_content_title'>发展历程</view>
+      <view class='aboutUs_content_line main_bg'></view>
+      <text class='aboutUs_content_text'>20XX年XX月XX日发展历程
+        20XX年XX月XX日发展历程
+        20XX年XX月XX日发展历程
+        20XX年XX月XX日发展历程
+        20XX年XX月XX日发展历程
+        20XX年XX月XX日发展历程
+        20XX年XX月XX日发展历程
+      </text>
+    </view>
+  </view>
+
+  <myJoin />
+</view>
+
+<myTabbar tabbar_index="1"/>

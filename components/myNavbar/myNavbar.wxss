@@ -1,0 +1,26 @@
+@import '/fonts/iconfont.wxss';
+@import '/app.wxss';
+
+.container{
+  border-bottom: 10rpx solid #eee;
+  align-items: center;
+}
+.item{
+  flex: 1;
+  height: 110rpx;
+  font-size: 24rpx;
+}
+.text{
+  border-width: 0 0 3rpx;
+  height: 100%;
+  box-sizing: border-box;
+  line-height: 110rpx;
+}
+.line{
+  height: 60rpx;
+  width: 3rpx;
+  background-color: #ccc;
+}
+.line:last-child{
+  display: none;
+}

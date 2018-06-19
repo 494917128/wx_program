@@ -1,0 +1,95 @@
+@import '/fonts/iconfont.wxss';
+
+.flex_row{
+  display: flex;
+}
+.flex_column{
+  display: flex;
+  flex-direction: column;
+}
+.flex_center{
+  justify-content: center;
+  align-items: center;
+}
+
+.main_color{
+  color: orange;
+}
+.main_bg{
+  background-color: orange;
+  color: #fff;
+}
+.main_border{
+  border: 1px solid orange;
+}
+.main_title{
+  font-size: 40rpx;
+  line-height: 2;
+  position: relative;
+  display: inline-block;
+}
+.main_title::after{
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 60rpx;
+  height: 4rpx;
+  background-color: orange;
+}
+.main_button{
+  flex: 1;
+  padding: 0;
+  height: 100rpx;
+  border-radius: 50rpx;
+  overflow: hidden;
+  font-size: 30rpx;
+  border: 3rpx solid #fff;
+  box-sizing: border-box;
+  box-shadow: 0 0 40rpx #dcdcdc;
+  position: relative;
+}
+.main_button::after{
+  content: '';
+  border:none;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.5));
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.secondary_title{
+  font-size: 26rpx;
+  height: 110rpx;
+  line-height: 106rpx;
+  padding-left: 50rpx;
+}
+.secondary_title::after{
+  content: "";
+  background-color: orange;
+  width: 110rpx;
+  height: 4rpx;
+}
+.button_hover{
+  opacity: 0.7;
+}
+.input_placeholder{
+  color: #bbb;
+}
+.one_line{
+	overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.two_line{
+	display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  white-space: normal;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}

@@ -1,0 +1,20 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/login/login",
+    "pages/login/agent/agent",
+    "pages/buy/buy",
+    "pages/aboutUs/aboutUs",
+    "pages/product/product",
+    "pages/product/productDetail/productDetail",
+    "pages/product/reservation/reservation",
+    "pages/notice/notice",
+    "pages/join/join"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#FFA500",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle":"white"
+  }
+}

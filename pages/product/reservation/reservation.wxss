@@ -1,0 +1,30 @@
+/* pages/product/reservation/reservation.wxss */
+.reservation_view{
+  border-bottom: 14rpx solid #F2F2F2;
+  padding: 0 40rpx;
+}
+.reservation_item{
+  border-bottom: 3rpx solid #D0D0D0;
+  height: 90rpx;
+  font-size: 24rpx;
+}
+.reservation_item:last-child{
+  border-bottom: none;
+}
+.reservation_text{
+  color: #BBB;
+  width: 150rpx;
+  text-align: center;
+}
+.reservation_input{
+  flex: 1;
+  padding: 0 40rpx;
+}
+
+.reservation_button_view{
+  padding: 20rpx 50rpx;
+}
+.reservation_button{
+  font-size:34rpx;
+  height:100rpx;
+}

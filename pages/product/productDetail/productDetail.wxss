@@ -1,0 +1,91 @@
+.container{
+  height: calc(100vh - 130rpx);
+}
+
+/* 轮播 */
+.swiper{
+  height: 550rpx;
+  width: 750rpx;
+  border: 10rpx solid #eee;
+  border-width: 10rpx 0;
+}
+.swiper_image{
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.detail_title{
+  padding: 20rpx 60rpx;
+  border-bottom: 10rpx solid #eee;
+}
+.detail_name{
+  font-size: 36rpx;
+  line-height: 1.8;
+}
+.detail_price{
+  font-size: 26rpx;
+  color: #666;
+  line-height: 1.8;
+}
+
+.detail_image{
+  width: 100%;
+  display: block;
+}
+
+.detail_contant{
+  border-top: 10rpx solid #eee;
+  border-bottom: 3rpx solid #eee;
+  font-size: 36rpx;
+  height: 100rpx;
+}
+.detail_business_card{
+  height: 290rpx;
+  width: calc(100% - 40rpx);
+  border-radius: 10rpx;
+  margin: 0 20rpx;
+  padding: 0 40rpx;
+  box-sizing: border-box;
+}
+.detail_business_photo{
+  height: 160rpx;
+  width: 160rpx;
+  border-radius: 50%;
+  margin-right: 30rpx;
+}
+.detail_business_info{
+  flex: 1;
+  overflow: hidden;
+}
+.detail_business_name{
+  font-size: 36rpx;
+}
+.detail_business_wechat{
+  font-size: 26rpx;
+  opacity: 0.8;
+}
+
+.detail_button_view{
+  height: 130rpx;
+}
+.detail_button{
+  height: 100%;
+  flex: 1;
+  border-radius: 0;
+  font-size: 30rpx;
+}
+.detail_button .iconfont{
+  font-size: 48rpx;
+  margin-right: 16rpx;
+}
+.detail_button::after{
+  content: none;
+}
+.black_bg{
+  background-color: #4A4A4A;
+  color: #fff;
+}
+.detail_button_hover{
+  opacity: 0.7;
+}

@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "myNavbar": "/components/myNavbar/myNavbar",
+    "myContact": "/components/myContact/myContact"
+  }
+}

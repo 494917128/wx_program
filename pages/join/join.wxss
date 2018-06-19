@@ -1,0 +1,49 @@
+/* pages/join/join.wxss */
+
+.join_upper{
+  align-items: center;
+  background-color: #F5F5F5;
+  color: #666;
+  padding-left: 50rpx;
+  font-size: 22rpx;
+  height: 70rpx;
+}
+
+.join_input_view{
+  border-bottom: 10rpx solid #F5F5F5;
+  background-color: #fff;
+  padding: 0 40rpx;
+}
+.join_input_item{
+  border-bottom: 3rpx solid #D7D7D7;
+  color: #bbb;
+  height: 100rpx;
+}
+.join_input_item:last-child{
+  border-bottom: none;
+}
+.join_input_item .iconfont{
+  width: 80rpx;
+  height: 80rpx;
+  font-size: 40rpx;
+}
+.join_input_line{
+  height: 40rpx;
+  width: 3rpx;
+  background-color: #D6D6D6;
+}
+.join_input{
+  flex: 1;
+  padding: 0 20rpx;
+  font-size: 24rpx;
+}
+.join_button_view{
+  padding: 40rpx 50rpx;
+}
+.join_button{
+  font-size: 34rpx;
+  height: 100rpx;
+}
+.join_button::after{
+  content: none;
+}

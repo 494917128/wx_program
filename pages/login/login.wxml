@@ -1,0 +1,28 @@
+<view class="login_logo flex_row flex_center">
+  <image src='/images/image_none.png' mode='aspectFill' class='login_logo_image'></image>
+</view>
+
+<view class='login_button_view flex_row'>
+  <navigator url='./agent/agent' class='login_button main_button flex_row flex_center main_bg' hover-class='button_hover'>代理商登录</navigator>
+  <button class='login_button main_button flex_row flex_center main_bg' style='background-color:#1AADFD' hover-class='button_hover'>普通用户登录</button>
+</view>
+
+<view class='login_title'>优秀代理商</view>
+<swiper class='login_swiper' duration="{{2000}}" interval="{{2000}}" display-multiple-items="{{2}}" previous-margin="70rpx" next-margin="70rpx" circular autoplay>
+  <swiper-item wx:for="{{7}}" wx:key="{{index}}" class="login_swiper_item">
+    <view class='login_swiper_content'>
+      <image src='/images/image_none.png' class='login_swiper_image' mode='aspectFill'></image>
+      <view class='login_swiper_info flex_row'>名字</view>
+    </view>
+  </swiper-item>
+</swiper>
+
+<view class='login_title'>更多代理商</view>
+<view class='login_more flex_row'>
+  <view class='login_more_item' wx:for="{{8}}" wx:key="{{index}}">
+    名字
+    <image src='/images/image_none.png' class='login_more_photo' mode='aspectFill'></image>
+  </view>
+</view>
+
+<navigator class='login_button main_button flex_row flex_center main_bg' style='margin:20rpx 40rpx;' hover-class='button_hover'>购买小程序</navigator>

@@ -1,0 +1,46 @@
+<!--pages/product/reservation/reservation.wxml-->
+<view class='reservation_view'>
+    <view class='secondary_title flex_column main_color' style='padding: 0 10rpx'>
+      请认真填写以下信息
+    </view>
+</view>
+
+<view class='reservation_view'>
+  <view class='reservation_item flex_row flex_center'>
+    <view class='reservation_text'>产品信息：</view>
+    <input class='reservation_input'></input>
+  </view>
+  <view class='reservation_item flex_row flex_center'>
+    <view class='reservation_text'>订购数量：</view>
+    <input class='reservation_input'></input>
+  </view>
+</view>
+<view class='reservation_view'>
+  <view class='reservation_item flex_row flex_center'>
+    <view class='reservation_text'>您的姓名：</view>
+    <input class='reservation_input'></input>
+  </view>
+  <view class='reservation_item flex_row flex_center'>
+    <view class='reservation_text'>联系电话：</view>
+    <input class='reservation_input'></input>
+  </view>
+  <view class='reservation_item flex_row flex_center'>
+    <view class='reservation_text'>所在城市：</view>
+    <picker class="reservation_input" mode="region" bindchange="bindRegionChange" value="{{region}}">
+      {{region[0]}}，{{region[1]}}，{{region[2]}}
+    </picker>
+  </view>
+  <view class='reservation_item flex_row flex_center'>
+    <view class='reservation_text'>详细地址：</view>
+    <input class='reservation_input'></input>
+  </view>
+</view>
+<view class='reservation_view'>
+  <view class='reservation_item flex_row flex_center'>
+    <view class='reservation_text'>商品总价：</view>
+    <input class='reservation_input'></input>
+  </view>
+</view>
+<view class='reservation_button_view'>
+  <button class='reservation_button main_bg' hover-class="button_hover">提交</button>
+</view>

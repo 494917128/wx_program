@@ -1,0 +1,44 @@
+<scroll-view class='container' scroll-y>
+  <swiper class='swiper' indicator-dots duration="{{1200}}" autoplay>
+    <swiper-item wx:for="{{3}}" wx:key="{{index}}">
+      <image src='/images/image_none.png' class='swiper_image' mode='aspectFill'></image>
+    </swiper-item>
+  </swiper>
+
+  <view class='detail_title flex_column'>
+    <text class='detail_name one_line'>名字名字</text>
+    <text class='detail_price'>市场零售价：000</text>
+  </view>
+
+  <myNavbar list="{{nav_list}}" list_index="{{nav_index}}" border_bottom_width="3rpx" bind_myNavbar="navbar" />
+
+  <image src='/images/image_none.png' mode='widthFix' wx:for="{{4}}" wx:key="{{index}}" class='detail_image' />
+
+  <view class='detail_contant flex_row flex_center'>联系代理商</view>
+  <view style='padding: 30rpx 10rpx'>
+    <myContact>
+      <view class='detail_business_card flex_row flex_center main_bg'>
+        <image src="/images/image_none.png" class='detail_business_photo'></image>
+        <view class='flex_column detail_business_info'>
+          <view class='detail_business_name one_line'>名字名字名字名字名字名字名字名字名字名字</view>
+          <view class='detail_business_wechat one_line'>微信号：123456123456123456123456123456123456123456123456123456</view>
+        
+        </view>
+      </view>
+    </myContact>
+  </view>
+
+</scroll-view>
+
+
+<view class='detail_button_view flex_row'>
+  <navigator open-type='reLaunch' url='/pages/join/join' class='detail_button flex_row flex_center black_bg' hover-class='detail_button_hover'>
+    <view class='iconfont icon-iconset0336'></view>
+    我要加盟
+  </navigator>
+  <navigator url='../reservation/reservation' class='detail_button flex_row flex_center main_bg' hover-class='detail_button_hover'>
+    <view class='iconfont icon-iconset0336'></view>
+    在线预约
+  </navigator>
+</view>
+

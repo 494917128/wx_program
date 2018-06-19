@@ -1,0 +1,6 @@
+<view class="container">
+  <navigator url='/pages/buy/buy' class='button flex_row flex_center'>
+    <view class='iconfont icon-dianji'></view>
+    我也要做类似小程序
+  </navigator>
+</view>

@@ -1,0 +1,43 @@
+<view class='container'>
+  <myUserInfo phone="13111111111" bind_myCode="myCode" >
+    <myCode show="{{my_code_show}}" bind_myCode="myCode" />
+  </myUserInfo>
+
+  <view class='secondary_title flex_column main_color'>
+    请认真填写以下信息
+  </view>
+  <view class='join_upper flex_row'>上级代理人：姓名 上级授权号：XXXXX</view>
+  <view class='join_input_view'>
+    <view class='join_input_item flex_row flex_center'>
+      <view class='iconfont icon-gerenzhongxinkaobei flex_row flex_center'></view>
+      <view class='join_input_line'></view>
+      <input type='text' class='join_input' placeholder-class='input_placeholder' placeholder='姓名'></input>
+    </view>
+    <view class='join_input_item flex_row flex_center'>
+      <view class='iconfont icon-shouji-copy flex_row flex_center'></view>
+      <view class='join_input_line'></view>
+      <input type='number' class='join_input' placeholder-class='input_placeholder' placeholder='实名认证的手机号码'></input>
+    </view>
+    <view class='join_input_item flex_row flex_center'>
+      <view class='iconfont icon-credentials_icon flex_row flex_center'></view>
+      <view class='join_input_line'></view>
+      <input type='idcard' class='join_input' placeholder-class='input_placeholder' placeholder='输入您的身份证号'></input>
+    </view>
+  </view>
+  <view class='join_input_view'>
+    <view class='join_input_item flex_row flex_center'>
+      <view class='iconfont icon-iconset0403 flex_row flex_center'></view>
+      <view class='join_input_line'></view>
+      <picker class="join_input" mode="region" bindchange="bindRegionChange" value="{{region}}">
+          {{region[0]}}，{{region[1]}}，{{region[2]}}
+      </picker>
+    </view>
+  </view>
+  <view class='join_button_view'>
+    <button class='join_button flex_row flex_center main_bg' hover-class='button_hover'>提交</button>
+  </view>
+
+  <myJoin />
+</view>
+
+<myTabbar tabbar_index="4"/>

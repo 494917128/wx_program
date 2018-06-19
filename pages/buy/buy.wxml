@@ -1,0 +1,34 @@
+
+<view class='flex_column flex_center'>
+  <image src='/images/image_none.png' mode='widthFix' class='buy_image'></image>
+
+  <view class='buy_icon iconfont icon-single flex_row flex_center main_bg'></view>
+  <view class='buy_text main_color'>订单确认</view>
+
+  <view class='buy_content'>
+    <view class='buy_input_view flex_row flex_center'>
+      <text class='buy_input_text'>产品：</text>
+      <view class='buy_input'>赛蜜国际小程序</view>
+    </view>
+    <view class='buy_input_view flex_row flex_center'>
+      <text class='buy_input_text'>价格：</text>
+      <view class='buy_input'>0￥/年</view>
+    </view>
+    <view class='buy_input_view flex_row flex_center'>
+      <text class='buy_input_text'>姓名：</text>
+      <input type='text' class='buy_input' placeholder='请输入您的真实姓名'></input>
+    </view>
+    <view class='buy_input_view flex_row flex_center'>
+      <text class='buy_input_text'>手机号码：</text>
+      <input type='number' class='buy_input' placeholder='请输入您的手机号码'></input>
+    </view>
+
+    <view class='buy_remarks'>注：本产品不支持退款</view>
+    
+    <button class='buy_button main_button flex_row flex_center main_bg' hover-class='button_hover'>立即绑定</button>
+
+
+  </view>
+
+</view>
+

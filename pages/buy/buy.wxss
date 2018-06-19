@@ -1,0 +1,44 @@
+.buy_image{
+  width: 100%;
+  margin-bottom: -40rpx;
+}
+.buy_icon{
+  height: 90rpx;
+  width: 90rpx;
+  border-radius: 50%;
+  font-size: 48rpx;
+}
+.buy_text{
+  font-size: 32rpx;
+  line-height: 2.4;
+}
+
+.buy_content{
+  width: 670rpx;
+  padding: 10rpx 0;
+}
+.buy_input_view{
+  width: 100%;
+  margin-top: 10rpx;
+  font-size: 26rpx;
+  background-color: #F3F3F3;
+  height: 80rpx;
+  padding: 0 30rpx;
+  box-sizing: border-box;
+}
+.buy_input_text{
+  color: #999;
+}
+.buy_input{
+  flex: 1;
+  text-align: right;
+}
+.buy_remarks{
+  font-size: 24rpx;
+  line-height: 2.4;
+  padding: 10rpx 0;
+}
+.buy_button{
+  margin-top: 20rpx;
+  margin-bottom: 40rpx;
+}

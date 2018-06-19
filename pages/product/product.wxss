@@ -1,0 +1,32 @@
+/* pages/product/product.wxss */
+.product_list{
+  width: 100%;
+  position: relative;
+}
+.product_list_image{
+  display: block;
+  width: 100%;
+}
+.product_list_name{
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  width: 270rpx;
+  height: 100rpx;
+  border: 4rpx solid #fff;
+  color: #fff;
+  font-size: 28rpx;
+  z-index: 1;
+}
+.product_list::after{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.3)
+}

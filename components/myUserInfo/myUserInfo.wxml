@@ -1,0 +1,23 @@
+<!-- 组件模板 -->
+<view>
+  <view class='flex_row info main_bg'>
+    <image src='{{user.headimgurl||"/images/image_none.png"}}' class='photo' mode='aspectFill'></image>
+    <view class='more'>
+      <text class='name one_line'>{{user.real_name||user.nickname}}</text>
+      <text class='text two_line'>座右铭座右铭座右铭座右铭座右铭座右铭座右铭座右铭座右铭座右铭座右铭座右铭座右铭座右铭</text>
+    </view>
+  </view>
+  <view class='flex_row'>
+    <view class='btn main_bg' bindtap='code'>
+      <view class='iconfont icon-erweima'></view>
+      TA的二维码
+    </view>
+    <view class='line'></view>
+    <view class='btn main_bg' bindtap='call'>
+      <view class='iconfont icon-dianhua'></view>
+      一键拨号
+    </view>
+  </view>
+</view>
+
+<slot></slot>

@@ -1,0 +1,20 @@
+
+<view class="login_logo flex_row flex_center">
+  <image src='/images/image_none.png' mode='aspectFill' class='login_logo_image'></image>
+  <view class='login_cover'></view>
+</view>
+
+<view class='login_input_view flex_row flex_center'>
+  <view class='iconfont icon-shouji-copy'></view>
+  <input class='login_input' type='number' placeholder-class='input_placeholder' placeholder='输入已购手机号'></input>
+</view>
+<view class='login_input_view flex_row flex_center'>
+  <view class='iconfont icon-dianhua'></view>
+  <input class='login_input' type='password' placeholder-class='input_placeholder' placeholder='输入密码'></input>
+</view>
+
+<view class='login_button_view flex_column'>
+  <button class='login_button main_button flex_row flex_center main_bg' hover-class='button_hover'>立即绑定</button>
+  <navigator open-type='navigateBack' class='login_button main_button flex_row flex_center main_bg' style='background-color:#1AADFD' hover-class='button_hover'>返回首页</navigator>
+</view>
+

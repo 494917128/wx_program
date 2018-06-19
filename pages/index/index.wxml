@@ -1,0 +1,74 @@
+<!--index.wxml-->
+<view class="container">
+  <view class='index_title flex_column flex_center main_bg'>
+    <view class="index_photo_view flex_row flex_center">
+      <view class='iconfont icon-erweima' bindtap="myCode"></view>
+        <myCode show="{{my_code_show}}" bind_myCode="myCode" qrCode="{{qrCode}}" />
+      <image src='{{user.headimgurl||"/images/image_none.png"}}' class='index_photo' mode='aspectFill'></image>
+      <view class='iconfont icon-dianhua' bindtap='call'></view>
+    </view>
+    <view class='index_name one_line'>{{user.real_name||user.nickname}}</view>
+    <view class='index_text two_line'>座右铭座右铭座右铭座右铭座右铭，座右铭座右铭座右铭</view>
+
+    <navigator url='/pages/login/login' class='person_center flex_row flex_center'>
+      <view class='iconfont icon-erweima flex_row flex_center main_bg'></view>
+      <text>个人中心</text>
+    </navigator>
+
+    <view class='nav_view flex_row'>
+      <navigator open-type='redirect' url='{{item.url}}' class='flex_column flex_center' wx:for="{{nav_list}}" wx:key="{{index}}">
+        <view class='nav_icon iconfont {{item.icon}} flex_row flex_center' style="background-color: {{item.bg_color}}"></view>
+        <text class='nav_text'>{{item.text}}</text>
+      </navigator>
+    </view>
+  </view>
+
+  <!-- 轮播 -->
+  <swiper class='index_swiper' indicator-dots duration="{{1200}}" autoplay>
+    <swiper-item wx:for="{{2}}" wx:key="{{index}}">
+      <image src='/images/image_none.png' class='index_swiper_image' mode='aspectFill'></image>
+    </swiper-item>
+  </swiper>
+
+  <!-- 个人介绍 -->
+  <view class='index_person flex_column flex_center'>
+    <view class='main_title'>代理商介绍</view>
+    <view class='index_person_text'>代理商介绍代理商介绍，代理商代理商介代理商介介绍代理商介绍。代理商介代理商介绍代理商介绍，代理商介绍代理商介绍代理商介代理商介代理商介。</view>
+    <navigator open-type='redirect' url='/pages/aboutUs/aboutUs' class='index_person_more'>Read More</navigator>
+  </view>
+
+  <!-- 成为代理商 -->
+  <image src='/images/image_none.png' class='agent_image' mode='aspectFill'></image>
+
+  <!-- 产品推荐 -->
+  <view class='index_product flex_column flex_center'>
+    <view class='main_title'>产品推荐</view>
+    <view class='index_product_list flex_row'>
+      <navigator url='/pages/product/productDetail/productDetail' class='index_product_item' wx:for="{{goods}}" wx:if="{{index<=8}}" wx:key="{{index}}">
+        <image src='{{url+item.goods_img}}' mode='widthFix' class='index_product_image'></image>
+        <view class='index_product_name'>{{item.goods_name}}</view>
+      </navigator>
+    </view>
+  </view>
+
+  <!-- 公司公告 -->
+  <view class='index_company flex_column flex_center'>
+    <view class='main_title'>公司介绍</view>
+    <view class='index_company_list'>
+      <view class='index_company_item' wx:for="{{meida}}" wx:if="{{index<=2}}" wx:key="{{index}}">
+        <view class='index_company_item_title one_line'>{{item.title}} </view>
+        <view class='index_company_item_line'></view>
+        <view class='index_company_item_time'>{{item.date}}</view>
+        <view class='iconfont icon-right'></view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 联系代理商 -->
+  <myContact index="{{true}}" user="{{user}}">
+    <view class='main_title'>联系代理商</view>
+  </myContact>
+
+  <myJoin />
+</view>
+<myTabbar tabbar_index="0"/>
