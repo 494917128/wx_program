@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "小程序码",
+  "usingComponents": {
+    "myOpenSetting": "/components/myOpenSetting/myOpenSetting",
+    "myLogo": "/components/myLogo/myLogo"
+  }
+}

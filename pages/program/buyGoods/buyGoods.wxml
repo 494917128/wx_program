@@ -1,0 +1,62 @@
+<view class='main_container flex_column'>
+
+  <navigator  url='/pages/agent/addressList/addressList?select=ture' class='order_item_body flex_row flex_center'>
+    <view class='order_item_info' style='margin: 0;'>
+      <view class='order_item_info_name flex_row'>
+        王尔迪
+      </view>
+      <view class='order_item_info_num'>13566296373</view>
+      <view class='order_item_info_price'>浙江杭州萧山1</view>
+    </view>
+    <view class='iconfont icon-right flex_row flex_center'></view>
+  </navigator>
+
+  <view class='order_item_body flex_row flex_center'>
+    <image src='{{"https://wx.saiminet.com/upload/images/goods/20180607/1528335470758828.jpg"}}' mode='aspectFill' class='order_item_image'></image>
+    <view class='order_item_info'>
+      <view class='order_item_info_name flex_row'>	
+        <text>凝胶组合装</text>
+        <text style='color:#666;'>￥4470</text>
+      </view>
+      <view class='order_item_info_num'>数量：30</view>
+      <view class='order_item_info_price'>原价格：299.00</view>
+      <view class='order_item_info_price'>订货价：149.00</view>
+    </view>
+    <view class='iconfont icon-right flex_row flex_center'></view>
+  </view>
+
+  <view class='order_item_body use_balance flex_row flex_center'>
+    <view class='order_item_info_name'>使用余额支付：￥0</view>
+    <switch checked='{{true}}' bindchange="switch2Change"/>
+  </view>
+
+  <view class='main_list'>
+    <view class='main_item flex_row flex_center'>
+      <view class='main_item_content flex_row'>
+        <text>商品金额</text>
+        <text class='main_item_info'>￥4470</text>
+      </view>
+    </view>
+    <view class='main_item flex_row flex_center'>
+      <view class='main_item_content flex_row'>
+        <text></text>
+        <text class='main_item_info'>总金额￥4470</text>
+      </view>
+    </view>
+  </view>
+  
+  <view class='main_list'>
+    <view class='main_item flex_row flex_center'>
+      <view class='buyGoods_remark main_item_content flex_row' style='align-items:flex-start;'>
+        <text>备注：</text>
+        <textarea placeholder='请输入备注' placeholder-class='input_placeholder' maxlength='-1'></textarea>
+      </view>
+    </view>
+  </view>
+
+  <view class='buyGoods_button main_button flex_row flex_center main_bg' hover-class='button_hover'>
+    确定下单
+  </view>
+
+
+</view>

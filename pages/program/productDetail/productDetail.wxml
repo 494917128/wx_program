@@ -1,0 +1,77 @@
+<scroll-view class='container' scroll-y scroll-top="{{scroll_top}}">
+  <swiper class='swiper' indicator-dots duration="{{1200}}" autoplay>
+    <swiper-item wx:for="{{swiper}}" wx:key="{{index}}">
+      <image src='{{image_url+item}}' class='swiper_image' mode='aspectFill'></image>
+    </swiper-item>
+  </swiper>
+
+  <view class='detail_title flex_column'>
+    <text class='detail_name one_line'>{{name}}</text>
+    <!-- <text class='detail_price'> </text> -->
+  </view>
+
+  <myNavbar list="{{nav_list}}" list_index="{{nav_index}}" border_bottom_width="3rpx" bind_myNavbar="navbar" />
+
+  <view class='detail_table'>
+    <view class='main_bg flex_row'>
+      <view class='detail_table_item flex_row flex_center' wx:for="{{detail_table.head}}" wx:key="{{index}}">{{item}}</view>
+    </view>
+    <view>
+      <view class='detail_table_body flex_row' wx:for="{{detail_table.body}}" wx:key="{{index}}">
+        <view class='detail_table_item flex_row flex_center' wx:for="{{item}}" wx:key="{{index}}">{{item}}</view>
+      </view>
+    </view>
+  </view>
+
+  <view class='detail_contant flex_row flex_center'>联系代理商</view>
+  <view style='padding: 30rpx 10rpx'>
+    <myContact user="{{user}}" region="{{region}}" address="{{address}}">
+      <!-- <view class='detail_business_card flex_row flex_center main_bg'>
+        <image src="{{user.headimgurl}}" class='detail_business_photo'></image>
+        <view class='flex_column detail_business_info'>
+          <view class='detail_business_name one_line'>{{user.real_name||user.nickname}}</view>
+          <view class='detail_business_wechat one_line'>级别：{{user.rank.rank_name}}</view>
+        
+        </view>
+      </view> -->
+    </myContact>
+  </view>
+
+</scroll-view>
+
+
+<view class='detail_button_view flex_row'>
+  <!-- <navigator open-type='reLaunch' url='/pages/program/join/join' class='detail_button flex_row flex_center black_bg' hover-class='detail_button_hover'>
+    <view class='iconfont icon-iconset0336'></view>
+    我要加盟
+  </navigator> -->
+
+  <view bindtap='buyGoods' class='detail_button flex_row flex_center main_bg' hover-class='detail_button_hover'>
+    <view class='iconfont icon-single'></view>
+    点击购买商品
+  </view>
+</view>
+
+
+<view class='buy_goods {{buy_goods?"show":""}}' bindtap='buyGoodsClose'>
+  <view class='buy_goods_container' catchtap='stop'>
+    <view class='buy_goods_close iconfont icon-close' bindtap='buyGoodsClose'></view>
+    <view class='flex_row'>
+      <image src='{{image_url+swiper[0]}}' wx:if="{{swiper}}" mode='aspectFill' class='buy_goods_image'></image>
+      <view class='flex_column buy_goods_text'>
+        <view>价格：<text>{{}}</text>元</view>
+        <view>数量：<text>{{1}}</text>套</view>
+        <view>金额：<text>{{}}</text>元</view>
+      </view>
+    </view>
+    <view class='buy_goods_content flex_row'>
+      <view class='buy_goods_item {{index==1?"main_bg":"define_bg"}}' wx:for="{{15}}" wx:key="{{index}}">体验(2)套</view>
+    </view>
+    <view class='buy_goods_footer'>
+      <navigator url='/pages/program/buyGoods/buyGoods' class='main_button flex_row flex_center main_bg' hover-class='button_hover'>
+        <view class='iconfont icon-guanjiaowangtubiao03' style='margin-right:10rpx'></view>
+        购买套餐
+      </navigator>
+    </view>
+  </view>
+</view>

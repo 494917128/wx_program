@@ -1,7 +1,7 @@
-<view class="container">
+<!-- <view class="container">
   <view bindtap='navigaion' data-index='{{index}}' class='item {{tabbar_index==index?"main_bg":""}}' wx:for="{{tabbar_list}}" wx:key="{{index}}" hover-class='hover'>
     <view class='iconfont {{item.icon}}'></view>
     {{item.text}}
   </view>
 </view>
-<view style='height:110rpx;'></view>
+<view style='height:110rpx;'></view> -->

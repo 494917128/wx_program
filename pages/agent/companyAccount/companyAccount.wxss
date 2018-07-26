@@ -1,0 +1,7 @@
+.container{
+  
+}
+.sm_logo{
+  height: 340rpx;
+  width: 100%;
+}

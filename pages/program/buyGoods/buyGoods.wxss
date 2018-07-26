@@ -1,0 +1,34 @@
+@import '/pages/agent/order/order.wxss';
+
+.order_item_body{
+  margin-top: 70rpx;
+}
+.order_item_info{
+  color: #333;
+}
+.use_balance{
+  height: 90rpx;
+  justify-content: space-between;
+  padding-right: 20rpx;
+}
+
+.main_item_content{
+  padding-right: 20rpx;
+}
+.main_item_content text{
+  line-height: 90rpx;
+}
+
+.buyGoods_remark text{
+  line-height: initial;
+  padding-top: 16rpx;  
+}
+.buyGoods_remark textarea{
+  height: 90rpx;
+  flex: 1;
+  text-align: right;
+  padding: 16rpx;
+}
+.buyGoods_button{
+  margin: 70rpx 30rpx 30rpx;
+}

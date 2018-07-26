@@ -1,0 +1,27 @@
+@import '../order/order.wxss';
+
+.inventory_title{
+  height: 430rpx;
+  padding: 0 50rpx;
+  justify-content: center;
+  position: relative;
+}
+.inventory_title_number{
+  font-size: 120rpx;
+  padding: 20rpx 0;
+}
+.inventory_title_text{
+  font-size: 32rpx;
+  opacity: 0.9;
+}
+.inventory_record{
+  position: absolute;
+  top: 30rpx;
+  right: 20rpx;
+  font-size: 24rpx;
+  padding: 10rpx;
+}
+
+.inventory_content{
+  padding: 30rpx 0;
+}

@@ -1,0 +1,25 @@
+.version_image{
+  width: 100%;
+  height: 300rpx;
+}
+.version_title{
+  align-self: center;
+  font-style: italic;
+  font-size: 40rpx;
+  line-height: 1.8;
+  font-weight: bold;
+  margin-bottom: 50rpx;
+}
+.version_item{
+  padding: 50rpx 30rpx;
+  box-shadow: 0 0 4rpx #bbb;
+  font-size: 24rpx;
+  line-height: 1.8;
+}
+.version_item_title{
+  color: #bbb;
+  line-height: 2;
+}
+.version_item_text{
+  padding: 4rpx 0;
+}

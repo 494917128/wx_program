@@ -1,0 +1,46 @@
+.money_title{
+  height: 340rpx;
+}
+.money_title_text{
+  font-size: 30rpx;
+}
+.money_title_number{
+  font-size: 60rpx;
+  padding: 10rpx 0 20rpx;
+}
+.money_title_record{
+  font-size: 26rpx;
+  text-decoration: underline;
+}
+
+.money_info{
+  height: 160rpx;
+  background-color: #fff;
+}
+.money_info_item{
+  flex: 1;
+}
+.money_info_title{
+  font-size: 26rpx;
+  color: #666;
+}
+.money_info_title .iconfont{
+  font-size: 36rpx;
+  padding-right: 6rpx;
+}
+.money_info_text{
+  font-size: 50rpx;
+  line-height: 1.6;
+}
+.gary_color{
+  color: #666;
+}
+.money_button{
+  height: 120rpx;
+  border-radius: 60rpx;
+  position: absolute;
+  bottom: 50rpx;
+  left: 55rpx;
+  right: 55rpx;
+  font-size: 32rpx;
+}

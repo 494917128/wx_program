@@ -1,0 +1,30 @@
+<view class='main_container flex_column'>
+  <view class='main_list' wx:for="{{nav_list}}" wx:key="{{index}}">
+    <block wx:for="{{item}}" wx:key="{{index}}">
+      <picker mode='date' wx:if="{{item.name=='birthday'}}" bindchange='{{item.bindchange}}' class='main_item' value='{{item.text}}'>
+        <view class='main_item_content flex_row'>
+          <text>{{item.title}}</text>
+          <view class='main_item_info flex_row flex_center'>
+            <image src='{{item.image}}' wx:if="{{item.image}}" class='main_item_image'></image>
+            <text>{{item.text}}</text>
+            <view class='iconfont icon-right' wx:if="{{item.right}}"></view>
+          </view>
+        </view>
+      </picker>
+      <navigator url='{{item.url}}' bindtap='{{item.bindtap}}' class='main_item' wx:else>
+        <view class='main_item_content flex_row'>
+          <text>{{item.title}}</text>
+          <view class='main_item_info flex_row flex_center'>
+            <image src='{{item.image}}' wx:if="{{item.image}}" class='main_item_image'></image>
+            <text>{{item.text}}</text>
+            <view class='iconfont icon-right' wx:if="{{item.right}}"></view>
+          </view>
+        </view>
+      </navigator>
+    </block>
+  </view>
+</view>
+
+<myModal show="{{modal_show}}" title="请输入您的昵称" bindconfirm="confirm">
+  <input type='text' class='modal_input' bindinput='modalInput' value='{{nickname}}'></input>
+</myModal>

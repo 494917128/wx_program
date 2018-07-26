@@ -60,7 +60,7 @@
 .login_more_item{
   width: 270rpx;
   height: 160rpx;
-  box-shadow: 0 0 10rpx orange;
+  box-shadow: 0 0 10rpx #03A9FE;
   margin: 16rpx 60rpx 16rpx 30rpx;
   position: relative;
   padding: 30rpx 20rpx;
@@ -77,5 +77,5 @@
   height: 120rpx;
   width: 120rpx;
   border-radius: 50%;
-  box-shadow: 0 0 10rpx orange;  
+  box-shadow: 0 0 10rpx #03A9FE;  
 }

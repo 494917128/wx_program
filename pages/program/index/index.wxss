@@ -1,0 +1,172 @@
+/**index.wxss**/
+.index_title{
+  position: relative;
+  padding: 60rpx 40rpx 160rpx;
+  margin-bottom: calc(12.5vw + 60rpx);
+}
+.index_photo_view{}
+.index_photo{
+  margin: 0 100rpx 30rpx;
+}
+.index_photo image{
+  width: 200rpx;
+  height: 200rpx;
+  border-radius: 50%;
+}
+.index_photo_view .iconfont{
+  font-size: 60rpx;
+}
+.index_name{
+  font-size: 40rpx;
+  height: 64rpx;
+  max-width: 80%;  
+  line-height: 1.6;
+}
+.index_text{ 
+  font-size: 28rpx;
+  max-width: 80%;
+  opacity: 0.8;
+}
+.nav_view{
+  position: absolute;
+  left: 40rpx;
+  right: 40rpx;
+  top: calc(28rpx - 12.5vw + 100%);
+  justify-content: space-around;
+}
+.nav{
+
+}
+.nav_icon{
+  width: calc(25vw - 70rpx);
+  height: calc(25vw - 70rpx);
+  border-radius: 50%;
+  border: 6rpx solid #fff;
+  font-size: calc(12.5vw - 35rpx);
+}
+.nav_text{
+  color: #000;
+  font-size: 24rpx;
+  line-height: 2;
+}
+
+/* 轮播 */
+.index_swiper{
+  height: 440rpx;
+  width: 750rpx;
+  border: 10rpx solid #F2F2F2;
+  border-width: 10rpx 0;
+}
+.index_swiper_image{
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* 个人介绍 */
+.index_person{
+  padding: 30rpx 60rpx;
+}
+.index_person_text{
+  font-size: 26rpx;
+  color: #666;
+  padding: 20rpx 0;
+  line-height: 1.8;
+}
+.index_person_more{
+  align-self: flex-start;
+  color: #bbb;
+  font-size: 28rpx;
+  border-bottom: 4rpx solid #dcdcdc;
+  font-style: italic;
+  margin: 20rpx 0;
+}
+
+/* 成为代理商 */
+.agent_image{
+  width: 100vw;
+  height: 35vw;
+  display: block;
+}
+
+/* 产品介绍 */
+.index_product{
+  padding: 30rpx 60rpx;
+  border-bottom: 10rpx solid #F2F2F2;
+}
+.index_product_list{
+  padding: 20rpx;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+}
+.index_product_item{
+  width: 300rpx;
+}
+.index_product_image{
+  width: 100%;
+  height: 300rpx;
+  display: block;
+}
+.index_product_name{
+  font-size: 28rpx;
+  line-height: 2;
+  margin: 20rpx 0;
+  position: relative;
+  text-align: center;
+}
+.index_product_name::after{
+  content: "";
+  width: 40rpx;
+  height: 3rpx;
+  background-color: #666;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+/* 公司介绍 */
+.index_company{
+   padding-top: 10rpx; 
+}
+.index_company_list{
+  padding-top: 20rpx;
+  align-self: stretch;
+}
+.index_company_item{
+  padding: 20rpx 64rpx 20rpx 60rpx;
+  position: relative;
+}
+.index_company_item:nth-child(odd){
+  background-color: #E6E6E6;
+}
+.index_company_item:nth-child(even){
+  background-color: #F2F2F2;  
+}
+.index_company_item_title{
+  font-size: 30rpx;
+  line-height: 2.4;
+  height: 72rpx;
+}
+.index_company_item_line{
+  width: 40rpx;
+  height: 3rpx;
+  background-color: #A5A5A5;
+}
+.index_company_item_time{
+  font-size: 24rpx;
+  line-height: 2.4;
+  color: #A5A5A5;
+}
+.index_company_item .iconfont{
+  position: absolute;
+  right: 30rpx;
+  font-size: 32rpx;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+}
+

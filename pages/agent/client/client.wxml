@@ -1,0 +1,21 @@
+<view class='main_container flex_column'>
+  <view class='main_list'>
+    <navigator url='/pages/agent/userInfo/userInfo?headimgurl={{item.headimgurl||""}}&nickname={{item.nickname||""}}&user_name={{item.user_name||""}}&mobile={{item.mobile||item.mobile_phone||""}}' class='main_item' wx:for="{{list}}" wx:key="{{index}}">
+      <view class='main_item_content flex_row'>
+        <view class='client_info flex_row'>
+          <image src='{{item.headimgurl||"/images/image_none.png"}}' class='main_item_image'></image>
+          <view class='flex_column' style='flex:1'>
+            <view class='client_info2 flex_row flex_center'>
+              <text>{{item.real_name||item.nickname||""}}</text>
+              <view class='main_label danger_bg'>{{item.rank.rank_name||""}}</view>
+            </view>
+            <view>{{item.reg_time||""}}</view>
+          </view>
+        </view>
+      </view>
+    </navigator>
+  </view>
+
+  <myLoading wx:if="{{loading}}" />
+  <view class='main_list_none flex_row flex_center' wx:if="{{list.length==0&&!loading}}">暂无推荐会员</view>
+</view>

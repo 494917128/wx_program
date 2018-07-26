@@ -2,20 +2,20 @@
 <view class='contact flex_column flex_center'>
   <slot></slot>
   <view class='flex_row' style='width:100%;padding-top:30rpx;'>
-    <view class='contact_code flex_column flex_center main_color'>
-      <image src='/images/image_none.png' class='contact_image' mode='aspectFill'></image>
-      我的二维码
+    <view class='contact_code flex_column flex_center'>
+      <image src='{{user.headimgurl}}' class='contact_image' mode='aspectFill'></image>
+      <text class='one_line contact_name'>{{user.real_name||user.nickname||""}}</text>
     </view>
     <view class='contact_info'>
       <view class='contact_info_item flex_row'>
         <text class='contact_info_address two_line'>
-          <text class='contact_info_text' wx:if="{{!index}}">地址：\n</text>浙江省杭州市萧山区浙江省杭州市萧山区浙江省杭州市萧山区浙江省杭州市萧山区
+          <text class='contact_info_text' wx:if="{{!index}}">地址：\n</text>{{region||'无'}}
         </text>
-        <view class='iconfont icon-addressfill flex_row flex_center main_bg'></view>
+        <view class='iconfont icon-addressfill flex_row flex_center main_bg' bindtap='address'></view>
       </view>
       <view class='contact_info_item flex_row'>
         <text class='contact_info_phone'>
-          <text class='contact_info_text' wx:if="{{!index}}">手机：\n</text>{{user.mobile||user.mobile_phone}}
+          <text class='contact_info_text' wx:if="{{!index}}">手机：\n</text>{{user.mobile||user.mobile_phone||'无'}}
         </text>
         <view class='iconfont icon-phone flex_row flex_center main_bg' bindtap='call'></view>
       </view>

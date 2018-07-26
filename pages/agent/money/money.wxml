@@ -1,0 +1,28 @@
+<view class='main_container'>
+
+  <view class='money_title flex_column flex_center main_bg'>
+    <view class='money_title_text'>可提现金额（元）</view>
+    <view class='money_title_number'>0</view>
+    <view class='money_title_record'>我的提现记录</view>
+  </view>
+
+  <view class='money_info flex_row flex_center'>
+    <view class='money_info_item flex_column flex_center'>
+      <view class='money_info_title flex_row flex_center'>
+        <view class='iconfont icon-leijishouyi'></view>已提现（元）
+      </view>
+      <view class='money_info_text main_color'>0</view>
+    </view>
+    <view class='main_line'></view>
+    <view class='money_info_item flex_column flex_center'>
+      <view class='money_info_title flex_row flex_center'>
+        <view class='iconfont icon-leijishouyi'></view>冻结金额（元）
+      </view>
+      <view class='money_info_text gary_color'>0</view>      
+    </view>
+  </view>
+
+  <navigator url='/pages/agent/withdraw/withdraw' class='money_button flex_row flex_center main_button main_bg' hover-class='button_hover'>立即提现</navigator>
+
+</view>
+

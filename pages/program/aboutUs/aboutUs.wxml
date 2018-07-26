@@ -1,0 +1,56 @@
+<!--index.wxml-->
+<view class='container'>
+  <myUserInfo phone="13111111111" user="{{user}}" intro="{{intro}}" bind_myCode="myCode" >
+    <myCode show="{{my_code_show}}" bind_myCode="myCode" qrCode="{{qrCode}}" />
+  </myUserInfo>
+   <myNavbar list="{{nav_list}}" list_index="{{nav_index}}" bind_myNavbar="navbar" /> 
+
+  <!-- 代理商介绍 -->
+   <view class='aboutUs_content flex_column' wx:if="{{nav_index==0}}">
+    <image src='{{user.headimgurl}}' class='aboutUs_content_image' mode='widthFix'></image>
+    <text class='aboutUs_content_title'>{{user.real_name||user.nickname}}</text>
+    <text class='aboutUs_content_text'>{{intro.agency_intro}}</text>
+    <!-- <navigator open-type='redirect' url='/pages/program/join/join' class='aboutUs_content_agent flex_row main_color'>
+      <view class='iconfont icon-service'></view>
+      成为TA的代理
+    </navigator> -->
+  </view> 
+
+  <!-- 公司介绍 -->
+  <view class='aboutUs_content flex_column' wx:else>
+    <text class='aboutUs_content_title'>企业介绍</text>
+    <view class='aboutUs_content_line main_bg'></view>
+    <!-- <text class='aboutUs_content_text'>XX · XX · XX</text> -->
+    <text class='aboutUs_content_text'>杭州赛蜜网络科技有限公司自2016年创立初始，在经营发展中一直秉承一些基本的核心价值观，讲求诚信、强调合作、以人为本、追求卓越，致力于为万千女性打造私处护理健康的公益性平台。这些核心价值观，也是未来取得成功的重要基础。
+
+
+
+ 勤：幸福不会从天降，全靠我们来创造，天道酬勤。上天会实现勤劳的人的志愿。有耕耘就会有收获，我们赛蜜人只要不懈努力，最大限度的完善充实自己，千方百计的提高自己的竞争实力，就会有一个美好光明的明天。
+
+诚：对人以诚信，人不欺我我不犯人；对事以诚信，事无不成全靠诚信。诚信是道路，随着赛蜜脚步的延伸；诚信是智慧，随着博学者的求索积累；诚信是成功，随着奋进者的拼搏临近；诚信是财富的种子，只要诚心种下，就能找到打开金库的钥匙。
+
+恒：日日行，不怕千万里；常常做，不怕千万事。在人生的道路上，成功的秘诀在于持之以恒，锲而不舍，失败的教训在于疲疲沓沓，抓而不紧。俗话说：“只要功夫深，铁棒磨成针”。只要我们赛蜜人坚持，就会成就我们的事业。</text>
+    <!-- <image src='/images/image_none.png' class='aboutUs_content_image' mode='widthFix' style='margin:0'></image>
+    <text class='aboutUs_content_text'>公司介绍公司介绍，公司公司介公司介介绍公司介绍。公司介公司介绍公司介绍，公司介绍公司介绍公司介公司介公司介。
+    
+    公司介绍公司介绍，公司公司介公司介介绍公司介绍。公司介公司介绍公司介绍，公司介绍公司介绍公司介公司介公司介。</text> -->
+
+    <view class='aboutUs_develop' wx:if="{{}}">
+      <view class='aboutUs_content_title'>发展历程</view>
+      <view class='aboutUs_content_line main_bg'></view>
+      <text class='aboutUs_content_text'>20XX年XX月XX日发展历程
+        20XX年XX月XX日发展历程
+        20XX年XX月XX日发展历程
+        20XX年XX月XX日发展历程
+        20XX年XX月XX日发展历程
+        20XX年XX月XX日发展历程
+        20XX年XX月XX日发展历程
+      </text>
+    </view>
+  </view>
+
+  <myJoin />
+</view>
+
+<myTabbar tabbar_index="1"/>
+<myGotoLogin />

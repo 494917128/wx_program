@@ -1,0 +1,45 @@
+.leader_title{
+  width: 100%;
+  background-size: 100% 200%;
+  height: 375rpx;
+  filter: blur(10px);
+}
+
+.leader_photo_view{
+  height: 80rpx;
+  background-color: #fff;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+.leader_photo{
+  border-radius: 5%;
+  margin: auto;
+  box-sizing: content-box;
+  box-shadow: 0 0 10px #a0a0a0;
+  width: 225rpx;
+  height: 225rpx;
+  border: 3px solid #fff;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.leader_info{
+  padding: 40rpx 60rpx;
+  background-color: #fff;
+}
+.leader_name{
+  width: 100%;
+  text-align: center;
+  font-size: 32rpx;
+  color: #000;
+  margin-bottom: 40rpx;
+}
+.leader_text{
+  font-size: 28rpx;
+  padding: 20rpx;
+  color: #666;
+}

@@ -1,0 +1,16 @@
+<view class='main_container'>
+  <block wx:for="{{2}}" wx:key="{{index}}">
+    <view class='bill_title flex_row'>6月</view>
+    <navigator url='/pages/agent/billDetail/billDetail' class='bill_item flex_row' wx:for="{{2}}" wx:key="{{index}}">
+      <view class='bill_item_date flex_column flex_center'>
+        <text>星期一</text>
+        <text>06-01</text>
+      </view>
+      <image src='/images/image_none.png' mode='aspectFill' class='bill_item_image'></image>
+      <view class='bill_item_info'>
+        <view class='flex_row' style='color:#333;'>-3570.00<view class='main_label primary_bg'>付款</view></view>
+        <view>订单支付</view>
+      </view>
+    </navigator>
+  </block>
+</view>

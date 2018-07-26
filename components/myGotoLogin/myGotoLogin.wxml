@@ -1,0 +1,4 @@
+    <navigator url='/pages/login/agent/agent' class='person_center flex_column flex_center'>
+      <view class='iconfont icon-erweima flex_row flex_center main_bg'></view>
+      <text class='main_color'>个人\n中心</text>
+    </navigator>

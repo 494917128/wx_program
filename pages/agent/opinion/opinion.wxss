@@ -1,0 +1,31 @@
+.opinion_container{
+  padding: 20rpx 40rpx;
+  box-sizing: border-box;
+}
+.opinion_title{
+  font-size: 26rpx;
+  line-height: 70rpx;
+}
+.opinion_textarea{
+  height: 330rpx;
+  border-radius: 10rpx;
+  width: 100%;
+  background-color: #fff;
+  padding: 6rpx 20rpx;
+  font-size: 26rpx;
+  box-sizing: border-box;
+}
+.opinion_button{
+  margin: 20rpx 0 40rpx;
+}
+
+.opinion_item{
+  background-color: #fff;
+  margin-top: 20rpx;
+  padding: 16rpx 20rpx;
+  border-radius: 10rpx;
+}
+.opinion_text{
+  font-size: 24rpx;
+  padding: 4rpx;
+}

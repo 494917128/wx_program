@@ -1,8 +1,11 @@
 <view class="container flex_row" style='{{border_bottom_width?"border-bottom-width:"+border_bottom_width:""}}'>
   <block wx:for="{{list}}" wx:key="{{index}}">
     <view class='item flex_row flex_center' bindtap='navbar' data-index='{{index}}'>
-      <text class='text {{index==list_index?"main_border main_color":""}}'>{{item}}</text>
+      <view class='text {{index==list_index?"main_border main_color":""}}'>
+        {{item}}
+        <view class='main_prompt danger_bg flex_row flex_center' wx:if="{{prompt[index]}}">{{prompt[index]}}</view>
+      </view>
     </view>
-    <view class='line'></view>
+    <view class='main_line'></view>
   </block>
 </view>

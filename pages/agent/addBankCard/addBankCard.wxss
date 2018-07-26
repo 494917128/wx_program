@@ -1,0 +1,31 @@
+
+.addBankCard_content{
+  margin: 40rpx 0;
+  background-color: #fff;
+  padding: 0 30rpx;
+}
+.addBankCard_item{
+  height: 110rpx;
+  border-bottom: 3rpx solid #D6D6D6;
+}
+.addBankCard_item:last-child{
+  border-bottom: none;
+}
+.addBankCard_item_title{
+  font-size: 26rpx;
+  margin-right: 20rpx;
+  color: #666; 
+}
+.addBankCard_item .main_line{
+  height: 40rpx;
+}
+.addBankCard_input{
+  flex: 1;
+  padding: 0 26rpx;
+  font-size: 26rpx;
+}
+.addBankCard_button{
+  flex: 0;
+  margin: 0 60rpx 60rpx;
+  vertical-align: middle
+}

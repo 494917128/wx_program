@@ -1,0 +1,40 @@
+<view class='container main_container flex_column'>
+  <image src='{{url+"sm/img/sm_logo.jpg"}}' mode='aspectFit' class='sm_logo'></image>
+  <view class='main_list'>
+
+      <view class='main_item'>
+        <view class='main_item_content flex_row'>
+          <text>支付金额</text>
+          <view class='main_item_info flex_row flex_center' style='font-size:40rpx;color:#D2691E;'>
+          ￥3570.00
+          </view>
+        </view>
+      </view>
+      <view class='main_item'>
+        <view class='main_item_content flex_row' style='border-bottom:none;'>
+          <image src='{{url+"images/bank/3.png"}}' mode='aspectFit' class='main_item_icon'></image>
+          <view class='main_item_info flex_column' style='align-items:flex-end;font-size:24rpx;padding:20rpx 0;'>
+            <text style='font-size:34rpx;color:#333;'>6222 0812 0201 4084 436</text>
+            <text>开户行：浙江省杭州市萧山区江南支行【工商银行】</text>
+            <text>开户名：任齐庆</text>
+          </view>
+        </view>
+      </view>
+      <view class='main_item'>
+        <view class='main_item_content flex_row'>
+          <text>公司地址</text>
+          <view class='main_item_info flex_column' style='align-items:flex-end;font-size:24rpx;padding:20rpx 0;'>
+            <text>浙江省杭州市萧山区民和路481号</text>
+            <text>联合中心南区A座1301室</text>
+          </view>
+        </view>
+      </view>
+      <view class='main_item'>
+        <view class='main_item_content flex_row'>
+          <text>联系电话</text>
+          <view class='main_item_info flex_row flex_center' style='font-size:40rpx;color:#666;'>400-827-3698</view>
+        </view>
+      </view>
+  </view>
+
+</view>

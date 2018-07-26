@@ -1,0 +1,12 @@
+{
+  "usingComponents": {
+    "myUserInfo": "/components/myUserInfo/myUserInfo",
+    "myCode": "/components/myCode/myCode",
+    "myTabbar": "/components/myTabbar/myTabbar",
+    "myNavbar": "/components/myNavbar/myNavbar",
+    "myJoin": "/components/myJoin/myJoin",
+    "myGotoLogin": "/components/myGotoLogin/myGotoLogin"
+  },
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark"
+}

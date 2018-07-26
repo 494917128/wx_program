@@ -1,0 +1,105 @@
+
+.agent_name{
+  font-size: 32rpx;
+  color: #333;
+  max-width: 80%;
+  margin: 10rpx 0;
+}
+.agent_text{ 
+  font-size: 28rpx;
+  max-width: 80%;
+  opacity: 0.5;
+}
+.agent_number{
+  font-size: 28rpx;
+  color: #999;
+}
+
+.agent_info{
+  border-bottom: 10rpx solid #F3F3F3;
+  align-items: center;
+  padding: 30rpx 0;
+  height: 70rpx;
+}
+.agent_info_item{
+  flex: 1;
+  justify-content: space-between;
+  height: 100%;
+}
+.agent_info_title{
+  font-size: 20rpx;
+  color: #333;
+}
+.agent_info_title .iconfont{
+  font-size: 28rpx;
+  padding-right: 6rpx;
+  color: #9E9E9E;
+}
+.agent_info_text{
+  font-size: 24rpx;
+}
+
+.agent_container{
+  padding: 0 25rpx;
+  border-bottom: 10rpx solid #F3F3F3;
+}
+.agent_container_title{
+  height: 80rpx;
+  font-size: 30rpx;
+  line-height: 80rpx;
+  border-bottom: 4rpx solid #E8E8E8;
+}
+.agent_container_content{
+  flex-wrap: wrap;
+  padding: 20rpx 0;
+}
+.agent_container_item{
+  width: 25%;
+  height: 130rpx;
+  position: relative;
+}
+.agent_container_icon{
+  width: 50rpx;
+  height: 50rpx;
+  font-size: 50rpx;
+}
+.icon_color0{
+  color: #16D328;
+}
+.icon_color1{
+  color: #16D328;
+}
+.icon_color2{
+  color: #FFBC43;
+}
+.icon_color3{
+  color: #16D328;
+}
+.icon_color4{
+  color: #16D328;
+}
+.icon_color5{
+  color: #16D328;
+}
+.agent_container_text{
+  font-size: 24rpx;
+  padding: 10rpx 0;
+  white-space: nowrap;
+  color: #999;
+}
+
+.agent_edit{
+  border-radius: none;
+  height: 90rpx;
+  font-size: 30rpx;
+}
+.agent_edit_hover{
+  background-color: #e8e8e8;
+}
+
+.agent_more{
+  height: 130rpx;
+  font-size: 26rpx;
+  color: #999;
+  background-color: #F3F3F3;
+}

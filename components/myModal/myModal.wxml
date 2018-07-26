@@ -1,0 +1,13 @@
+<view class='cover flex_row flex_center {{show?"show":""}}' bindtap='cover'>
+  <view class='container' catchtap='stop'>
+    <view class='title flex_row flex_center'>{{title}}</view>
+    <view class='content'>
+      <slot></slot>
+    </view>
+    <view class='button_view flex_row flex_center'>
+      <view bindtap='cancel' wx:if="{{!no_cancel}}" class='button flex_row flex_center' hover-class='hover'>{{cancel_text||'取消'}}</view>
+      <view wx:if="{{!no_cancel}}" class='main_line'></view>
+      <view bindtap='confirm' class='button flex_row flex_center' hover-class='hover'>{{confirm_text||'确定'}}</view>
+    </view>
+  </view>
+</view>

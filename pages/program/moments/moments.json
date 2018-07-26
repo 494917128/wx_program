@@ -1,0 +1,12 @@
+{
+  "navigationBarTitleText": "商学院",
+  "usingComponents": {
+    "myTabbar": "/components/myTabbar/myTabbar",
+    "myOpenSetting": "/components/myOpenSetting/myOpenSetting",
+    "myGotoLogin": "/components/myGotoLogin/myGotoLogin",
+    "myLoading": "/components/myLoading/myLoading"
+  },
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark",
+  "onReachBottomDistance": 40
+}

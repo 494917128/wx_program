@@ -6,6 +6,8 @@ Component({
   properties: {
     index: Boolean,
     user: Object,
+    region: String,
+    address: Object,
   },
 
   data: {
@@ -14,15 +16,39 @@ Component({
 
   methods: {
     call() {
-      wx.makePhoneCall({
-        phoneNumber: this.data.user.mobile || this.data.user.mobile_phone
-      })
+      var phone = this.data.user.mobile || this.data.user.mobile_phone
+      if (phone) { 
+        wx.makePhoneCall({
+          phoneNumber: phone
+        })
+      } else { 
+        wx.showToast({
+          icon: 'none',
+          title: '该用户无电话',
+        })
+      }
+    },
+    address(){
+      var address = this.data.address
+      if (address) { 
+        var latitude = Number(address.lat)
+        var longitude = Number(address.lng)
+        var name = this.data.region
+        wx.openLocation({
+          latitude,
+          longitude,
+          name,
+          scale: 28
+        })
+      } else {
+        wx.showToast({
+          icon: 'none',
+          title: '暂无地址',
+        })
+      }
     }
   },
   ready() {
-    console.log(this.data.user)
-    if(this.data.user)
-      return
-    this.setData({user:app.globalData.userInfo})
+
   }
 })

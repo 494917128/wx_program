@@ -1,0 +1,29 @@
+<view class='main_container'>
+  <view class='inventory_title main_bg flex_column'>
+    <text class='inventory_title_number'>120<text style="font-size: 32rpx;">件</text></text>
+    <text class='inventory_title_text'>所有库存</text>
+    <navigator url='/pages/agent/bill/bill?type=inventory' class='inventory_record'>管理记录</navigator>
+  </view>
+
+  <view class='inventory_content'>
+    <view class='order_item_body flex_row flex_center' wx:for="{{2}}" wx:key="{{index}}" wx:for-item="goods">
+      <image src='{{image_url+goods.goods_img}}' mode='aspectFill' class='order_item_image'></image>
+      <view class='order_item_info'>
+        <view class='order_item_info_name flex_row'>
+          <view class='flex_row flex_center'>
+            <text>{{goods.goods_name}}</text>
+            <view wx:if="{{goods.is_gift}}" class="main_label danger_bg">赠品</view>
+          </view>
+          <text style='color:#666;'>￥{{goods.goods_number*goods.goods_price}}</text>
+        </view>
+        <view class='order_item_info_num'>数量：{{goods.goods_number}}</view>
+        <view class='order_item_info_price' wx:if="{{type=='sale'}}">原价格：{{goods.market_price}}</view>
+        <view class='order_item_info_price'>{{type=='sale'?'订货价':'价格'}}：{{goods.goods_price}}</view>
+      </view>
+      <view class='iconfont icon-right flex_row flex_center'></view>
+    </view>
+  </view>
+
+
+</view>
+

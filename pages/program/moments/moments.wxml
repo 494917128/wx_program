@@ -1,0 +1,42 @@
+<view class='main_container'>
+  <view class='moments_title'>
+    <image src='/images/moments_head.jpg' mode='aspectFill' class='moments_title_bg'></image>
+    <text class='moments_title_name one_line'>{{user.nickname}}</text>
+    <image src='{{user.headimgurl}}' mode='aspectFill' class='moments_title_photo'></image>
+  </view>
+
+  <view class='moments_item flex_row' wx:for='{{list}}' wx:key='{{index}}'>
+    <image src='{{user.headimgurl}}' mode='aspectFill' class='moments_item_photo'></image>
+    <view class='flex_column' style='width: calc(100% - 110rpx);'>
+      <view class='moments_item_title flex_row'>
+        <text class='moments_item_name one_line'>{{user.nickname}}</text>
+        <view class='flex_row flex_center'>
+          <view class='moments_item_label main_border main_color' wx:for="{{item.type}}" wx:key="{{index}}">{{item}}</view>
+        </view>
+      </view>
+      <text class='moments_item_text'>{{item.material_desc}}</text>
+      <view class='flex_row moments_item_image_view'>
+        <!-- 图片最多保存5个(小程序限制最多同时保存5个) -->
+        <!-- 多个图片时显示 -->
+        <image src='{{image_url+image}}' mode='aspectFill' class='moments_item_image' wx:for="{{item.material_img}}" wx:for-item="image" wx:for-index="idx" wx:key='{{idx}}' wx:if="{{idx<9&&item.material_img.length!=1}}" bindtap="previewImage" data-index="{{index}}" data-idx="{{idx}}"></image>
+        <!-- 单个图片时显示 -->
+        <image src='{{image_url+image}}' mode='aspectFill' class='moments_item_image' wx:for="{{item.material_img}}" wx:for-item="image" wx:for-index="idx" wx:key='{{idx}}' wx:if="{{item.material_img.length==1}}" bindtap="previewImage" data-index="{{index}}" data-idx="{{idx}}" bindload="imageLoad" style="width:{{item.imgwidth}}rpx;height:{{item.imgheight}}rpx"></image>
+        <!-- <view style='background-image: url("{{image_url+item.material_img}}")' class='moments_item_image_one' wx:for="{{item.material_img}}" wx:for-item="image" wx:for-index="idx" wx:key='{{idx}}' wx:if="{{item.material_img.length==1}}" bindtap="previewImage" data-index="{{index}}" data-idx="{{idx}}"></view> -->
+        <!-- 视频时显示 -->
+        <video src='{{item.material_video}}' objectFit='contain' class='moments_item_video' wx:if="{{item.material_video}}"></video>
+      </view>
+      <view class='flex_row flex_centere' style='justify-content:space-between'>
+        <text class='moments_item_time'>{{item.add_time}}</text>
+        <view class='flex_row'>
+          <view class='moments_item_button flex_row flex_center info_bg' hover-class='button_hover' data-index="{{index}}" bindtap='copyText'>复制文案</view>
+          <view class='moments_item_button flex_row flex_center info_bg' hover-class='button_hover' data-index="{{index}}" bindtap='copyAll'>一键保存</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <myLoading />
+</view>
+<myTabbar tabbar_index="4"/>
+<myGotoLogin />
+<myOpenSetting show="{{open_setting}}" />
+<myOpenSetting show="{{get_userinfo}}" bind_getUserInfo="getUserInfo" type="getUserInfo" />

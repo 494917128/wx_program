@@ -1,0 +1,12 @@
+<view class='flex_column'>
+  <image mode='aspectFill' src="/images/version_head.jpg" class='version_image' />
+  <text class='version_title main_color'>小程序新版本更新公告!</text>
+
+  <view class='version_item' wx:for="{{version}}" wx:key="{{index}}">
+    <view class='version_item_title'>V{{item.version}} {{item.date}}</view>
+    <view class='flex_row version_item_text' wx:for="{{item.content}}" wx:for-index="idx" wx:key="{{idx}}">
+      <text>{{idx+1}}、</text>
+      <text>{{item}}</text>
+    </view>
+  </view>
+</view>

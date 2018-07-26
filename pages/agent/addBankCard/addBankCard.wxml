@@ -1,0 +1,25 @@
+<view class='main_container flex_column'>
+  <view class='addBankCard_content'>
+    <view class='addBankCard_item flex_row flex_center'>
+      <view class='addBankCard_item_title'>开户姓名：</view>
+      <view class='main_line'></view>
+      <input type='digit' class='addBankCard_input' placeholder='请输入提款金额' placeholder-class='input_placeholder'></input>
+    </view>
+    <view class='addBankCard_item flex_row flex_center'>
+      <view class='addBankCard_item_title'>开户银行：</view>
+      <view class='main_line'></view>
+      <input type='password' class='addBankCard_input' placeholder='请输入账户密码' placeholder-class='input_placeholder'></input>
+    </view>
+    <view class='addBankCard_item flex_row flex_center'>
+      <view class='addBankCard_item_title'>银行卡号：</view>
+      <view class='main_line'></view>
+      <input type='password' class='addBankCard_input' placeholder='请输入账户密码' placeholder-class='input_placeholder'></input>
+    </view>
+    <view class='addBankCard_item flex_row flex_center'>
+      <view class='addBankCard_item_title'>开户支行：</view>
+      <view class='main_line'></view>
+      <input type='password' class='addBankCard_input' placeholder='请输入账户密码' placeholder-class='input_placeholder'></input>
+    </view>
+  </view>
+  <navigator open-type='navigateBack' class='addBankCard_button flex_row flex_center main_bg main_button' hover-class='button_hover'>添加银行卡号</navigator>
+</view>

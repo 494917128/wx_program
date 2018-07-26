@@ -1,0 +1,30 @@
+.bill_content{
+  background-color: #fff;
+  padding-top: 40rpx;
+}
+.bill_icon{
+  width: 70rpx;
+  height: 70rpx;
+  margin-right: 10rpx;
+  border-radius: 50%;
+}
+.bill_number{
+  font-size: 80rpx;
+  padding: 30rpx 0;
+}
+.bill_text{
+  font-size: 28rpx;
+  color: #999;
+  padding: 20rpx 0 30rpx;
+}
+.bill_item{
+  width: 100%;
+  height: 100rpx;
+  border-top: 3rpx solid #F3F3F3;
+  padding: 0 40rpx;
+  font-size: 28rpx;
+  color: #999;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+}

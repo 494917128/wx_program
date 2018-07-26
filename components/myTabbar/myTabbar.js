@@ -5,11 +5,12 @@ Component({
 
   data: {
     tabbar_list:[
-      { icon: 'icon-home', text: '返回首页', url: '/pages/index/index' },
-      { icon: 'icon-xiaoxi', text: '关于我们', url: '/pages/aboutUs/aboutUs' },
-      { icon: 'icon-chanpin', text: '产品介绍', url: "/pages/product/product" },
-      { icon: 'icon-xinwen', text: '公司通告', url: '/pages/notice/notice' },
-      { icon: 'icon-iconset0336', text: '我要加盟', url: '/pages/join/join' },
+      { icon: 'icon-home', text: '返回首页', url: '/pages/program/index/index' },
+      { icon: 'icon-xiaoxi', text: '关于我们', url: '/pages/program/aboutUs/aboutUs' },
+      { icon: 'icon-chanpin', text: '产品介绍', url: "/pages/program/product/product" },
+      { icon: 'icon-xinwen', text: '公司通告', url: '/pages/program/notice/notice' },
+      { icon: "icon-qianmishangxueyuan-", text: "商学院", url: "/pages/program/moments/moments" },
+      // { icon: 'icon-iconset0336', text: '我要加盟', url: '/pages/program/join/join' },
     ]
   },
 

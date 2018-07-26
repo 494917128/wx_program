@@ -1,0 +1,17 @@
+@import '/fonts/iconfont.wxss';
+@import '/app.wxss';
+
+.container{
+  flex: 1;
+  color: #B7B7B7;
+  justify-content: flex-end;
+  align-items: center;
+}
+.title{
+  font-size: 30rpx;
+  line-height: 2;
+}
+.text{
+  font-size: 24rpx;
+  line-height: 2;
+}

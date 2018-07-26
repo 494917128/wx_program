@@ -2,7 +2,8 @@
 @import '/app.wxss';
 
 .container{
-  border-bottom: 10rpx solid #eee;
+  border-bottom: 10rpx solid #F3F3F3;
+  background-color: #fff;
   align-items: center;
 }
 .item{
@@ -15,12 +16,13 @@
   height: 100%;
   box-sizing: border-box;
   line-height: 110rpx;
+  position: relative;
 }
-.line{
-  height: 60rpx;
-  width: 3rpx;
-  background-color: #ccc;
+.main_prompt{
+  left: initial;
+  top: 24rpx;
+  right: -24rpx;
 }
-.line:last-child{
+.main_line:last-child{
   display: none;
 }

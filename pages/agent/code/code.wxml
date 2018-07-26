@@ -1,0 +1,12 @@
+<view class='flex_column flex_center main_container main_bg'>
+  <view class='code_title flex_row flex_center'>赛蜜国际</view>
+  <view class='code_content flex_row flex_center'>
+    <canvas canvas-id='codeId'></canvas>
+    <!-- <image src='data:image/png;base64,{{code_image}}'></image> -->
+  </view>
+  <view class='code_button main_button main_bg flex_row flex_center' hover-class='button_hover' bindtap='saveCanvas'>点击保存图片</view>
+  <navigator url='/pages/program/index/index' open-type='switchTab' class='code_button main_button main_bg flex_row flex_center'>点击进入小程序</navigator>
+</view>
+
+<myOpenSetting show="{{open_setting}}" />
+<canvas canvas-id='hiddenId' class='canvas_hidden'></canvas>

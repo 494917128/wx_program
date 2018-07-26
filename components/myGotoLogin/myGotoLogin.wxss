@@ -1,0 +1,26 @@
+@import '/fonts/iconfont.wxss';
+@import '/app.wxss';
+
+.person_center{
+  position: fixed;
+  bottom: 230rpx;
+  right: 8rpx;
+  width: 90rpx;
+  border-radius: 45rpx;
+  background-color: #fff;
+  font-size: 24rpx;
+  z-index: 8;
+  padding-bottom: 20rpx;
+  box-shadow: 2rpx 1rpx 6rpx rgba(0, 0, 0, 0.3);
+}
+.person_center .iconfont{
+  height: 56rpx;
+  width: 56rpx;
+  border-radius: 50%;
+  margin: 17rpx 17rpx 8rpx;
+  font-size: 32rpx;
+}
+.person_center text{
+  padding: 0 6rpx;
+  font-size: 24rpx;
+}

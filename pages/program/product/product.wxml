@@ -1,0 +1,17 @@
+<view class='container'>
+  <myUserInfo phone="13111111111" user="{{user}}" intro="{{intro}}" bind_myCode="myCode" >
+    <myCode show="{{my_code_show}}" bind_myCode="myCode" qrCode="{{qrCode}}" />
+  </myUserInfo>
+
+  <view class='flex_row product_list_view'>
+    <navigator wx:for="{{goods}}" class='product_list' wx:key="{{index}}" bindtap='buy' data-src="https://wx.saiminet.com/index.php?r=login">
+      <image src='{{image_url+item.goods_img}}' class='product_list_image' mode='widthFix' />
+      <view class='product_list_name flex_row flex_center'>{{item.goods_name}}</view>
+    </navigator>
+  </view>
+
+  <myJoin />
+</view>
+
+<myTabbar tabbar_index="2"/>
+<myGotoLogin />

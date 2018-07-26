@@ -1,0 +1,21 @@
+<view class='main_container'>
+  <view class='bill_content flex_column flex_center'>
+    <view class='flex_row flex_center'>
+      <image src='/images/image_none.png' mode='aspectFill' class='bill_icon'></image>
+      <text>付款</text>
+    </view>
+    <view class='bill_number'>-3570.00</view>
+    <view class='bill_text'>处理成功</view>
+    <view class='bill_item flex_row'>
+      <text>说明</text>
+      <text>1</text>
+    </view>
+    <view class='bill_item flex_row'>
+      <text>时间</text>
+      <text>2018-03-26 07:36:49</text>
+    </view>
+    <view class='bill_item flex_row' style='border:none;'>
+      <text>订单号</text>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,17 @@
+.main_item_image{
+  margin-right: 30rpx;
+}
+.client_info{
+  line-height: 1.8;
+  flex: 1;
+  align-items: center;
+}
+.client_info2{
+  justify-content: space-between;
+  padding-right: 20rpx;
+}
+
+.main_container{
+  padding-bottom: 80rpx;
+  box-sizing: border-box;
+}

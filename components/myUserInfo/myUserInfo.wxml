@@ -1,12 +1,17 @@
 <!-- 组件模板 -->
 <view>
-  <view class='flex_row info main_bg'>
+  <navigator url='/pages/agent/userInfo/userInfo?headimgurl={{user.headimgurl||""}}&nickname={{user.nickname||""}}&user_name={{user.user_name||""}}&mobile={{user.mobile||user.mobile_phone||""}}' class='flex_row info main_bg'>
     <image src='{{user.headimgurl||"/images/image_none.png"}}' class='photo' mode='aspectFill'></image>
     <view class='more'>
-      <text class='name one_line'>{{user.real_name||user.nickname}}</text>
-      <text class='text two_line'>座右铭座右铭座右铭座右铭座右铭座右铭座右铭座右铭座右铭座右铭座右铭座右铭座右铭座右铭</text>
+      <text class='name one_line'>{{user.real_name||user.nickname||''}}</text>
+      <view class='text two_line'>{{intro.motto||""}}</view>
+
+      <!-- <view class="main_level flex_row flex_center">
+        <view class='iconfont icon-vip flex_row flex_center'></view>
+        官方
+      </view> -->
     </view>
-  </view>
+  </navigator>
   <view class='flex_row'>
     <view class='btn main_bg' bindtap='code'>
       <view class='iconfont icon-erweima'></view>

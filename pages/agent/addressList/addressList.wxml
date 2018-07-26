@@ -1,0 +1,19 @@
+<view class='main_container'>
+  <radio-group bindchange="radioChange">
+    <view class='address_list' wx:for="{{2}}" wx:key="{{index}}" bindtap='{{select?"selectAddress":""}}'>
+      <view class='address_header flex_row'>
+        <view>王尔迪</view>
+        <view>13566296373</view>
+      </view>
+      <view class='address_body'>
+        <view>中国，浙江，温州，瓯海测试</view>
+      </view>
+      <view class='address_footer'>
+        <label class="radio flex_row">
+          <radio color='#03A9F4' value="{{index}}" checked='{{index==0}}' />选择为收货地址
+        </label>
+      </view>
+    </view>
+  </radio-group>
+  <button bindtap='addAddress' class='address_button flex_row flex_center main_button main_bg' hover-class='button_hover'>添加收货地址</button>
+</view>

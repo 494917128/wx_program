@@ -1,6 +1,6 @@
 <view class='cover {{show?"show":""}}' bindtap='code'>
   <view class='code flex_column' catchtap='stop'>
-    <image src='{{url+qrCode}}' mode='widthFix' class='qrCode'></image>
+    <image src='{{url+qrCode}}' mode='widthFix' class='qrCode' bindlongpress='longpress'></image>
     <!-- <view class='code_title flex_row flex_center'>赛蜜国际</view>
     <view class='code_content flex_column flex_center'>
       <image src='{{user.headimgurl||"/images/image_none.png"}}' class='code_photo' mode='aspectFill' />
@@ -14,3 +14,4 @@
     <view class='code_footer flex_row flex_center'>XX · XX · XX</view> -->
   </view>
 </view>
+<myOpenSetting show="{{open_setting}}" />

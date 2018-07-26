@@ -5,6 +5,7 @@ Component({
   properties: {
     list: Array,
     list_index: Number,
+    prompt: Array,
     border_bottom_width: String,
   },
 

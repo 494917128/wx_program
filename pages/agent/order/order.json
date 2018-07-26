@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "订单列表",
+  "usingComponents": {
+    "myNavbar": "/components/myNavbar/myNavbar",
+    "myLoading": "/components/myLoading/myLoading"
+  },
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark"
+}

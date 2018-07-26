@@ -1,0 +1,11 @@
+<!--pages/loading/loading.wxml-->
+<view class='flex_column flex_center main_bg' style='width:750rpx;height:100vh'>
+  <!-- 授权按钮 -->
+  <button open-type="getUserInfo" lang='zh_CN' bindgetuserinfo='getUserInfo' wx:if="{{is_authorization}}">授权登录</button>
+
+  <!-- 加载中 -->
+  <block>
+    <view class='loading iconfont icon-loading'></view>
+    <view class='loading_text'>加载中...</view>
+  </block>
+</view> 

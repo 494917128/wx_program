@@ -1,0 +1,45 @@
+<view class='main_container'>
+  <view class='withdraw_title main_bg flex_column'>
+    <text class='withdraw_title_number'>0</text>
+    <text class='withdraw_title_text'>当前可{{type_text}}（元）</text>
+  </view>
+
+  <!-- 提现时显示(选择银行卡) -->
+  <navigator url='/pages/agent/bankCard/bankCard' class='withdraw_content' wx:if="{{type=='withdraw'}}">
+    <view class='withdraw_bank flex_row flex_center'>
+      <block wx:if="{{1}}">
+        <image src='{{url+"images/bank/1.png"}}' mode='aspectFit' class='withdraw_bank_image'></image>
+        <view class='withdraw_bank_info flex_column'>
+          <text class='withdraw_bank_name'>中国银行</text>
+          <text class='withdraw_bank_number'>尾号81431储蓄卡</text>
+        </view>
+      </block>
+      <view wx:else class='withdraw_input'>添加银行卡</view>
+      <view class='iconfont icon-right'></view>
+    </view>
+  </navigator>
+
+  <!-- 转账时显示(输入对方账号) -->
+  <view class='withdraw_content' wx:else>
+    <view class='withdraw_item flex_row flex_center'>
+      <view class='iconfont icon-shouji-copy'></view>
+      <view class='main_line'></view>
+      <input type='number' class='withdraw_input' placeholder='请输入对方手机号码' placeholder-class='input_placeholder'></input>
+    </view>
+  </view>
+
+  <view class='withdraw_content'>
+    <view class='withdraw_item flex_row flex_center'>
+      <view class='iconfont icon-leijishouyi'></view>
+      <view class='main_line'></view>
+      <input type='digit' class='withdraw_input' placeholder="请输入{{type_text}}金额" placeholder-class='input_placeholder'></input>
+    </view>
+    <view class='withdraw_item flex_row flex_center'>
+      <view class='iconfont icon-icon-test'></view>
+      <view class='main_line'></view>
+      <input type='password' class='withdraw_input' placeholder='请输入账户密码' placeholder-class='input_placeholder'></input>
+    </view>
+  </view>
+
+  <button class='withdraw_button flex_row flex_center main_button main_bg' hover-class='button_hover'>确定{{type_text}}</button>
+</view>

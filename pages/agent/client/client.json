@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "推荐会员",
+  "usingComponents": {
+    "myLoading": "/components/myLoading/myLoading"
+  },    
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark"
+}

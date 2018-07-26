@@ -1,0 +1,8 @@
+<view class='flex_column flex_center agent_title'>
+  <image src="{{photo}}" mode="aspectFill" class="agent_title_bg"></image>
+
+  <view class='agent_photo shadow_2'></view>
+  <image src='{{photo}}' mode="aspectFill" class="agent_photo"></image>
+
+  <slot></slot>
+</view>

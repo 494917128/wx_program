@@ -1,0 +1,29 @@
+
+.bill_title{
+  padding: 0 30rpx;
+  color: #666;
+  font-size: 28rpx;
+  height: 70rpx;
+  align-items: center;
+}
+.bill_item{
+  background-color: #fff;
+  align-items: center;
+  padding: 20rpx 0;
+  padding-left: 30rpx;
+}
+.bill_item_date{
+  font-size: 28rpx;
+  line-height: 1.8;
+  color: #999;
+}
+.bill_item_image{
+  height: 70rpx;
+  width: 70rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+.bill_item_info{
+  font-size: 28rpx;
+  color: #999;
+}

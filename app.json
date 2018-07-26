@@ -1,20 +1,79 @@
 {
-  "pages":[
-    "pages/index/index",
-    "pages/login/login",
+  "pages": [
     "pages/login/agent/agent",
-    "pages/buy/buy",
-    "pages/aboutUs/aboutUs",
-    "pages/product/product",
-    "pages/product/productDetail/productDetail",
-    "pages/product/reservation/reservation",
-    "pages/notice/notice",
-    "pages/join/join"
+    "pages/login/login",
+    "pages/loading/loading",
+    "pages/webView/webView",
+    "pages/agent/index",
+    "pages/agent/opinion/opinion",
+    "pages/agent/userInfo/userInfo",
+    "pages/agent/inventory/inventory",
+    "pages/agent/order/order",
+    "pages/agent/orderDetail/orderDetail",
+    "pages/agent/companyAccount/companyAccount",
+    "pages/agent/code/code",
+    "pages/agent/update/update",
+    "pages/agent/addressList/addressList",
+    "pages/agent/bill/bill",
+    "pages/agent/billDetail/billDetail",
+    "pages/agent/client/client",
+    "pages/agent/sell/sell",
+    "pages/agent/money/money",
+    "pages/agent/withdraw/withdraw",
+    "pages/agent/bankCard/bankCard",
+    "pages/agent/addBankCard/addBankCard",
+    "pages/agent/version/version",
+    "pages/program/index/index",
+    "pages/program/moments/moments",
+    "pages/program/buy/buy",
+    "pages/program/aboutUs/aboutUs",
+    "pages/program/product/product",
+    "pages/program/productDetail/productDetail",
+    "pages/program/buyGoods/buyGoods",
+    "pages/program/reservation/reservation",
+    "pages/program/notice/notice",
+    "pages/program/join/join"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
-    "navigationBarBackgroundColor": "#FFA500",
-    "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle":"white"
+  "tabBar": {
+    "color": "#666666",
+    "selectedColor": "#03A9F4",
+    "list": [
+      {
+        "pagePath": "pages/program/index/index",
+        "text": "返回首页",
+        "iconPath": "images/icon/home.png",
+        "selectedIconPath": "images/icon/home_2.png"
+      },
+      {
+        "pagePath": "pages/program/aboutUs/aboutUs",
+        "text": "关于我们",
+        "iconPath": "images/icon/xiaoxi.png",
+        "selectedIconPath": "images/icon/xiaoxi_2.png"
+      },
+      {
+        "pagePath": "pages/program/product/product",
+        "text": "产品介绍",
+        "iconPath": "images/icon/chanpin.png",
+        "selectedIconPath": "images/icon/chanpin_2.png"
+      },
+      {
+        "pagePath": "pages/program/notice/notice",
+        "text": "公司通告",
+        "iconPath": "images/icon/xinwen.png",
+        "selectedIconPath": "images/icon/xinwen_2.png"
+      },
+      {
+        "pagePath": "pages/program/moments/moments",
+        "text": "商学院",
+        "iconPath": "images/icon/shangxueyuan.png",
+        "selectedIconPath": "images/icon/shangxueyuan_2.png"
+      }
+    ]
+  },
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#03A9F4",
+    "navigationBarTitleText": "赛蜜国际",
+    "navigationBarTextStyle": "white"
   }
 }

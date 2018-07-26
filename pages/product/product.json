@@ -1,8 +1,0 @@
-{
-  "usingComponents": {
-    "myUserInfo": "/components/myUserInfo/myUserInfo",
-    "myCode": "/components/myCode/myCode",
-    "myTabbar": "/components/myTabbar/myTabbar",
-    "myJoin": "/components/myJoin/myJoin"
-  }
-}

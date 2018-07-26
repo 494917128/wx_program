@@ -1,0 +1,10 @@
+<view class='main_container opinion_container flex_column'>
+  <text class='opinion_title'>留言信息</text>
+  <textarea class='opinion_textarea'></textarea>
+  <button class='opinion_button main_bg' hover-class='button_hover'>提交</button>
+
+  <view class='opinion_item' wx:for="{{6}}" wx:key="{{index}}">
+    <view class='opinion_text'>某某人：建议XXXXXXXXXX建议XXXXXXXXXX建议XXXXXXXXXX建议XXXXXXXXXX</view>
+    <view class='opinion_text main_color'>回答回答回答回答回答回答回答回答回答回答回答回答回答回答回答</view>
+  </view>
+</view>

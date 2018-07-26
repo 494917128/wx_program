@@ -1,0 +1,4 @@
+  <view class='loading flex_row flex_center'>
+    <view class='iconfont icon-loading'></view>
+    正在加载...
+  </view>

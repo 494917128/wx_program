@@ -1,0 +1,28 @@
+@import '/fonts/iconfont.wxss';
+@import '/app.wxss';
+
+.agent_title{
+  position: relative;
+  padding-bottom: 40rpx;
+  border-bottom: 3rpx solid #F3F3F3;
+  box-shadow: 0 0 20rpx #F3F3F3;
+  background-color: #fff;
+}
+.agent_title_bg{
+  width: 100%;
+  height: 200rpx;
+  margin-bottom: 110rpx;
+  filter: blur(40rpx);
+  overflow: initial;
+}
+.agent_photo{
+  width: 220rpx;
+  height: 220rpx;
+  border-radius: 50%;
+  box-shadow: 0 0 10rpx 10rpx #fff;
+  position: absolute;
+  top: 60rpx;
+}
+.shadow_2{
+  box-shadow: 0 0 40rpx #03A9FE;
+}

@@ -1,0 +1,18 @@
+@import '/components/myModal/myModal.wxss';
+
+.container{
+  color: #333;
+  background-color: #F8F8F8;
+}
+.content_text{
+  font-size: 30rpx;
+  width: 100%;
+  text-align: center;
+  color: #999;
+}
+.button_view{
+  box-shadow: 0 4rpx 8rpx #666;
+}
+.button::after{
+  content: none;
+}
