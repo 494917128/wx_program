@@ -1,0 +1,27 @@
+.header_container{
+  min-height: 100vh;
+  overflow: hidden;
+  background-color: #AA081B;
+}
+
+image{
+  width: 100vw;
+  display: block;
+}
+
+.header_button{
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 50rpx;
+  width: 530rpx;
+  height: 100rpx;
+  margin: auto;
+  border-radius: 10rpx;
+  text-align: center;
+  z-index: 2;
+}
+.main_bg::after{
+  border-radius: 10rpx;
+  overflow: hidden;
+}

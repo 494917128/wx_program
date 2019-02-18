@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "课程",
+  "usingComponents": {
+    "myModal": "/components/myModal/myModal",
+    "myNavbar": "/components/myNavbar/myNavbar",
+    "myGotoLogin": "/components/myGotoLogin/myGotoLogin",
+    "myGuide": "/components/myGuide/myGuide"
+  }
+}

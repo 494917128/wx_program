@@ -106,12 +106,4 @@
     </view>
   </view>
 
-  <!-- <view class='order_item_footer flex_row'>
-    <navigator url='/pages/agent/companyAccount/companyAccount' class="order_item_footer_button danger_bg" wx:if="{{}}">联系总公司付款</navigator>
-    <navigator url='/pages/agent/userInfo/userInfo' class="order_item_footer_button danger_bg" wx:if="{{}}">联系上家付款</navigator>
-    <view class="order_item_footer_button danger_bg" wx:if="{{}}">删除订单</view>
-    <view data-src="https://m.kuaidi100.com/index_all.html?callbackurl=&type=工厂发货&postid=123" bindtap='webView' class="order_item_footer_button danger_bg">查看物流</view>
-    <view class="order_item_footer_button danger_bg">确定收货</view>
-  </view> -->
-
 </view>

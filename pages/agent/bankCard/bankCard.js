@@ -3,7 +3,7 @@ import util from "../../../utils/util.js";
 Page({
 
   data: {
-    url: app.url
+    image_url: app.image_url
   },
   // 选择银行卡
   selectCard(){

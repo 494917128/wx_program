@@ -1,4 +1,27 @@
-<scroll-view class='container' scroll-y scroll-top="{{scroll_top}}">
+
+<myUserInfo phone="13111111111" user="{{user}}" intro="{{intro}}" bind_myCode="myCode" style="flex-shrink:0" >
+  <myCode show="{{my_code_show}}" bind_myCode="myCode" qrCode="{{qrCode}}" qrCode_msg="{{qrCode_msg||''}}" />
+</myUserInfo>
+
+<scroll-view scroll-y class="image_scroll">
+  <view class='scroll_container'>
+    <image src='{{image_url+item}}' wx:for="{{imgs}}" wx:key="{{index}}" mode='widthFix' style='width: 100%;  display:block'></image>
+  </view>
+</scroll-view>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <scroll-view class='container' scroll-y scroll-top="{{scroll_top}}">
   <swiper class='swiper' indicator-dots duration="{{1200}}" autoplay>
     <swiper-item wx:for="{{swiper}}" wx:key="{{index}}">
       <image src='{{image_url+item}}' class='swiper_image' mode='aspectFill'></image>
@@ -7,7 +30,6 @@
 
   <view class='detail_title flex_column'>
     <text class='detail_name one_line'>{{name}}</text>
-    <!-- <text class='detail_price'> </text> -->
   </view>
 
   <myNavbar list="{{nav_list}}" list_index="{{nav_index}}" border_bottom_width="3rpx" bind_myNavbar="navbar" />
@@ -23,17 +45,10 @@
     </view>
   </view>
 
-  <view class='detail_contant flex_row flex_center'>联系代理商</view>
+  <view class='detail_contant flex_row flex_center'>联系经销商</view>
   <view style='padding: 30rpx 10rpx'>
     <myContact user="{{user}}" region="{{region}}" address="{{address}}">
-      <!-- <view class='detail_business_card flex_row flex_center main_bg'>
-        <image src="{{user.headimgurl}}" class='detail_business_photo'></image>
-        <view class='flex_column detail_business_info'>
-          <view class='detail_business_name one_line'>{{user.real_name||user.nickname}}</view>
-          <view class='detail_business_wechat one_line'>级别：{{user.rank.rank_name}}</view>
-        
-        </view>
-      </view> -->
+
     </myContact>
   </view>
 
@@ -41,10 +56,7 @@
 
 
 <view class='detail_button_view flex_row'>
-  <!-- <navigator open-type='reLaunch' url='/pages/program/join/join' class='detail_button flex_row flex_center black_bg' hover-class='detail_button_hover'>
-    <view class='iconfont icon-iconset0336'></view>
-    我要加盟
-  </navigator> -->
+
 
   <view bindtap='buyGoods' class='detail_button flex_row flex_center main_bg' hover-class='detail_button_hover'>
     <view class='iconfont icon-single'></view>
@@ -74,4 +86,6 @@
       </navigator>
     </view>
   </view>
-</view>
+</view> -->
+
+<myGuide guide='{{guide}}' />

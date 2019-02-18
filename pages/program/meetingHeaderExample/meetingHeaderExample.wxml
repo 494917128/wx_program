@@ -1,0 +1,6 @@
+<view class='header_container flex_column flex_center main_bg'>
+  <view class='header_title'>头像案例</view>
+  <image src='{{image_url+src}}' />
+  <navigator url='/pages/program/meetingHeader/meetingHeader?id={{id}}' open-type='redirect' class='header_button main_button main_bg flex_row flex_center' hover-class='button_hover'>我也要生成</navigator>
+</view>
+

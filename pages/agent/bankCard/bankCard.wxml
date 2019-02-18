@@ -1,6 +1,6 @@
 <view class='bankCard_content'>
   <view class='bankCard_bank flex_row flex_center' wx:for="{{2}}" wx:key="{{index}}" bindtap="selectCard">
-    <image src='{{url+"images/bank/1.png"}}' mode='aspectFit' class='bankCard_bank_image'></image>
+    <image src='{{image_url+"images/bank/1.png"}}' mode='aspectFit' class='bankCard_bank_image'></image>
     <view class='bankCard_bank_info flex_column'>
       <text class='bankCard_bank_name'>中国银行</text>
       <text class='bankCard_bank_number'>尾号81431储蓄卡</text>

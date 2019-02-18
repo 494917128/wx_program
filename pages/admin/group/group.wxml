@@ -1,0 +1,31 @@
+<view class='main_container'>
+  <view class='list' wx:for='{{list}}' wx:key='{{index}}'>
+    <view class='item'>
+      <view class='name flex_row' data-index='{{index}}' bindtap='updateName'>
+        <text class='two_line'>{{item.group_name}}</text>
+      </view>
+      <view class='flex_row' style='border-bottom:1px solid #dcdcdc;'>
+        <view class='btn flex_row flex_center col-1' data-index='{{index}}' bindtap='startNum'>起始人数: {{item.group_number}}</view>
+        <view class='btn flex_row flex_center col-1' data-index='{{index}}' bindtap='maxNum'>最大人数: {{item.group_max}}</view>
+        <!-- <view class='btn flex_row flex_center col-1' data-index='{{index}}' bindtap='code'>查看二维码</view> -->
+      </view>
+      <view class='flex_row'>
+        <view class='btn flex_row flex_center col-1' data-index='{{index}}' bindtap='code'>查看二维码</view>
+        <view class='btn flex_row flex_center col-1' data-index='{{index}}' bindtap='updateCode'>更改二维码</view>
+      </view>
+    </view>
+  </view>
+  <myLoading wx:if="{{loading}}" />
+
+</view>
+
+<myModal show="{{modal_show}}" title="{{modal_title}}" bindconfirm="confirm">
+  <input type='{{modal_title=="group_name"?"text":"number"}}' class='modal_input' bindinput='modalInput' value='{{input_value[modal_type]}}'></input>
+</myModal>
+
+<myGotoLogin >
+  <navigator url='/pages/admin/groupAdd/groupAdd'>
+    <view class='person_center_iconfont iconfont icon-xuanwenben flex_row flex_center danger_bg'></view>
+    <view class='danger_color'>添加</view>
+  </navigator>
+</myGotoLogin>

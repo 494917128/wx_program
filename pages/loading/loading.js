@@ -44,27 +44,5 @@ Page({
   },
   onLoad: function (options) {
     var _this = this
-    // 登录
-    wx.login({
-      success: function (res) {
-        if (res.code) {
-          //发起网络请求
-          wx.request({
-            url: 'https://api.weixin.qq.com/sns/jscode2session',
-            data: {
-              appid: app.AppID,
-              secret: app.AppSecret,
-              js_code: res.code,
-              grant_type: 'authorization_code'
-            },
-            success:function(res){
-              _this.loginCallback(res)
-            }
-          })
-        } else {
-          console.log('登录失败！' + res.errMsg)
-        }
-      }
-    });
   },
 })

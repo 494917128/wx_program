@@ -3,7 +3,7 @@
 
 .container{
   background-color: #F5F5F5;
-  padding: 30rpx 50rpx;
+  padding: 10rpx 50rpx 0;
 }
 .button{
   background-color: #E5E5E5;
@@ -15,4 +15,11 @@
 .button .iconfont{
   font-size: 60rpx;
   padding: 0 10rpx;
+}
+
+.phone{
+  font-size: 26rpx;
+  line-height: 3;
+  color: #A5A5A5;
+  text-align: center;  
 }

@@ -1,0 +1,13 @@
+<view class='container flex_column'>
+  <view class='list'>
+
+    <view class='item'>
+      <view class='name'>备注</view>
+      <textarea class='textarea' value='{{action_note}}' bindinput='remarkInput'>
+
+      </textarea>
+    </view>
+
+  </view>
+  <view class='button main_button main_bg flex_row flex_center' bindtap='submit'>确定</view>
+</view>

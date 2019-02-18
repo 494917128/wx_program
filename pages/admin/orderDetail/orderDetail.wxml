@@ -1,0 +1,140 @@
+<view class='main_container flex_column'>
+
+  <view class="order_item_header order_margin_top flex_row" bindlongpress='numberCopy'>
+    <image src='{{order.user.headimgurl||"/images/image_none.png"}}' mode='aspectFill' class='order_item_photo' wx:if="{{}}"></image>
+    <view class='order_item_text'>
+      <view wx:if="{{}}">会员:{{order.user.nickname}}</view>
+      <view>订单号:{{order.order_sn}}</view>
+    </view>
+    <view class='flex_row'>
+      <view class="main_label danger_bg" wx:if="{{order.order_status==0}}">未确定</view>
+      <view class="main_label primary_bg" wx:elif="{{order.order_status==1}}">已确定</view>
+      <view class="main_label define_bg" wx:elif="{{order.order_status==2}}">已取消</view>
+      <view class="main_label danger_bg" wx:elif="{{order.order_status==3}}">无效</view>
+      <view class="main_label define_bg" wx:elif="{{order.order_status==4}}">退货</view>
+      <view class="main_label define_bg" wx:elif="{{order.order_status==5}}">已分单</view>
+      <view class="main_label define_bg" wx:elif="{{order.order_status==6}}">部分分单</view>
+
+      <view class="main_label define_bg" wx:if="{{order.pay_status==0}}">未付款</view>
+      <view class="main_label primary_bg" wx:elif="{{order.pay_status==1}}">部分付款</view>
+      <view class="main_label info_bg"  wx:elif="{{order.pay_status==2}}">已付款</view>
+
+      <view class="main_label define_bg" wx:if="{{order.shipping_status==0}}">未发货</view>
+      <view class="main_label primary_bg" wx:elif="{{order.shipping_status==1}}">已发货</view>
+      <view class="main_label primary_bg" wx:elif="{{order.shipping_status==2}}">已收货</view>
+      <view class="main_label define_bg" wx:elif="{{order.shipping_status==3}}">备货中</view>
+      <view class="main_label define_bg" wx:elif="{{order.shipping_status==4}}">已发货(部分商品)</view>
+      <view class="main_label define_bg" wx:elif="{{order.shipping_status==5}}">发货中(处理分单)</view>
+      <view class="main_label define_bg" wx:elif="{{order.shipping_status==6}}">已发货(部分商品)</view>
+    </view>
+  </view>
+  <view class="order_item_header flex_row" style='padding-top: 0;'>
+    <text wx:if="{{order.invoice_no&&order.shipping_name&&order.shipping_id!=1&&order.shipping_id!=7&&shipping_id!=9}}">{{order.shipping_name}}:{{order.invoice_no}}</text>
+    <text wx:if="{{order.shipping_id==1}}">您的货已于{{order.shipping_name}}</text>
+    <text wx:if="{{order.shipping_id==7||order.shipping_id==19}}">您的货已于{{order.shipping_name}}</text>
+  </view>
+
+  <navigator url='/pages/admin/orderLogistics/orderLogistics?id={{order.order_id}}' class="order_item_footer_button danger_bg" class="order_item_body order_margin_top flex_row flex_center" wx:if='{{shipping&&shipping.Traces.length}}'>
+    <view class='item-wuliu iconfont icon-wuliu main_color'></view>
+    <view class='order_item_info'>
+      <view class='main_color two_line'>{{shipping.Traces[shipping.Traces.length-1].AcceptStation}}</view>
+      <view class=''>{{shipping.Traces[shipping.Traces.length-1].AcceptTime}}</view>
+    </view>
+    <view class='iconfont icon-right flex_row flex_center'></view>
+  </navigator>
+
+  <view class='order_title'>收货地址</view>
+  <view class='order_item_body flex_row flex_center' bindlongpress='addressCopy'>
+    <view class='order_item_info' style='margin: 0;'>
+      <view class='order_item_info_name flex_row'>
+        {{order.consignee}}
+      </view>
+      <view class='order_item_info_num'>{{order.mobile}}</view>
+      <view class='order_item_info_price'>{{order.region+' '+order.address}}</view>
+    </view>
+    <view class='iconfont icon-right flex_row flex_center'></view>
+  </view>
+
+  <view class='order_title'>用户信息</view>
+  <navigator url='/pages/agent/userInfo/userInfo?headimgurl={{order.user.headimgurl}}&nickname={{order.user.real_name||order.user.nickname}}&user_name={{order.user.user_name}}&mobile={{order.mobile}}' class='order_item_body flex_row flex_center'>
+    <view class='order_item_info' style='margin: 0;'>
+      <view class='order_item_info_name flex_row'>
+        <image src='{{order.user.headimgurl}}'></image>
+        {{order.user.real_name || order.user.nickname}}
+        <text wx:if='{{order.user.user_name}}'>（{{order.user.user_name}}）</text>
+      </view>
+      <view class='order_item_info_num'>{{order.mobile}}</view>
+    </view>
+    <view class='iconfont icon-right flex_row flex_center'></view>
+  </navigator>
+
+  <view class='order_title'>购买商品</view>
+  <view class='flex_row'>
+    <view style='flex:1'>
+      <view class='order_item_body flex_row flex_center' wx:for="{{order.goods}}" wx:for-item="goods" wx:key="{{index}}">
+        <image src='{{image_url+goods.goods_img}}' mode='aspectFill' class='order_item_image'></image>
+        <view class='order_item_info'>
+          <view class='order_item_info_name flex_row'>
+            <text>{{goods.goods_name}}</text>
+            <text style='color:#666;'>￥{{goods.goods_number*goods.goods_price}}</text>
+          </view>
+          <view class='order_item_info_num'>数量：{{goods.goods_number}}</view>
+          <view class='order_item_info_price'>价格：{{goods.goods_price}}</view>
+        </view>
+      </view>
+    </view>
+    <view class='iconfont icon-right flex_row flex_center'></view>
+  </view>
+
+  <view class='order_item_body order_margin_top'>
+    <view class='order_item_allprice flex_row'>
+      <text>商品总额</text>
+      <text class='danger_color'>￥{{order.goods_amount}}</text>
+    </view>
+    <view class='order_item_allprice flex_row' wx:if="{{order.shipping_fee!=0}}">
+      <text>+运费</text>
+      <text class='danger_color'>￥{{order.shipping_fee}}</text>
+    </view>
+    <view class='order_item_allprice flex_row' wx:if="{{order.pay_fee!=0}}">
+      <text>+支付费</text>
+      <text class='danger_color'>￥{{order.pay_fee}}</text>
+    </view>
+    <view class='order_item_allprice flex_row' wx:if="{{order.money_paid!=0}}">
+      <text>-已付款</text>
+      <text class='danger_color'>￥{{order.money_paid}}</text>
+    </view>
+    <view class='order_item_allprice flex_row' wx:if="{{order.surplus!=0}}">
+      <text>-账户余额</text>
+      <text class='danger_color'>￥{{order.surplus}}</text>
+    </view>
+    <view class='order_item_allprice flex_row' wx:if="{{order.bonus!=0}}">
+      <text>-红包支付</text>
+      <text class='danger_color'>￥{{order.bonus}}</text>
+    </view>
+    <view class='order_item_allprice flex_row' wx:if="{{1*order.order_amount>0}}">
+      <text></text>
+      <text class='danger_color'>￥{{order.order_amount}}</text>
+    </view>
+    <view class='order_item_allprice flex_row' wx:else>
+      <text></text>
+      <text class='danger_color'>￥{{1*order.money_paid+1*order.surplus}}</text>
+    </view>
+  </view>
+
+  <view class='order_item_body order_margin_top'>
+    <view class='order_item_remark flex_row'>
+      <text class='title'>备注：</text>
+      <text class='text'>{{order.remark||''}}</text>
+    </view>
+  </view>
+
+  <view class='order_item_footer flex_row'>
+    <navigator url='/pages/admin/orderDistribution/orderDistribution?id={{order.order_id}}' class="order_item_footer_button danger_bg" wx:if='{{order.shipping_status==0&&order.auth.allow_repertory}}'>分配发货</navigator>
+    <navigator url='/pages/admin/orderSend/orderSend?id={{order.order_id}}' class="order_item_footer_button danger_bg" wx:if='{{order.shipping_status==0&&order.auth.shipping_status}}'>订单发货</navigator>
+    <navigator url='/pages/admin/orderSure/orderSure?id={{order.order_id}}&title=订单付款&action=pay_1' class="order_item_footer_button danger_bg" wx:if='{{order.auth.pay_status}}'>订单付款</navigator>
+    <navigator url='/pages/admin/orderSure/orderSure?id={{order.order_id}}&title=确定订单&action=status_4' class="order_item_footer_button danger_bg" wx:if='{{order.auth.affirm_order}}'>确定订单</navigator>
+    <navigator url='/pages/admin/orderSure/orderSure?id={{order.order_id}}&title=确定发货&action=status_3' class="order_item_footer_button danger_bg" wx:if='{{order.auth.affirm_shipping}}'>确定发货</navigator>
+    <navigator url='/pages/admin/orderLogistics/orderLogistics?id={{order.order_id}}' class="order_item_footer_button danger_bg" wx:if='{{order.shipping_status>=1}}'>查看物流</navigator>
+  </view>
+
+</view>

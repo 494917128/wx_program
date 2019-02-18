@@ -1,42 +1,208 @@
 <view class='main_container'>
-  <view class='moments_title'>
-    <image src='/images/moments_head.jpg' mode='aspectFill' class='moments_title_bg'></image>
-    <text class='moments_title_name one_line'>{{user.nickname}}</text>
-    <image src='{{user.headimgurl}}' mode='aspectFill' class='moments_title_photo'></image>
+  <myNavbar list="{{nav_list}}" list_index="{{nav_index}}" bind_myNavbar="navbar" />
+
+  <view hidden="{{notice_content}}">
+    <block wx:if="{{nav_index==0}}">
+      <view class='moments_title'>
+        <image src='/images/moments_head.jpg' mode='aspectFill' class='moments_title_bg'></image>
+        <text class='moments_title_name one_line'>{{userinfo.nickname}}</text>
+        <image src='{{userinfo.headimgurl}}' mode='aspectFill' class='moments_title_photo'></image>
+      </view>
+
+      <view class='moments_item flex_row' wx:for='{{list}}' wx:key='{{index}}'>
+        <image src='{{userinfo.headimgurl}}' mode='aspectFill' class='moments_item_photo'></image>
+        <view class='flex_column' style='width: calc(100% - 110rpx);'>
+          <view class='moments_item_title flex_row'>
+            <text class='moments_item_name one_line'>{{userinfo.nickname}}</text>
+            <view class='flex_row flex_center'>
+              <view class='moments_item_label main_border main_color' wx:for="{{item.classify}}" wx:key="{{index}}">{{item}}</view>
+            </view>
+          </view>
+          <text class='moments_item_text'>{{item.material_desc}}</text>
+          <view class='flex_row moments_item_image_view'>
+            <!-- 图片最多保存5个(小程序限制最多同时保存5个) -->
+            <!-- 多个图片时显示 -->
+            <image src='{{image_url+image+"?x-oss-process=style/200_200"}}' mode='aspectFill' class='moments_item_image' wx:for="{{item.material_img}}" wx:for-item="image" wx:for-index="idx" wx:key='{{idx}}' wx:if="{{idx<9}}" bindtap="previewImage" data-image="{{image}}" data-images="{{item.material_img}}"></image>
+            <!-- 单个图片时显示 -->
+            <!-- <image src='{{image_url+image+"?x-oss-process=style/200_200"}}' mode='aspectFill' class='moments_item_image' wx:for="{{item.material_img}}" wx:for-item="image" wx:for-index="idx" wx:key='{{idx}}' wx:if="{{item.material_img.length==1}}" bindtap="previewImage" data-image="{{image}}" data-images="{{item.material_img}}" data-index="{{index}}" data-list="list" bindload="imageLoad" style="width:{{item.imgwidth}}rpx;height:{{item.imgheight}}rpx"></image> -->
+            <!-- 视频时显示 -->
+            <video src='{{image_url+item.material_video}}' objectFit='contain' class='moments_item_video' wx:if="{{item.material_video}}" id="video{{index}}" bindplay="videoPlay"></video>
+          </view>
+          <view class='flex_row flex_centere' style='justify-content:space-between'>
+            <text class='moments_item_time'>{{item.add_time}}</text>
+            <view class='flex_row'>
+              <view class='moments_item_button flex_row flex_center info_bg' hover-class='button_hover' data-text="{{item.material_desc}}" bindtap='copyText'>复制文案</view>
+              <view class='moments_item_button flex_row flex_center info_bg' hover-class='button_hover' data-text="{{item.material_desc}}" data-images="{{item.material_img}}" data-video="{{item.material_video}}" bindtap='copyAll'>一键保存</view>
+              <view class='moments_item_button flex_row flex_center danger_bg' hover-class='button_hover' wx:if='{{is_admin&&is_up}}' bindtap='deleteItem' data-index='{{index}}' data-id='{{item.material_id}}'>删除</view>
+            </view>
+          </view>
+        </view>
+      </view>
+
+      <myLoading wx:if='{{loading}}' />
+    </block>
+
+    <!-- <block wx:if="{{nav_index==1}}">
+      <view class='flex_row'>
+        <scroll-view scroll-y style='white-space: nowrap;flex:1'>
+          <view class='moments_item_label main_border main_color' wx:for="{{list_5[1].case_label}}" wx:key="index" bindtap='searchLabel' data-value="{{item}}">{{item}}</view>
+        </scroll-view>
+        <view class='iconfont icon-xialajiantou'></view>
+      </view>
+      <view class='notice_search'>
+        <view class='notice_search_view flex_row'>
+          <input type='text' value='{{search_5}}' placeholder='输入关键词搜索' class='notice_search_input' confirm-type="search" bindinput='searchValue' bindconfirm='search'></input>
+          <view class='iconfont icon-search flex_row flex_center main_color' bindtap="search"></view>
+        </view>
+      </view>
+      <view class='moments_item flex_row' style='background-color:#fff;' wx:for='{{list_5}}' wx:key='{{index}}'>
+        <view class='flex_column' style='width: calc(100%);'>
+
+          <view class='moments_item_text'>
+            {{item.case_title}}
+          </view>
+          <view class='flex_row moments_item_image_view'>
+            <image src='{{image_url+image}}' mode='aspectFill' class='moments_item_image' wx:for="{{item.case_img}}" wx:for-item="image" wx:for-index="idx" wx:key='{{idx}}' wx:if="{{idx<9&&item.case_img.length!=1}}" bindtap="previewImage" data-image="{{image}}" data-images="{{item.case_img}}"></image>
+            <image src='{{image_url+image}}' mode='aspectFill' class='moments_item_image' wx:for="{{item.case_img}}" wx:for-item="image" wx:for-index="idx" wx:key='{{idx}}' wx:if="{{item.case_img.length==1}}" bindtap="previewImage" data-image="{{image}}" data-images="{{item.case_img}}" data-index="{{index}}" data-list="list" bindload="imageLoad" style="width:{{item.imgwidth}}rpx;height:{{item.imgheight}}rpx"></image>
+            <video src='{{image_url+item.case_video}}' objectFit='contain' class='moments_item_video' wx:if="{{item.case_video}}" id="video{{index}}" bindplay="videoPlay"></video>
+          </view>
+          <view class='flex_row flex_centere' style='justify-content:space-between'>
+            <view class='flex_row' style='flex-wrap: wrap;'>
+              <view class='moments_item_label main_border main_color' wx:for="{{item.case_label}}" wx:key="index" bindtap='searchLabel' data-value="{{item}}" style='float: right;'>{{item}}</view>
+            </view>
+            <view class='flex_row' style='align-items:flex-end;flex-shrink: 0'>
+              <view class='moments_item_button flex_row flex_center info_bg' hover-class='button_hover' data-text="{{item.case_title}}" bindtap='copyText'>复制文案</view>
+              <view class='moments_item_button flex_row flex_center info_bg' hover-class='button_hover' data-text="{{item.case_title}}" data-images="{{item.case_img}}" data-video="{{item.case_video}}" bindtap='copyAll'>一键保存</view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class='notice_load flex_row flex_center'>
+        <button class='notice_load_button flex_row flex_center' loading wx:if="{{loading_5}}">
+          正在加载更多
+        </button>
+        <button class='notice_load_button flex_row flex_center' bindtap='onReachBottom' wx:else>
+          <view class='iconfont icon-xialajiantou flex_row flex_center'></view>
+          上拉加载更多
+        </button>
+      </view>
+    </block> -->
+
+    <block wx:if="{{nav_index==2}}">
+      <view class='notice_search'>
+        <view class='notice_search_view flex_row'>
+          <input type='text' value='{{search_4}}' placeholder='输入关键词搜索' class='notice_search_input' confirm-type="search" bindinput='searchValue' bindconfirm='search'></input>
+          <view class='iconfont icon-search flex_row flex_center main_color' bindtap="search"></view>
+        </view>
+      </view>
+      <myNavbar list="{{study_nav}}" list_index="{{study_nav_index}}" bind_myNavbar="studyNavbar" />
+      <view class='notice_content'>
+        <view class='notice_content_item flex_row flex_center' wx:for="{{list_4}}" wx:key="{{index}}" data-index="{{index}}" bindtap='noticeContent'>
+          <view class='notice_content_info flex_column'>
+            <view class='flex_column'>
+              <view class='notice_content_title one_line'>{{item.title}}</view>
+              <view class='notice_content_text one_line'>{{item.digest}}</view>
+            </view>
+            <view class='notice_content_time two_line'>{{item.add_time}}</view>      
+          </view>
+          <image src='{{image_url+item.type_img}}' wx:if="{{item.type_img}}" class='notice_content_tag' mode='aspectFit'></image>
+        </view>
+      </view>
+      <view class='notice_load flex_row flex_center'>
+        <button class='notice_load_button flex_row flex_center' loading wx:if="{{loading_4}}">
+          正在加载更多
+        </button>
+        <button class='notice_load_button flex_row flex_center' bindtap='onReachBottom' wx:else>
+          <view class='iconfont icon-xialajiantou flex_row flex_center'></view>
+          上拉加载更多
+        </button>
+      </view>
+    </block>
   </view>
 
-  <view class='moments_item flex_row' wx:for='{{list}}' wx:key='{{index}}'>
-    <image src='{{user.headimgurl}}' mode='aspectFill' class='moments_item_photo'></image>
-    <view class='flex_column' style='width: calc(100% - 110rpx);'>
-      <view class='moments_item_title flex_row'>
-        <text class='moments_item_name one_line'>{{user.nickname}}</text>
-        <view class='flex_row flex_center'>
-          <view class='moments_item_label main_border main_color' wx:for="{{item.type}}" wx:key="{{index}}">{{item}}</view>
-        </view>
-      </view>
-      <text class='moments_item_text'>{{item.material_desc}}</text>
-      <view class='flex_row moments_item_image_view'>
-        <!-- 图片最多保存5个(小程序限制最多同时保存5个) -->
-        <!-- 多个图片时显示 -->
-        <image src='{{image_url+image}}' mode='aspectFill' class='moments_item_image' wx:for="{{item.material_img}}" wx:for-item="image" wx:for-index="idx" wx:key='{{idx}}' wx:if="{{idx<9&&item.material_img.length!=1}}" bindtap="previewImage" data-index="{{index}}" data-idx="{{idx}}"></image>
-        <!-- 单个图片时显示 -->
-        <image src='{{image_url+image}}' mode='aspectFill' class='moments_item_image' wx:for="{{item.material_img}}" wx:for-item="image" wx:for-index="idx" wx:key='{{idx}}' wx:if="{{item.material_img.length==1}}" bindtap="previewImage" data-index="{{index}}" data-idx="{{idx}}" bindload="imageLoad" style="width:{{item.imgwidth}}rpx;height:{{item.imgheight}}rpx"></image>
-        <!-- <view style='background-image: url("{{image_url+item.material_img}}")' class='moments_item_image_one' wx:for="{{item.material_img}}" wx:for-item="image" wx:for-index="idx" wx:key='{{idx}}' wx:if="{{item.material_img.length==1}}" bindtap="previewImage" data-index="{{index}}" data-idx="{{idx}}"></view> -->
-        <!-- 视频时显示 -->
-        <video src='{{item.material_video}}' objectFit='contain' class='moments_item_video' wx:if="{{item.material_video}}"></video>
-      </view>
-      <view class='flex_row flex_centere' style='justify-content:space-between'>
-        <text class='moments_item_time'>{{item.add_time}}</text>
-        <view class='flex_row'>
-          <view class='moments_item_button flex_row flex_center info_bg' hover-class='button_hover' data-index="{{index}}" bindtap='copyText'>复制文案</view>
-          <view class='moments_item_button flex_row flex_center info_bg' hover-class='button_hover' data-index="{{index}}" bindtap='copyAll'>一键保存</view>
-        </view>
-      </view>
+  <!-- 点击进来的 -->
+  <view class='notice_detail flex_column flex_center' hidden="{{!notice_content||notice_detail}}">
+    <view class='iconfont icon-back' bindtap='noticeBack'></view>
+    <view class='notice_detail_title'>{{list_4[notice_index].title||'无内容'}}</view>
+    <view class='notice_detail_time'>{{list_4[notice_index].add_time}}</view>
+
+    <image src='{{image_url+list_4[notice_index].type_img}}' wx:if="{{list_4[notice_index].type_img&&(list_4[notice_index].text_type==1||list_4[notice_index].text_type==2)}}" class='notice_detail_tag' mode='aspectFit'></image>
+    
+    <button class='notice_detail_button' bindtap='noticeFile' data-url="{{list_4[notice_index].file}}" wx:if="{{list_4[notice_index].file&&list_4[notice_index].text_type==1}}">打开文档</button>
+    <!-- <button class='notice_detail_button' bindtap='noticeAudio' data-url="{{list_4[notice_index].file}}" wx:if="{{list_4[notice_index].file&&list_4[notice_index].text_type==2&&!audio}}">打开音频</button> -->
+    <view class='flex_row flex_center slider_view' wx:if="{{list_4[notice_index].file&&list_4[notice_index].text_type==2}}">
+      <view>{{audio_currentTime}}</view>
+      <slider bindchange="audioSlide" bindchanging="audioSlideing" step="1" max="100" value='{{audio_slide}}' style='flex: 1;'/>
+      <view>{{audio_duration}}</view>
+      <view class='iconfont icon-zanting' bindtap='audioPause' hidden='{{audio=="pause"||!audio}}'></view>
+      <view class='iconfont icon-bofang' bindtap='audioPlay' hidden='{{audio=="play"}}'></view>
     </view>
-  </view>
-  <myLoading />
+    <video src="{{image_url + list_4[notice_index].file}}" objectFit='contain' style='margin-bottom: 40rpx;' wx:if="{{list_4[notice_index].file&&list_4[notice_index].text_type==3}}" id="studyVideo"></video>
+    <button class='notice_detail_button' bindtap='noticeVideo' data-url="{{list_4[notice_index].file}}" wx:if="{{list_4[notice_index].file&&list_4[notice_index].text_type==3}}">保存视频</button>
+
+    <block wx:if="{{list_4[notice_index].img&&list_4[notice_index].text_type==0}}">
+      <image src='{{image_url+item}}' mode="widthFix" bindtap='previewNoticeImage' data-url="{{item}}" data-images="{{list_4[notice_index].img}}" wx:for="{{list_4[notice_index].img}}" wx:key="{{index}}"></image>
+      <button class='notice_detail_button' style='margin-top: 40rpx;' bindtap='noticeImage' data-images="{{list_4[notice_index].img}}">保存图片</button>
+    </block>
+
+    <text decode class='notice_detail_content' style='padding:40rpx 0;' wx:if="{{list_4[notice_index].digest}}">{{list_4[notice_index].digest}}</text>
+
+    <view class='notice_detail_button_view flex_row'>
+      <button class='notice_detail_button' bindtap='noticePrev' disabled='{{notice_index==0}}'>上一篇</button>
+      <button class='notice_detail_button' bindtap='noticeNext'>下一篇</button>
+    </view>
+    
+  </view> 
+
+  <!-- 分享进来的 -->
+  <view class='notice_detail flex_column flex_center' hidden="{{!notice_content||!notice_detail}}">
+    <view class='iconfont icon-back' bindtap='noticeBack'></view>
+    <view class='notice_detail_title'>{{notice_detail.title||'无内容'}}</view>
+    <view class='notice_detail_time'>{{notice_detail.add_time}}</view>
+
+    <image src='{{image_url+notice_detail.type_img}}' wx:if="{{notice_detail.type_img&&(notice_detail.text_type==1||notice_detail.text_type==2)}}" class='notice_detail_tag' mode='aspectFit'></image>
+    
+    <button class='notice_detail_button' bindtap='noticeFile' data-url="{{notice_detail.file}}" wx:if="{{notice_detail.file&&notice_detail.text_type==1}}">打开文档</button>
+    <view class='flex_row flex_center slider_view' wx:if="{{notice_detail.file&&notice_detail.text_type==2}}">
+      <view>{{audio_currentTime}}</view>
+      <slider bindchange="audioSlide" bindchanging="audioSlideing" step="1" max="100" value='{{audio_slide}}' style='flex: 1;'/>
+      <view>{{audio_duration}}</view>
+      <view class='iconfont icon-zanting' bindtap='audioPause' hidden='{{audio=="pause"||!audio}}'></view>
+      <view class='iconfont icon-bofang' bindtap='audioPlay' hidden='{{audio=="play"}}'></view>
+    </view>
+    <video src="{{image_url + notice_detail.file}}" objectFit='contain' style='margin-bottom: 40rpx;' wx:if="{{notice_detail.file&&notice_detail.text_type==3}}" id="studyVideo"></video>
+    <button class='notice_detail_button' bindtap='noticeVideo' data-url="{{notice_detail.file}}" wx:if="{{notice_detail.file&&notice_detail.text_type==3}}">保存视频</button>
+
+    <block wx:if="{{notice_detail.img&&notice_detail.text_type==0}}">
+      <image src='{{image_url+item}}' mode="widthFix" bindtap='previewNoticeImage' data-url="{{item}}" data-images="{{notice_detail.img}}" wx:for="{{notice_detail.img}}" wx:key="{{index}}"></image>
+      <button class='notice_detail_button' style='margin-top: 40rpx;' bindtap='noticeImage' data-images="{{notice_detail.img}}">保存图片</button>
+    </block>
+
+    <text decode class='notice_detail_content' style='padding:40rpx 0;' wx:if="{{notice_detail.digest}}">{{notice_detail.digest}}</text>
+
+    <view class='notice_detail_button_view flex_row'>
+    </view>
+
+  </view> 
+
 </view>
+
+<picker mode='multiSelector' value='{{[1,0]}}' bindchange='pickerChange' range='{{picker_list}}' range-key="classify_name" class='picker flex_row main_bg' wx:if='{{nav_index==0}}'>
+  <view class='picker_content flex_column flex_center'>
+    <view class='iconfont icon-search flex_row flex_center'></view>
+    <text>分类</text>
+    <text>查找</text>
+  </view>
+</picker>
 <myTabbar tabbar_index="4"/>
-<myGotoLogin />
+<myGotoLogin >
+  <navigator bindtap='uploadNavigator' wx:if="{{nav_index==0&&is_admin&&is_up}}">
+    <view class='person_center_iconfont iconfont icon-shangchuan flex_row flex_center main_bg'></view>
+    <view class='main_color'>上传</view>
+    <view class='main_color'>素材</view>
+  </navigator>
+</myGotoLogin>
 <myOpenSetting show="{{open_setting}}" />
 <myOpenSetting show="{{get_userinfo}}" bind_getUserInfo="getUserInfo" type="getUserInfo" />
+
+<myGuide guide='{{guide}}' />

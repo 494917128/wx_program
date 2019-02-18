@@ -1,6 +1,6 @@
 <view class='main_container flex_column'>
   <myUserInfo phone="13111111111" user="{{user}}" intro="{{intro}}" bind_myCode="myCode" >
-    <myCode show="{{my_code_show}}" bind_myCode="myCode" qrCode="{{qrCode}}" />
+    <myCode show="{{my_code_show}}" bind_myCode="myCode" qrCode="{{qrCode}}" qrCode_msg="{{qrCode_msg||''}}" />
   </myUserInfo>
   <myNavbar list="{{nav_list}}" list_index="{{nav_index}}" bind_myNavbar="navbar" />
 
@@ -8,14 +8,14 @@
     <!-- 搜索 -->
     <view class='notice_search'>
       <view class='notice_search_view flex_row'>
-        <input type='text' value='{{search[nav_index]}}' placeholder='输入关键词搜索' class='notice_search_input' confirm-type="search" bindinput='searchValue' bindconfirm='search'></input>
+        <input type='text' value='{{nav_index==0?search_1:search_3}}' placeholder='输入关键词搜索' class='notice_search_input' confirm-type="search" bindinput='searchValue' bindconfirm='search'></input>
         <view class='iconfont icon-search flex_row flex_center main_color' bindtap="search"></view>
       </view>
     </view>
 
     <!-- 公司通告 -->
     <view class='notice_content' wx:if="{{nav_index==0}}">
-      <view class='notice_content_item flex_row flex_center' wx:for="{{list[0]}}" wx:key="{{index}}" data-src="{{item.link}}" bindtap='webView'>
+      <view class='notice_content_item flex_row flex_center' wx:for="{{list_1}}" wx:key="{{index}}" data-src="{{item.link}}" data-type="notice" data-title='{{item.title}}' bindtap='webView'>
         <view class='notice_content_info flex_column'>
           <view class='flex_column'>
             <view class='notice_content_title one_line'>{{item.title}}</view>
@@ -33,14 +33,14 @@
     </view> -->
 
     <view class='notice_content' wx:if="{{nav_index==1}}">
-      <view class='notice_content_item flex_row flex_center' wx:for="{{list[1]}}" wx:key="{{index}}" data-index="{{index}}" bindtap='noticeContent'>
+      <view class='notice_content_item flex_row flex_center' wx:for="{{list_3}}" wx:key="{{index}}" data-index="{{index}}" bindtap='noticeContent'>
         <view class='notice_content_info flex_column'>
           <view class='flex_column'>
-            <view class='notice_content_title one_line'>{{item.article_id}}.{{item.article_title}}</view>
-            <view class='notice_content_text one_line'>{{item.article_desc}}</view>
+            <view class='notice_content_title one_line'>{{item.title}}</view>
           </view>
           <view class='notice_content_time two_line'>{{item.add_time}}</view>      
         </view>
+        <image src='{{image_url+item.file+"?x-oss-process=style/200_aout"}}' wx:if="{{item.file}}" class='notice_content_image2' mode='aspectFill'></image>
       </view>
     </view>
 
@@ -55,7 +55,7 @@
 
     <!-- 下拉加载 -->
     <view class='notice_load flex_row flex_center'>
-      <button class='notice_load_button flex_row flex_center' loading wx:if="{{loading[nav_index]}}">
+      <button class='notice_load_button flex_row flex_center' loading wx:if="{{nav_index==0?loading_1:loading_3}}">
         正在加载更多
       </button>
       <button class='notice_load_button flex_row flex_center' bindtap='onReachBottom' wx:else>
@@ -66,20 +66,29 @@
   </view>
 
   <!-- 公告内容页 -->
-   <view class='notice_detail flex_column flex_center' hidden="{{!notice_content}}">
+  <view class='notice_detail flex_column flex_center' hidden="{{!notice_content||notice_detail}}">
     <view class='iconfont icon-back' bindtap='noticeBack'></view>
-    <view class='notice_detail_title'>{{list[1][notice_index].article_id}}.{{list[1][notice_index].article_title}}</view>
-    <view class='notice_detail_time'>{{list[1][notice_index].add_time}}</view>
-    <text decode class='notice_detail_content'>{{list[1][notice_index].article_desc}}</text>
+    <view class='notice_detail_title'>{{list_3[notice_index].command}}</view>
+    <view class='notice_detail_time'>{{list_3[notice_index].add_time}}</view>
+    <rich-text nodes="{{list_3[notice_index].digest}}" class='notice_detail_content'></rich-text>
     <view class='notice_detail_button_view flex_row'>
       <button class='notice_detail_button' bindtap='noticePrev' disabled='{{notice_index===0}}'>上一篇</button>
       <button class='notice_detail_button' bindtap='noticeNext'>下一篇</button>
     </view>
-    
+  </view> 
+  <view class='notice_detail flex_column flex_center' hidden="{{!notice_content||!notice_detail}}">
+    <view class='iconfont icon-back' bindtap='noticeBack'></view>
+    <view class='notice_detail_title'>{{notice_detail.command}}</view>
+    <view class='notice_detail_time'>{{notice_detail.add_time}}</view>
+    <rich-text nodes="{{notice_detail.digest}}" class='notice_detail_content'></rich-text>
+    <view class='notice_detail_button_view flex_row'>
+    </view>
   </view> 
 
-  <myJoin />
+  <myJoin contact_phone="{{intro.service_phone}}" />
 </view>
 
 <myTabbar tabbar_index="3"/>
 <myGotoLogin />
+
+<myGuide guide='{{guide}}' />

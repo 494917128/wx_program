@@ -1,0 +1,23 @@
+<view class='header_container flex_column'>
+  <view class='over_hide'>
+    <movable-area class='header' scale-area>
+      <movable-view style="height: {{image.height}}px; width: {{image.width}}px;" direction="all" bindchange="onChange" bindscale="onScale" scale scale-min="0.5" scale-max="4" scale-value="0.8" animation='' x='{{viewWidth * 1.1}}' y='{{viewHeight * 1.5 - image.height * 0.4 }}'>
+        <image src='{{image.url}}' class='image'></image>
+      </movable-view>
+    </movable-area>
+  </view>
+  <view class='frame'>
+    <image src='{{material_img_save}}' mode='widthFix'></image>
+  </view>
+  <view class='header_button1 main_button main_bg flex_column flex_center' hover-class='button_hover' bindtap='uploadImage'>
+    <view>上传照片</view>
+  </view>
+  <!-- <navigator url='/pages/program/meetingHeaderMaterial/meetingHeaderMaterial' class='header_button main_button main_bg flex_row flex_center' hover-class='button_hover'>选择素材</navigator> -->
+  <view class='header_button main_button main_bg flex_column flex_center' hover-class='button_hover' bindtap='downloadImage'>
+    <view>点击生成</view>
+  </view>
+  <navigator url='/pages/program/meetingHeaderExample/meetingHeaderExample' class='header_button2 main_button main_bg flex_column flex_center' hover-class='button_hover'>
+    <view>庆典头像</view>
+  </navigator>
+</view>
+<canvas canvas-id='header' class='canvas' style='width: 100vw;height:{{material_img_height}}px;'></canvas>

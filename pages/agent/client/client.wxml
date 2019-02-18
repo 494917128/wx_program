@@ -9,7 +9,7 @@
               <text>{{item.real_name||item.nickname||""}}</text>
               <view class='main_label danger_bg'>{{item.rank.rank_name||""}}</view>
             </view>
-            <view>{{item.reg_time||""}}</view>
+            <view>{{item.regs_time||""}}</view>
           </view>
         </view>
       </view>

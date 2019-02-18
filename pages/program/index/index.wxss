@@ -52,7 +52,7 @@
 
 /* 轮播 */
 .index_swiper{
-  height: 440rpx;
+  height: 420rpx;
   width: 750rpx;
   border: 10rpx solid #F2F2F2;
   border-width: 10rpx 0;
@@ -82,7 +82,7 @@
   margin: 20rpx 0;
 }
 
-/* 成为代理商 */
+/* 成为经销商 */
 .agent_image{
   width: 100vw;
   height: 35vw;

@@ -55,8 +55,8 @@
   position: fixed;
   top: 70rpx;
   right: -25rpx;
-  font-size: 24rpx;
-  height: 50rpx;
-  padding-left: 25rpx;
+  font-size: 26rpx;
+  height: 60rpx;
+  padding-left: 30rpx;
   padding-right: 50rpx;
 }

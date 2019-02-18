@@ -1,0 +1,29 @@
+<view class='main_container upload_container flex_column'>
+
+  <block wx:if='{{type=="friends"}}'>
+    <text class='upload_title'>请选择素材对应标签：</text>
+    <picker mode='multiSelector' bindchange='chooseType' range='{{type_list}}' range-key="classify_name" class='picker flex_row'>
+      <button class='img_button flex_row flex_center info_bg'>
+        {{picker_name||'请选择'}}
+      </button>
+    </picker>
+  </block>
+  <block wx:else>
+    <text class='upload_title'>请选择案例对应标签（可多选）：</text>
+    <view class='flex_row case_label_view'>
+      <view class='case_item_label main_border main_color flex_row flex_center {{item.select?"main_bg":""}}' wx:for="{{case_label}}" wx:key="index" bindtap='chooseLabel' data-index="{{index}}">{{item.case_label}}</view>
+    </view>
+  </block>
+
+  <text class='upload_title'>描述：</text>
+  <textarea class='upload_textarea' bindinput='titleInput' maxlength='2550'></textarea>
+  <view class='flex_row'>
+    <button class='img_button flex_row flex_center info_bg' hover-class='button_hover' bindtap='chooseImage'>选择图片</button>
+    <button class='img_button flex_row flex_center info_bg' hover-class='button_hover' bindtap='chooseVideo' wx:if='{{type=="friends"}}'>选择视频</button>
+  </view>
+  <view class='img_view flex_row'>
+    <image src='{{image_url+image}}' mode='aspectFill' class='item_img' wx:for="{{images}}" wx:for-item="image" wx:for-index="idx" wx:key='{{idx}}' bindtap="previewImage" data-image="{{image}}" data-images="{{images}}"></image>
+    <video src='{{image_url+video}}' wx:if='{{video}}' class='item_img'></video>
+  </view>
+  <button class='upload_button main_bg' hover-class='button_hover' bindtap='submit'>提交</button>
+</view>

@@ -1,0 +1,6 @@
+<view class='header_container flex_column flex_center main_bg'>
+  <view class='header_title'>生成成功</view>
+  <image src='{{src}}' mode='widthFix' />
+  <view class='header_button main_button main_bg flex_row flex_center' hover-class='button_hover' bindtap='saveImage'>保存图片</view>
+</view>
+

@@ -5,6 +5,7 @@
     "myTabbar": "/components/myTabbar/myTabbar",
     "myNavbar": "/components/myNavbar/myNavbar",
     "myJoin": "/components/myJoin/myJoin",
-    "myGotoLogin": "/components/myGotoLogin/myGotoLogin"
+    "myGotoLogin": "/components/myGotoLogin/myGotoLogin",
+    "myGuide": "/components/myGuide/myGuide"
   }
 }

@@ -4,6 +4,7 @@
     "myTabbar": "/components/myTabbar/myTabbar",
     "myJoin": "/components/myJoin/myJoin",
     "myContact": "/components/myContact/myContact",
-    "myGotoLogin": "/components/myGotoLogin/myGotoLogin"
+    "myGotoLogin": "/components/myGotoLogin/myGotoLogin",
+    "myGuide": "/components/myGuide/myGuide"
   }
 }

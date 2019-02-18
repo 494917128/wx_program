@@ -1,0 +1,63 @@
+.container{
+  min-height: 100vh;
+  color: #FFF;
+}
+.prize_bg{
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+.prize{
+  text-align: center;
+  margin-bottom: 200rpx;
+  width: 80%;
+  height: 60vh;
+  background-color: #fff;
+  color: #000;
+}
+.prize_title{
+  font-size: 36rpx;
+}
+.prize_status{
+  font-size: 40rpx;
+  margin-top: 20rpx;
+}
+.prize_status.danger_color{
+  font-weight: bold;
+}
+.prize_name{
+  font-size: 50rpx;
+  margin-top: 40rpx;
+}
+.prize_img{
+  width: 300rpx;
+  height: 300rpx;
+  margin-top: 40rpx;
+}
+.scan-btn-view{
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 50rpx;
+  width: 100%;
+  border-radius: 20rpx;
+  margin: auto;
+  
+}
+.scan-btn{
+  width: 200rpx;
+  height: 200rpx;
+  margin: 0 80rpx;
+  border-radius: 50%;
+  font-size: 40rpx;
+
+}
+.scan-btn.iconfont{
+  font-size: 100rpx;
+
+}

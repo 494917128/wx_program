@@ -1,0 +1,11 @@
+{
+  "navigationBarTitleText": "客户案例",
+  "usingComponents": {
+    "myNavbar": "/components/myNavbar/myNavbar",
+    "myGotoLogin": "/components/myGotoLogin/myGotoLogin",
+    "myGuide": "/components/myGuide/myGuide"
+  },
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark",
+  "onReachBottomDistance": 40
+}

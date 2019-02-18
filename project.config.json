@@ -1,14 +1,14 @@
 {
 	"description": "项目配置文件。",
 	"setting": {
-		"urlCheck": false,
+		"urlCheck": true,
 		"es6": true,
 		"postcss": true,
 		"minified": true,
 		"newFeature": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.1.3",
+	"libVersion": "2.4.0",
 	"appid": "wx77c8e93db22f6d55",
 	"projectname": "%E8%B5%9B%E8%9C%9C%E5%8A%A9%E6%89%8B",
 	"condition": {
@@ -29,13 +29,76 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 0,
+			"current": 9,
 			"list": [
 				{
 					"id": 0,
 					"name": "scene",
 					"pathName": "pages/program/index/index",
-					"query": "scene=12712",
+					"query": "scene=1",
+					"scene": "1047"
+				},
+				{
+					"id": 1,
+					"name": "商学院分享",
+					"pathName": "pages/program/moments/moments",
+					"query": "nav_index=2&notice_id=95&show_user=12712",
+					"scene": "1047"
+				},
+				{
+					"id": 2,
+					"name": "公司政策",
+					"pathName": "pages/program/notice/notice",
+					"query": "show_user=10867&nav_index=1&notice_id=104",
+					"scene": "1047"
+				},
+				{
+					"id": 3,
+					"name": "百问百答",
+					"pathName": "pages/program/product/product",
+					"query": "show_user=10855&nav_index=2&notice_id=1",
+					"scene": "1047"
+				},
+				{
+					"id": 4,
+					"name": "公司通告",
+					"pathName": "pages/program/notice/notice",
+					"query": "show_user=10867",
+					"scene": "1047"
+				},
+				{
+					"id": 5,
+					"name": "课堂",
+					"pathName": "pages/program/class/class",
+					"query": "scene=22",
+					"scene": "1047"
+				},
+				{
+					"id": 6,
+					"name": "公众号",
+					"pathName": "pages/webView/webView",
+					"query": "src=http%3A//mp.weixin.qq.com/s%3F__biz%3DMzIxMzgzMDQwMA%3D%3D%26mid%3D100001208%26idx%3D1%26sn%3Defdd7f792c94d87386035c0164603e1a%26chksm%3D17b19bd720c612c159818fed9edd6dca22abb9f2b7a8f5fc4eba9883289fd82b4bc344dc3838%23rd",
+					"scene": "1047"
+				},
+				{
+					"id": 7,
+					"name": "视频见证",
+					"pathName": "pages/program/case/case",
+					"query": "show_user=12712&nav_index=1&search=",
+					"scene": "1047"
+				},
+				{
+					"id": 8,
+					"name": "公司简介",
+					"pathName": "pages/program/aboutUs/aboutUs",
+					"query": "show_user=10634&nav_index=2",
+					"scene": "1047"
+				},
+				{
+					"id": 9,
+					"name": "测试专用",
+					"pathName": "pages/program/aboutUs/aboutUs",
+					"query": "show_user=35072&nav_index=0",
 					"scene": "1047"
 				}
 			]

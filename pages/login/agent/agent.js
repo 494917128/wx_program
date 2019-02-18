@@ -4,6 +4,7 @@ Page({
 
   data: {
     count_down: 0,
+    get_userinfo: false,
   },
   // input值获取
   inputValue(e){
@@ -46,7 +47,7 @@ Page({
   //   }
   //   // util.request({
   //   //   prefix_url: 'http://wx.saiminet.com/',
-  //   //   url:'index.php?r=sms/binding-mobiles',
+  //   //   url:'sms/binding-mobiles',
   //   //   data: {
   //   //     mobile: 13566296373
   //   //   },
@@ -62,8 +63,9 @@ Page({
 
   // 登录
   binding(e){
-    var phone = this.data.phone, 
-      password = this.data.password
+    var phone  = this.data.phone, 
+      password = this.data.password,
+      _this    = this
     if (!phone) {
       wx.showToast({
         icon: "none",
@@ -75,41 +77,77 @@ Page({
         title: '密码不能为空',
       })
     } else {
+      wx.showLoading({
+        title: '登录中...',
+      })
       util.request({
-        url: 'index.php?r=login/login',
+        url: 'login/login',
         data: {
           mobile: phone,
           password: password
         },
         type: "form",
         success: function (res) {
-          console.log(res)
-          if( res.data.state === 1) { 
-            wx.setStorage({
-              key: 'userId',
-              data: res.data.user_id,
-            })
-            wx.reLaunch({
-              url: '/pages/agent/index'
-            })
-            wx.showToast({
-              icon: 'none',
-              title: '登录成功'
-            })
-          } else if ( res.data.state === 0) {
-            wx.showToast({
-              icon: 'none',
-              title: res.data.date
-            })
-          } else {
-            wx.showToast({
-              icon: 'none',
-              title: '登录失败'
-            })
-          } 
+          _this.loginCallback(res)
         }
       })
     }
+  },
+  loginCallback (res) {
+    var _this = this
+    wx.hideLoading()
+    if (!res.data.user) {res.data.user = {}}
+    if (res.data.state === 1) {
+      wx.setStorage({ // 储存用户等级，大于等于6是官方
+        key: 'user_rank',
+        data: res.data.user.user_rank,
+      })
+      wx.setStorage({ // 储存userid（适应之前版本）
+        key: 'userId',
+        data: res.data.user_id,
+      })
+      wx.setStorage({ // 储存换取token的refreshToken
+        key: 'refreshToken',
+        data: res.data.toke.refresh_token || '',
+      })
+      wx.setStorage({ // 储存token
+        key: 'accessToken',
+        data: res.data.toke.access_token || '',
+        success(){ // 储存完毕再执行
+          if (_this.again) { // 当是token失效时进入的，成功后后退一页
+            var pages = getCurrentPages();
+            var prevPage = pages[pages.length - 2];  //上一个页面
+            _this.setData({ guide: true });
+            (prevPage.onPullDownRefresh && prevPage.onPullDownRefresh()) || (prevPage.pageData && prevPage.pageData()) // 刷新数据
+            setTimeout(()=>{
+              wx.navigateBack({
+                delta: 1,
+              })
+            },0)
+          } else if (res.data.user.user_rank >= 6) { // 是官方，跳到个人中心
+            wx.reLaunch({
+              url: '/pages/agent/index?is_login=1&guide=1'
+            })
+          } else { // 不是官方，跳到小程序首页
+            _this.showOfficial()
+          }
+        }
+      })
+      wx.showToast({
+        icon: 'none',
+        title: '登录成功'
+      })
+    } else if (res.data.state === 0) {
+      wx.showToast({
+        icon: 'none',
+        title: res.data.data == -41003 ? '登录失败，请再试' : res.data.data
+      })
+    } else {
+      wx.showToast({
+        icon: 'none',
+        title: '登录失败'
+      })
+    } 
   },
   // 判断
   judeg(){
@@ -117,29 +155,68 @@ Page({
   },
   // 跳转官方展示板
   showOfficial(){
-    app.globalData.show_user = 9940
+    app.globalData.show_user = 1
     wx.reLaunch({
-      url: '/pages/program/index/index',
+      url: '/pages/program/index/index?guide=1',
+    })
+  },
+  // 获取用户信息
+  getUserInfo(e) {
+    var _this = this
+    wx.login({
+      success: function (ress) {
+        if (ress.code) {
+          if (e.detail.detail.userInfo) {
+            e.detail.detail.code = ress.code
+            util.login(e.detail.detail)
+          }
+        }
+      }
     })
   },
   onLoad: function (options) {
     var _this = this
     this.setData({
-      user: app.globalData.userInfo      
+      user: app.globalData.userInfo
     })
-    wx.getStorage({
-      key: 'userId',
-      success: function (res) {
-        console.log(res.data)
-        if (res.data) {
-          wx.reLaunch({
-            url: '/pages/agent/index'
-          })
+    if (options.again) { // 判断是否是token失效的再次登录
+      this.again = true
+      util.wxLogin()
+    } else {
+      wx.getStorage({
+        key: 'user_rank',
+        success: function (res) {
+          console.log(res.data)
+          if (Number(res.data) >= 6) { // 是官方
+            wx.reLaunch({
+              url: '/pages/agent/index'
+            })
+          } else { // 不是官方
+            // 获取个人信息
+            _this.canNotLogin(options)
+          }
+        },
+        fail () { 
+          // 获取个人信息
+          _this.canNotLogin(options)
         }
-      },
-    })
+      })
+    }
+
+  },
+  canNotLogin(options){ 
+    var _this = this
+    // 获取个人信息
+    if (!options.edit) {
+      util.wxLogin()
+    }
   },
   onUnload(){
     clearInterval(this.interval)
-  }
+  },
+  // // 下拉刷新
+  // onPullDownRefresh() {
+  //   console.log('下拉刷新')
+  //   this.onLoad({})
+  // },
 })

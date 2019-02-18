@@ -1,10 +1,12 @@
 {
-  "navigationBarTitleText": "商学院",
+  "navigationBarTitleText": "赛蜜商学院",
   "usingComponents": {
     "myTabbar": "/components/myTabbar/myTabbar",
     "myOpenSetting": "/components/myOpenSetting/myOpenSetting",
     "myGotoLogin": "/components/myGotoLogin/myGotoLogin",
-    "myLoading": "/components/myLoading/myLoading"
+    "myNavbar": "/components/myNavbar/myNavbar",
+    "myLoading": "/components/myLoading/myLoading",
+    "myGuide": "/components/myGuide/myGuide"
   },
   "enablePullDownRefresh": true,
   "backgroundTextStyle": "dark",

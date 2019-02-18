@@ -25,16 +25,18 @@
 .notice_content{
   padding: 30rpx 50rpx 0;
   background-color: #fff;
-  flex: 1;
+  /* flex: 1; */
 }
 .notice_content_item{
   border-bottom: 3rpx solid #D1D1D1;
   padding: 30rpx 0;
+  align-items: flex-start;
 }
 .notice_content_info{
   flex: 1;
   overflow: hidden;
   padding-right: 10rpx;
+
 }
 .notice_content_title{
   font-size: 26rpx;
@@ -53,6 +55,16 @@
 .notice_content_image{
   width: 220rpx;
   height: 160rpx;
+}
+.notice_content_image2{
+  padding: 0 10rpx;
+  width: 90rpx;
+  height: 160rpx;
+}
+.notice_content_tag{
+  width: 144rpx;
+  height: 160rpx;
+  margin: -20rpx 0;
 }
 
 /* 公司视频 */
@@ -127,7 +139,7 @@
   padding: 0 60rpx;
   position: relative;
 }
-.notice_detail .iconfont{
+.notice_detail > .iconfont{
   position: absolute;
   padding: 20rpx;
   left: 10rpx;
@@ -148,7 +160,6 @@
   line-height: 1.8;  
   color: #666;
   width: 100%;
-  padding-bottom: 100rpx;
 }
 .notice_detail_button_view{
   width: 100%;
@@ -156,8 +167,12 @@
   padding: 50rpx 0;
 }
 .notice_detail_button{
-  width: 45%;
+  width: 44%;
   margin: 0;
   height: 70rpx;
   font-size: 26rpx;
+}
+.notice_detail_tag{
+  width: 188rpx;
+  height: 200rpx;
 }

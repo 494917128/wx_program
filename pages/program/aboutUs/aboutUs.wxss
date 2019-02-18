@@ -1,12 +1,22 @@
+@import '/components/myGotoLogin/myGotoLogin.wxss';
+
 /* pages/aboutUs/aboutUs.wxss */
 .aboutUs_content{
   padding: 50rpx;
-  min-height: calc(100vh - 508rpx);
+  min-height: calc(100vh - 678rpx);
   box-sizing: border-box;
 }
 .aboutUs_content_image{
   width: 100%;
-  margin-bottom: 36rpx;
+  margin-right: 24rpx;
+}
+.aboutUs_content_image image{
+  width: 100%;
+}
+.aboutUs_content_image .main_button{
+  font-size: 24rpx;
+  margin-top: 16rpx;
+  height: 60rpx;
 }
 .aboutUs_content_title{
   font-size: 30rpx;

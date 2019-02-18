@@ -1,8 +1,9 @@
 <view class="container">
    <!-- <navigator url='/pages/program/buy/buy' class='button flex_row flex_center'>  -->
-   <view data-src="https://wx.saiminet.com/index.php?r=login" bindtap='webview' class='button flex_row flex_center'> 
+   <!-- <view data-src="https://wx.saiminet.com/index.php?r=login" bindtap='webview' class='button flex_row flex_center' hover-class='button_hover'> 
     <view class='iconfont icon-dianji'></view>
     我也要加入
-  </view>
+  </view> -->
   <!-- </navigator> -->
+  <view class='phone'>客服电话：{{contact_phone}}</view>
 </view>

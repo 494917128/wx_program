@@ -1,0 +1,50 @@
+<!--index.wxml-->
+<view class="container">
+  <view class='charts_title flex_row flex_center main_bg'>
+    <picker bindchange="bindPickerChange" data-type="province" mode="selector" value="{{province_index}}" range="{{province_array}}" range-key='name'>
+      <view class='flex_column'>
+        <text>省</text>
+        <text class='charts_border'>{{province_array[province_index].name}}</text>
+      </view>
+    </picker>
+    <picker bindchange="bindPickerChange" data-type="city" mode="selector" value="{{city_index}}" range="{{city_array}}" range-key='name'>
+      <view class='flex_column'>
+        <text>市</text>
+        <text class='charts_border'>{{city_array[city_index].name}}</text>
+      </view>
+    </picker>
+    <picker bindchange="bindPickerChange" data-type="area" mode="selector" value="{{area_index}}" range="{{area_array}}" range-key='name'>
+      <view class='flex_column'>
+        <text>区</text>
+        <text class='charts_border'>{{area_array[area_index].name}}</text>
+      </view>
+    </picker>
+    <view class='flex_column chatrs_btn'>
+      <text>　</text>
+      <view class='charts_border' hover-class='button_hover' bindtap='search'>搜索</view>
+    </view>
+  </view>
+
+  <view class='charts-table' wx:if='{{data}}'>
+    <view class='table'>
+
+      <view class='table-body'>
+        <view class='table-tr'>
+          <view class='table-td'>区域</view>
+          <view class='table-td'>{{data.region}}</view>
+        </view>
+
+        <view class='table-tr'>
+          <view class='table-td'>状态</view>
+          <view class='table-td'>{{data.is_order}}</view>
+        </view>
+
+        <view class='table-tr'>
+          <view class='table-td'>用户</view>
+          <view class='table-td'>{{data.user_name}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+</view>

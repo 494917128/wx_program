@@ -1,5 +1,8 @@
+@import '/pages/program/notice/notice.wxss';
+@import '/components/myGotoLogin/myGotoLogin.wxss';
+
 .moments_title{
-  height: 530rpx;
+  height: 410rpx;
   width: 750rpx;
   position: relative;
   margin-bottom: 80rpx;
@@ -49,13 +52,15 @@
   flex: 1;
 }
 .moments_item_label{
+  display: inline-block;
   font-size: 22rpx;
   padding: 2rpx 8rpx;
   border-radius: 6rpx;
   margin-left: 10rpx;
+  margin-top: 6rpx;
 }
 .moments_item_text{
-  font-size: 32rpx;
+  font-size: 28rpx;
 }
 .moments_item_image_view{
   flex-wrap: wrap;
@@ -74,8 +79,8 @@
   background-repeat: no-repeat;
 }
 .moments_item_video{
-  max-height: 490rpx;
-  max-width: 490rpx;
+  height: 280rpx;
+  width: 490rpx;
   margin: 4rpx;
 }
 .moments_item_time{
@@ -88,5 +93,42 @@
   height: 40rpx;
   border-radius: 6rpx;
   margin: 0 4rpx;
+  position:relative;
 }
 
+.slider_view { 
+  width: 100%;
+  font-size: 26rpx;
+}
+.slider_view .iconfont {
+  font-size: 40rpx;
+  margin-left: 20rpx;
+}
+.audio_button{
+  margin: 0 10rpx;
+}
+
+
+.picker{
+  position: fixed;
+  left: 20rpx;
+  bottom: 300rpx;
+  width: 110rpx;
+  height: 110rpx;
+  border-radius: 50%;
+  font-size: 24rpx;
+  line-height: 1.1;
+  animation: scale 1s forwards infinite;
+}
+@keyframes scale{
+  0%{ transform: scale(.9) }
+  50%{ transform: scale(1) }
+  100%{ transform: scale(.9) }
+}
+.picker_content{
+  width: 110rpx;
+  height: 110rpx;
+}
+.picker .iconfont{
+  font-size: 40rpx;
+}

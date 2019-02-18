@@ -1,0 +1,1 @@
+<video src='{{image_url+src}}' autoplay page-gesture direction='90' class='video'></video>

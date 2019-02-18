@@ -9,7 +9,7 @@ Page({
     e.currentTarget.dataset.src = app.webview_url + e.currentTarget.dataset.src
     util.webview(e)
   },
-  onLoad: function () {
+  onLoad: function (options) {
     this.setData({
       order: app.globalData.order_detail_info
     })

@@ -8,16 +8,20 @@ Page({
   },
 
   onLoad: function (e) {
-    if (!app.globalData.noticeContent) {
+    var src = e.src || ''
+
+    src = decodeURIComponent(e.src)
+    if (!src) {
       wx.navigateBack({
         delta: '1',
       })
       return
     }
     this.setData({
-      src: app.globalData.noticeContent
+      src: src,
+      title: e.title
     })
-    app.globalData.noticeContent = null
+
     if (!this.data.canIUse) {
       wx.showModal({ 
         title: '提示', 
@@ -30,4 +34,12 @@ Page({
       })
     }
   },
+  onShareAppMessage: function () {
+    var src = this.data.src
+    console.log('/pages/webView/webView?src=' + encodeURIComponent(src)) + '&title=' + this.data.title
+    return {
+      title: this.data.title,
+      path: '/pages/webView/webView?src=' + encodeURIComponent(src) + '&title=' + this.data.title
+    }
+  }
 })

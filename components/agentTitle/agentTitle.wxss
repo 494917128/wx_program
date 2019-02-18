@@ -22,6 +22,9 @@
   box-shadow: 0 0 10rpx 10rpx #fff;
   position: absolute;
   top: 60rpx;
+  left:0;
+  right:0;
+  margin:auto;
 }
 .shadow_2{
   box-shadow: 0 0 40rpx #03A9FE;

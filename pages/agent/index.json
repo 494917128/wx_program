@@ -1,5 +1,8 @@
 {
   "usingComponents": {
-    "agentTitle": "/components/agentTitle/agentTitle"
+    "myCode": "/components/myCode/myCode",    
+    "agentTitle": "/components/agentTitle/agentTitle",
+    "ec-canvas": "/components/ec-canvas/ec-canvas",
+    "myGuide": "/components/myGuide/myGuide"
   }
 }

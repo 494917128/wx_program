@@ -1,0 +1,11 @@
+{
+  "navigationBarTitleText": "课程分类",
+  "usingComponents": {
+    "myModal": "/components/myModal/myModal",
+    "myGotoLogin": "/components/myGotoLogin/myGotoLogin",
+    "myGuide": "/components/myGuide/myGuide"
+  },
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark",
+  "onReachBottomDistance": 40
+}

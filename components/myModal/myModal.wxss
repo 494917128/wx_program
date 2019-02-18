@@ -29,6 +29,9 @@
 }
 .content{
   padding: 0 30rpx 30rpx;
+  max-height: calc(100vh - 300rpx);
+  overflow-y: auto;
+  box-sizing: border-box;
 }
 
 

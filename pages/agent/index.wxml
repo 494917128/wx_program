@@ -14,15 +14,18 @@
       <view class='iconfont icon-shouji-copy'></view>
       手机号码
     </view>
-    <view class='agent_info_text'>{{agent.mobile||agent.mobile_phone}}</view>
+    <view class='agent_info_text'>{{agent.mobile||agent.mobile_phone||'无'}}</view>
   </view>
   <view class='main_line'></view>
-  <view url='/pages/agent/sell/sell' class='agent_info_item flex_column flex_center'>
+  <view bindtap='payShow' url='/pages/agent/sell/sell' class='agent_info_item flex_column flex_center'>
     <view class='agent_info_title flex_row flex_center'>
       <view class='iconfont icon-leijishouyi'></view>
       账户余额
     </view>
-    <view class='agent_info_text'>￥{{agent.user_money||'0.00'}}</view>
+    <view class='agent_info_text'>
+      <text wx:if="{{pay_show}}">￥{{agent.user_money||'0.00'}}<text class='iconfont icon-zhengyan'></text></text>
+      <text wx:else>******<text class='iconfont icon-biyan'></text></text>
+    </view>
   </view>
   <view class='main_line'></view>
   <view class='agent_info_item flex_column flex_center'>
@@ -30,14 +33,23 @@
       <view class='iconfont icon-shijian'></view>
       注册时间
     </view>
-    <view class='agent_info_text'>{{agent.reg_time}}</view>
+    <view class='agent_info_text'>{{agent.regs_time}}</view>
   </view>
 </view>
 
+<view class='agent_container' wx:if='{{agent.number.admin}}'>
+  <view class='agent_container_title'>管理员</view>
+  <view class='agent_container_content flex_row'>
+    <navigator url='/pages/admin/index' class='agent_container_item flex_column flex_center'>
+      <view class='agent_container_icon iconfont icon-touxiang flex_row flex_center' style='color:#3C6BE5'></view>
+      <text class='agent_container_text'>管理员</text>
+    </navigator>
+  </view>
+</view>
 <view class='agent_container' wx:for="{{nav_list}}" wx:key="{{index}}">
   <view class='agent_container_title'>{{item.title}}</view>
   <view class='agent_container_content flex_row'>
-    <navigator url='{{item.url}}' bindtap='{{item.bindtap}}' open-type='{{item.type||"navigate"}}' class='agent_container_item flex_column flex_center' wx:for="{{item.list}}" wx:key="{{index}}">
+    <navigator url='{{item.url}}' bindtap='{{item.bindtap||""}}' open-type='{{item.type||"navigate"}}' class='agent_container_item flex_column flex_center' wx:for="{{item.list}}" wx:key="{{index}}">
       <view class='agent_container_icon iconfont {{item.icon}} flex_row flex_center' style='color:{{item.color}}'></view>
       <text class='agent_container_text'>{{item.text}}</text>
       <view class='main_prompt flex_row flex_center danger_bg' wx:if="{{item.prompt}}">{{item.prompt}}</view>
@@ -47,4 +59,11 @@
 
 <view class='agent_edit flex_row flex_center' hover-class='agent_edit_hover' bindtap='edit'>退出登录</view>
 
-<view class='agent_more flex_row flex_center'>更多工具，敬请期待...</view>
+<view class='agent_more flex_column flex_center'>
+  <text>更多工具，敬请期待...</text>
+  <text>客服电话：{{intro.service_phone||'400-827-369'}}</text>  
+</view>
+
+<myCode show="{{my_code_show}}" bind_myCode="myCode" qrCode="{{qrCode}}" qrCode_msg="{{qrCode_msg||''}}" />
+
+<myGuide guide='{{guide}}' />

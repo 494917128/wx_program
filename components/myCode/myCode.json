@@ -1,6 +1,7 @@
 {
   "component": true,
   "usingComponents": {
-    "myOpenSetting": "/components/myOpenSetting/myOpenSetting"
+    "myOpenSetting": "/components/myOpenSetting/myOpenSetting",
+    "myModal": "/components/myModal/myModal"
   }
 }

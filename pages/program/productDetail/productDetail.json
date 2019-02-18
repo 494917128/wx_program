@@ -1,7 +1,10 @@
 {
   "navigationBarTitleText": "商品详情",
   "usingComponents": {
+    "myUserInfo": "/components/myUserInfo/myUserInfo",
+    "myCode": "/components/myCode/myCode",
     "myNavbar": "/components/myNavbar/myNavbar",
-    "myContact": "/components/myContact/myContact"
+    "myContact": "/components/myContact/myContact",
+    "myGuide": "/components/myGuide/myGuide"
   }
 }

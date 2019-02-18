@@ -16,14 +16,21 @@
   font-size: 28rpx;
   line-height: 1.8;
   color: #999;
+  flex-shrink: 0;
 }
 .bill_item_image{
   height: 70rpx;
   width: 70rpx;
   margin: 20rpx;
   border-radius: 50%;
+  flex-shrink: 0;
 }
 .bill_item_info{
   font-size: 28rpx;
   color: #999;
+}
+.bill_item_text{
+  font-size: 24rpx;
+  margin-left: 30rpx;
+  color: #666;
 }

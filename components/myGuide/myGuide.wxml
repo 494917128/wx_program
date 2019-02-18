@@ -1,0 +1,8 @@
+<!-- <view class='guide-cover flex_row flex_center {{guide&&guide_img?"active":""}}' bindtap='guideClose'>
+  <view class='guide'>
+    <navigator url='{{url}}' catchtap='close'>
+      <image src='{{guide_img}}' mode='widthFix'></image>
+    </navigator>
+    <view class='guide-close iconfont icon-close flex_row flex_center'></view>
+  </view>
+</view> -->

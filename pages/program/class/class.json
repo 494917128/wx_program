@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "myGotoLogin": "/components/myGotoLogin/myGotoLogin",
+    "myOpenSetting": "/components/myOpenSetting/myOpenSetting",
+    "myModal": "/components/myModal/myModal",
+    "myGuide": "/components/myGuide/myGuide"
+  }
+}

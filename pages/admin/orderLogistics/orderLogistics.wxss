@@ -1,0 +1,85 @@
+
+.logistic_container{
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.logistic_view_title{
+  padding: 0 40rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100rpx;
+  border-bottom: 10px solid #F2F3F3;
+  font-size: 28rpx;
+}
+.logistic_view_title .iconfont{
+  font-size: 40rpx;
+}
+.logistic_view_title .iconfont text{
+  font-size: 20rpx;
+}
+.round_view{
+  float: left;
+  width: 15%;
+  height: 85px;
+  position: relative;
+}
+.line{
+  width: 2px;
+  height: 85px;
+  background-color: #9E9E9E;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 40px;
+  margin: auto;
+}
+.round{
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  background-color: #9E9E9E;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 35px;
+  margin: auto;
+  z-index: 1;
+}
+.logistic_info{
+  box-sizing: border-box;
+  border-bottom: 1px solid #DCDCDC;
+  float: left;
+  width: 80%;
+  margin-right: 5%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  height: 85px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.logistic_text{
+  font-size: 15px;
+  line-height: 24px;
+}
+.logistic_time{
+  font-size: 10px;
+  line-height: 20px;
+}
+.logistic_view:first-child{
+  color: #03A9F4;
+}
+.logistic_view:first-child .line{
+  display: none;
+}
+.logistic_view:first-child .round{
+  width: 14px;
+  height: 14px;
+  border-radius: 12px;
+  bottom: 33px;
+  background-color: #03A9F4;
+}

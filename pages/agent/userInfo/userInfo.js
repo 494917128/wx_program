@@ -4,18 +4,17 @@ Page({
 
   data: {
     url: app.url,
-    photo: 'http://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTI20osBk6neDCzj5HBGg8t0q4s0mb6ibljIDkM9YES1tsf68ob6uJhO15KsxicBIUvTSslBN3wG2Gjg/132'
+    user: {}
   },
 
   onLoad: function (options) {
     var _this = this
-    if (options.nickname) { //用户信息
-      this.setData({
-        user: options
-      })
-    } else { //领导人信息
+    this.setData({
+      user: options
+    })
+    if (options.type == 'leader') { //领导人信息
       util.request({
-        url: 'index.php?r=user/parent-user',
+        url: 'user/parent-user',
         type: 'form',
         method: 'post',
         data: {

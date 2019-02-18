@@ -1,0 +1,41 @@
+<view class='container'>
+
+  <view class='header'>
+    <image src='/images/admin_bg.jpg' mode='aspectFill' class='header_bg' style=''></image>
+    <view class='agent_photo shadow_2'>
+      <image src='{{avatarUrl}}' mode="aspectFill" class="agent_photo"></image>
+    </view>
+
+    <view class="agent_info flex_row" style='padding: 0'>
+      <!-- <view class='agent_info_item flex_column flex_center'>
+        <view class='agent_info_title flex_row flex_center'>
+          <view class='iconfont icon-shouji-copy'></view>
+          未处理订单
+        </view>
+        <view class='agent_info_text'>10</view>
+      </view>
+      <view class='main_line'></view>
+      <view class='agent_info_item flex_column flex_center'>
+        <view class='agent_info_title flex_row flex_center'>
+          <view class='iconfont icon-shijian'></view>
+          注册时间
+        </view>
+        <view class='agent_info_text'>{{agent.regs_time}}</view>
+      </view> -->
+    </view>
+  </view>
+  <view>
+    <block wx:for='{{list}}' wx:key='{{index}}'>
+      <view class='list-title flex_row flex_center'>{{item.name}}</view>
+      <view class='list flex_row'>
+        <view class='item flex_column flex_center' wx:for='{{item.list}}' wx:key='{{index}}'>
+          <navigator url='{{item.path}}' class='flex_column flex_center'>
+            <image src='{{image_url+item.img}}' mode='aspectFill' class='item-image'></image>
+            <text>{{item.name}}</text>
+          </navigator>
+        </view>
+      </view>
+    </block>
+  </view>
+
+</view>

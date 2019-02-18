@@ -1,17 +1,13 @@
-<view class='cover {{show?"show":""}}' bindtap='code'>
-  <view class='code flex_column' catchtap='stop'>
-    <image src='{{url+qrCode}}' mode='widthFix' class='qrCode' bindlongpress='longpress'></image>
-    <!-- <view class='code_title flex_row flex_center'>赛蜜国际</view>
-    <view class='code_content flex_column flex_center'>
-      <image src='{{user.headimgurl||"/images/image_none.png"}}' class='code_photo' mode='aspectFill' />
-      <view class='code_name one_line'>{{user.real_name||user.nickname}}</view>
-      <view class='code_text flex_row flex_center two_line'>座右铭座右铭座右铭座右铭座右铭座右铭座右铭座右铭座右铭座右铭座右铭座右铭座右铭座右铭座右铭座右铭座右铭座右铭</view>
-      <view class='code_qrCode flex_column flex_center'>
-        <image src='/images/image_none.png' class='code_qrCode_image' mode='aspectFill'></image>
-        我的二维码
-      </view>
-    </view>
-    <view class='code_footer flex_row flex_center'>XX · XX · XX</view> -->
+<!-- <view class='cover flex_column flex_center {{show?"show":""}}' bindtap='code' wx:if="{{qrCode}}">
+  <view class='code flex_column flex_center' catchtap='stop'>
+
+    <image src='{{image_url+qrCode}}' mode='widthFix' class='qrCode' bindlongpress='longpress' bindtap='previewImage'></image>
   </view>
-</view>
+</view> -->
+
+<myModal show="{{show}}" class="modal" title="提示" no_cancel="{{true}}" wx:if="{{!qrCode}}" bindconfirm="code">
+  <view class='flex_row flex_center'>{{qrCode_msg}}</view>
+</myModal>
+
 <myOpenSetting show="{{open_setting}}" />
+

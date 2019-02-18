@@ -1,0 +1,36 @@
+.header_container{
+  height: 100vh;
+  overflow: hidden;
+}
+.header_title{
+  font-size:40rpx;
+  margin:10rpx 0;
+}
+image{
+  width: 80vw;
+  height:80vw;
+  margin: 10px 0 20px;
+  background-color: #fff;
+  border-radius: 10px;
+}
+
+.header_button{
+  flex: inherit;
+  width: 530rpx;
+  border-radius: 10rpx;
+  margin: 6px 0;
+  height: 50px;
+}
+.main_bg::after{
+  border-radius: 10rpx;
+  overflow: hidden;
+}
+
+.modal_input{
+  background-color: #fff;
+  border: 1px solid #bbb;
+  height: 60rpx;
+  border-radius: 10rpx;
+  font-size: 26rpx;
+  padding: 0 13rpx;
+}

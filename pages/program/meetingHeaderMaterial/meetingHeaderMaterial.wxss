@@ -1,0 +1,19 @@
+.material_content{}
+.material_content .list{
+  padding: 0 30rpx;
+}
+.material_content .item{
+  height: 160rpx;
+  padding: 0 20rpx;
+  border-bottom: 1px solid #dcdcdc;
+  align-items: center;
+}
+.material_content .item image{
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 10rpx;
+  margin-right: 20rpx;
+}
+.material_content .item .name{
+  font-size: 32rpx;
+}

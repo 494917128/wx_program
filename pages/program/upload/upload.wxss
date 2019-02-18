@@ -1,0 +1,54 @@
+@import '/pages/program/case/case.wxss';
+.case_label_view{
+  width: 100%;
+  flex-wrap:wrap;
+  height:inherit;
+  border: none;
+}
+.case_item_label{
+  font-size:24rpx;
+  height:40rpx;
+  padding:0 14rpx;
+}
+
+.upload_container{
+  padding: 20rpx 40rpx;
+  box-sizing: border-box;
+}
+.upload_title{
+  font-size: 26rpx;
+  line-height: 70rpx;
+}
+.upload_textarea{
+  height: 150rpx;
+  border-radius: 10rpx;
+  width: 100%;
+  background-color: #fff;
+  padding: 20rpx 20rpx;
+  font-size: 26rpx;
+  box-sizing: border-box;
+}
+
+.img_button{
+  align-self:flex-start;
+  font-size:28rpx;
+  padding:5rpx 20rpx;
+  border-radius:6rpx;
+  margin: 20rpx 4rpx 0;
+  position:relative;
+}
+.img_view{
+  flex-wrap: wrap;
+  margin: 24rpx 0 12rpx;
+  padding: 20rpx 50rpx;
+  min-height: 100rpx;
+  background-color: #fff;
+}
+.item_img{
+  height: 180rpx;
+  width: 180rpx;
+  margin: 4rpx;
+}
+.upload_button{
+  margin: 20rpx 0 40rpx;
+}

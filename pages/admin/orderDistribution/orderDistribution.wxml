@@ -1,0 +1,18 @@
+<view class='container flex_column'>
+  <view class='list'>
+    <view class='item flex_row flex_center'>
+      <view class='name'>分配仓库</view>
+      <picker class='input col-1' bindchange="bindPickerChange" value="{{repertory_index}}" range="{{repertory_list}}" range-key='value'>
+        <view>{{repertory_list[repertory_index].value}}</view>
+      </picker>
+    </view>
+    <view class='item'>
+      <view class='name'>备注</view>
+      <textarea class='textarea' value='{{action_note}}' bindinput='remarkInput'>
+
+      </textarea>
+    </view>
+
+  </view>
+  <view class='button main_button main_bg flex_row flex_center' bindtap='submit'>确定</view>
+</view>

@@ -1,0 +1,53 @@
+.item{
+  border-bottom: 1px solid #dcdcdc;
+  margin: 0 30rpx;
+}
+.item:last-child{
+  border: none;
+}
+.item .name{
+  line-height: 100rpx;
+  font-size: 32rpx;
+  width: 150rpx;
+  padding: 0 30rpx;
+  color: #333;
+}
+.item .input{
+  height: 100%;
+  font-size: 32rpx;
+  line-height: 100rpx;
+  color: #666;
+}
+.item .textarea{
+  min-height: 300rpx;
+  font-size: 32rpx;
+  color: #666;
+  padding: 8rpx 16rpx;
+  border: 1px solid #ccc;
+  width: 90%;
+  margin: 0 auto 20rpx;
+  
+}
+.item .iconfont{
+  padding: 20rpx;
+  font-size: 50rpx;
+  color: #666;
+}
+
+.item .add-view{
+  min-height: 300rpx;
+  width: 90%;
+  margin: 0 auto 20rpx;
+  border: 2px dashed #ccc;
+  color: #ccc;
+  font-size: 160rpx;
+}
+.item .add-view image{
+  width: 100%;
+  display: block;
+}
+
+.button{
+  width: 90%;
+  margin: 20rpx auto;
+}

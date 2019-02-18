@@ -1,4 +1,7 @@
-
+ec-canvas {
+  width: 100vw;
+  height: 100vh;
+}
 .agent_name{
   font-size: 32rpx;
   color: #333;
@@ -9,6 +12,7 @@
   font-size: 28rpx;
   max-width: 80%;
   opacity: 0.5;
+  text-align: center;
 }
 .agent_number{
   font-size: 28rpx;
@@ -37,6 +41,13 @@
 }
 .agent_info_text{
   font-size: 24rpx;
+  position: relative;
+}
+.agent_info_text .iconfont{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: -40rpx;
 }
 
 .agent_container{
@@ -100,6 +111,8 @@
 .agent_more{
   height: 130rpx;
   font-size: 26rpx;
-  color: #999;
+  line-height: 2;  
+  color: #A5A5A5;
+  text-align: center;    
   background-color: #F3F3F3;
 }

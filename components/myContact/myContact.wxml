@@ -1,4 +1,4 @@
-<!-- 联系代理商 -->
+<!-- 联系经销商 -->
 <view class='contact flex_column flex_center'>
   <slot></slot>
   <view class='flex_row' style='width:100%;padding-top:30rpx;'>

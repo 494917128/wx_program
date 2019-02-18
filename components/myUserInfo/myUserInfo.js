@@ -6,8 +6,6 @@ Component({
     }
   },
   properties: {
-
-    phone: Number, // 电话号码
     user: Object,
     intro: Object,
   },

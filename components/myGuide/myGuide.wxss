@@ -1,0 +1,46 @@
+@import '/fonts/iconfont.wxss';
+@import '/app.wxss';
+
+.guide-cover{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, .3);
+  
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s;
+  z-index: 99;
+}
+.guide-cover.active{
+  opacity: 1;
+  visibility: initial;
+}
+.guide{
+  width: 80%;
+  border-radius: 20rpx;
+
+  transform: scale(0);
+  transition: all 0.3s;
+}
+.guide-cover.active .guide{
+  transform: scale(1);
+}
+.guide image{
+  width: 100%;
+  border-radius: 20rpx;
+}
+.guide-close{
+  position: absolute;
+  top: 0%;
+  right: 0%;
+  width: 80rpx;
+  height: 80rpx;
+  font-size: 32rpx;
+  font-weight: bold;
+  background-color: #fff;
+  border-radius: 50%;
+  transform: translate(30rpx, -30rpx);
+}

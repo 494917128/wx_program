@@ -1,4 +1,19 @@
-    <navigator url='/pages/login/agent/agent' class='person_center flex_column flex_center'>
-      <view class='iconfont icon-erweima flex_row flex_center main_bg'></view>
-      <text class='main_color'>个人\n中心</text>
+    
+  <view class='person_center flex_column flex_center'>
+    <!-- <navigator url='/pages/program/meetingHeaderExample/meetingHeaderExample'>
+        <view class='person_center_iconfont iconfont icon-wode flex_row flex_center danger_bg'></view>
+        <view class='danger_color'>庆典</view>
+        <view class='danger_color'>头像</view>
+    </navigator> -->
+    <!-- <navigator url='/pages/program/meeting/meeting'>
+        <view class='person_center_iconfont iconfont icon-wode flex_row flex_center danger_bg'></view>
+        <view class='danger_color'>周年</view>
+        <view class='danger_color'>庆典</view>
+    </navigator> -->
+    <navigator url='/pages/login/agent/agent'>
+      <view class='person_center_iconfont iconfont icon-gerenzhongxinkaobei flex_row flex_center main_bg'></view>
+      <view class='main_color'>个人</view>
+      <view class='main_color'>中心</view>
     </navigator>
+    <slot></slot>
+  </view>

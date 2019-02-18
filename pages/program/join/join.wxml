@@ -37,7 +37,9 @@
     <button class='join_button flex_row flex_center main_bg' hover-class='button_hover'>提交</button>
   </view>
 
-  <myJoin />
+  <myJoin contact_phone="{{intro.service_phone}}" />
 </view>
 
 <myTabbar tabbar_index="4"/>
+
+<myGuide guide='{{guide}}' />

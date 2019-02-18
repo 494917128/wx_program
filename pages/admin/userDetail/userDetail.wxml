@@ -1,0 +1,26 @@
+<view class='main_container flex_column'>
+  <view class="leader_title" style="background-image: url('{{user.headimgurl||\'\'}}') "></view>
+  <view class='leader_photo_view'>
+    <image mode='aspectFill' class="leader_photo" src='{{user.headimgurl||""}}'></image>
+  </view>
+  <view class="leader_info">
+      <view class="leader_name">{{user.nickname||''}}</view>
+      <view class="leader_text">微信昵称：{{user.nickname||''}}</view>
+      <view class="leader_text">真实姓名：{{user.real_name||''}}</view>
+      <view class="leader_text">会员账号：{{user.user_name||''}}</view>
+      <view class="leader_text">会员等级：{{user.rank.rank_name||''}}</view>
+      <view class="leader_text">会员编号：{{user.user_name||''}}</view>
+      <view class="leader_text">手机号码：{{user.mobile||''}}</view>
+      <view class="leader_text">账号余额：{{user.user_money||''}}</view>
+      <view class="leader_text">库存数量：{{user.internal_rank||''}}</view>
+      <view class="leader_text">区域中心：{{user.regional_center_order||''}}</view>
+      <view class="leader_text">注册时间：{{user.reg_time||''}}</view>
+      <view class="leader_text flex_row">推荐人：
+        <view class='flex_row' style='align-item: center'>
+          <image style='width:40rpx;height:40rpx;border-radius: 50%;' src='{{user.parent_name.headimgurl}}' wx:if='{{user.parent_name.headimgurl}}'></image>
+          <text wx:if='{{user.parent_name.real_name||user.parent_name.nickname}}'>{{user.parent_name.real_name||user.parent_name.nickname}}</text>
+        </view>
+      </view>
+  </view>
+</view>
+

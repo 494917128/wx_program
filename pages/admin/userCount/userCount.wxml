@@ -1,0 +1,48 @@
+<!--index.wxml-->
+<view class="container">
+  <view class='charts_title flex_row flex_center main_bg'>
+    <picker mode="date" value="{{start_date}}" end="{{end_date}}" bindchange="bindDateChange" data-type='start_date'>
+      <view class='flex_column'>
+        <text>起始日期</text>
+        <text class='charts_border'>{{start_date}}</text>
+      </view>
+    </picker>
+    <picker mode="date" value="{{end_date}}" start="{{start_date}}" bindchange="bindDateChange" data-type='end_date'>
+      <view class='flex_column'>
+        <text>起始日期</text>
+        <text class='charts_border'>{{end_date}}</text>
+      </view>
+    </picker>
+    <picker bindchange="bindPickerChange" mode="selector" value="{{index}}" range="{{array}}" range-key='name'>
+      <view class='flex_column flex_center'>
+        <text>类型</text>
+        <text class='charts_border'>{{array[index].name}}</text>
+      </view>
+    </picker>
+    <view class='flex_column flex_center chatrs_btn'>
+      <text>　</text>
+      <view class='charts_border' hover-class='button_hover' bindtap='pageData'>确认</view>
+    </view>
+  </view>
+
+  <view class='charts-table' wx:if='{{list.length}}'>
+    <view class='table'>
+      <view class='table-head'>
+        <view class='table-tr'>
+          <view class='table-td'>#</view>
+          <view class='table-td' wx:for='{{list_title}}' wx:key='{{index}}'>{{item}}</view>
+        </view>
+      </view>
+      <view class='table-body'>
+        <view class='table-tr' wx:for='{{list}}' wx:key='{{index}}' wx:if='{{max_length?index<max_length:true}}'>
+          <view class='table-td'>{{list_date[index]}}</view>
+          <view class='table-td' wx:for='{{item}}' wx:key='{{index}}'>{{item}}</view>
+        </view>
+      </view>
+    </view>
+    <view class='flex_row flex_center charts-table-more' bindtap='more' wx:if='{{list.length>5&&max_length}}'>
+      查看更多...
+    </view>
+  </view>
+  <ec-canvas id="mychart-dom-bar" canvas-id="mychart-bar" ec="{{ ec }}"></ec-canvas>
+</view>

@@ -24,6 +24,7 @@ Page({
       list: [],// 重新加载
       page: 1,// 页数为1
     })
+    this.ajax.abort()// 结束之前的请求
     this.pageData()
   },
   webView(e) {
@@ -40,9 +41,10 @@ Page({
   // 请求数据
   pageData(){
     var _this = this
+    var index = this.data.nav_index
     this.setData({ loading: true })
-    util.request({
-      url: 'index.php?r=order/index&page=' + _this.data.page + '&type=' + (this.data.nav_index + 1),
+    this.ajax = util.request({
+      url: 'order/index&page=' + _this.data.page + '&type=' + (this.data.nav_index + 1),
       type: 'form',
       data: {
         user_id: app.globalData.agentInfo.user_id,
@@ -81,6 +83,7 @@ Page({
 
   }, 
   onLoad: function (e) {
+
     // 订单列表有多少的提示
     var number = app.globalData.agentInfo.number
     var prompt_list1 = [],prompt_list2 = []
@@ -88,7 +91,7 @@ Page({
     prompt_list2.push('', number.order_supplier_0, number.order_supplier_1, number.order_supplier_2, '')
 
     this.setData({
-      type: e.type,
+      type: e.type||'',
       prompt_list1,
       prompt_list2
     })
@@ -98,6 +101,7 @@ Page({
   scrolltolower() {
     console.log('上拉加载')
     if (!this.data.loading) {
+      this.ajax.abort()
       this.pageData()
     }
   },

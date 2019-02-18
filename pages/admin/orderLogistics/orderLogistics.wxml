@@ -1,0 +1,29 @@
+<scroll-view scroll-y class="logistic_container">
+  <view class='logistic_view_title'>
+    {{shipping_name}}：{{LogisticCode}}
+    <view class='iconfont icon-wuliu flex_column flex_center' wx:if='{{factory_img}}' bindtap='previewImage'><text>发货凭证</text></view>
+  </view>
+  <view>
+    <view class="logistic_view clearfix" wx:for="{{shipping.Traces}}" wx:key='{{index}}'>
+      <view class="round_view">
+        <view class="line"></view>
+        <view class="round"></view>
+      </view>
+      <view class="logistic_info">
+        <view class="logistic_text">{{item.AcceptStation}}</view>
+        <view class="logistic_time">{{item.AcceptTime}}</view>
+      </view>
+    </view>
+    <view class="logistic_view clearfix" wx:if='{{!shipping.Traces.length}}'>
+      <view class="round_view">
+        <view class="line"></view>
+        <view class="round"></view>
+      </view>
+      <view class="logistic_info">
+        <view class="logistic_text">{{Reason||'无物流信息或物流单号错误'}}</view>
+        <view class="logistic_time"></view>
+      </view>
+    </view>
+  </view>
+  
+</scroll-view>

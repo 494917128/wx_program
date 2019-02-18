@@ -12,8 +12,8 @@ Page({
   pageData(){
     var _this = this
     this.setData({ loading: true })
-    util.request({
-      url: 'index.php?r=user/commended&page=' + _this.data.page,
+    this.ajax = util.request({
+      url: 'user/commended&page=' + _this.data.page,
       type: 'form',
       data: {
         user_id: app.globalData.agentInfo.user_id,
@@ -47,6 +47,7 @@ Page({
   onReachBottom() {
     console.log('上拉加载')
     if (!this.data.loading) {
+      this.ajax.abort()
       this.pageData()
     }
   },
@@ -57,6 +58,7 @@ Page({
       list: [],// 重新加载
       page: 1,// 页数为1
     })
+    this.ajax.abort()
     this.pageData()
     setTimeout(() => { wx.stopPullDownRefresh() }, 1000)
   }

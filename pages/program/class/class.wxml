@@ -1,0 +1,92 @@
+<view class='main_container flex_column'>
+  <scroll-view scroll-y class='class_scroll' scroll-into-view="{{start}}" scroll-with-animation bindtap='navNone'>
+    <view style='height: 1rpx;'></view>
+    <view class='class_info flex_column' wx:if='{{info.teach_title||info.teach_name}}'>
+      <!-- <text wx:if="{{info.teach_title}}" class='class_info_title'>{{info.teach_title}}</text> -->
+      <text wx:if="{{info.teach_desc}}">{{info.teach_desc}}</text>
+      <text wx:if="{{info.teach_name}}">主讲导师：{{info.teach_name}}</text>
+      <text wx:if="{{info.name_detail}}">{{info.name_detail}}</text>
+    </view>
+    <view class='flex_column class_container'>
+      <text class='class_move class_move_first' bindtap='logMoveAfter' data-index="{{-1}}" wx:if="{{info.is_user==1&&move_index}}">移动到第一条</text>
+      <view wx:for="{{list}}" wx:key="{{index}}" id='{{index==list.length-1?"start":""}}' class="flex_row class_view">
+        <image src='{{image_url+info.teach_img+"?x-oss-process=style/200_200"}}' mode='aspectFill' class="class_photo"></image>
+        <!-- 定位用的 -->
+        <view class='class_hidden' id='{{"audio_"+item.log_id}}'></view>
+        <view class='flex_column' style="align-items: flex-start">
+          <view class='class_name'>{{info.teach_name}}</view>
+          <view class='flex_column'>
+            <view class='class_text flex_row flex_center' bindtap='audioPlay' data-index="{{index}}" wx:if="{{item.type==1}}">
+              <view class='flex_row flex_center iconfont {{item.played=="loading"?"icon-loading":(item.played?"icon-zanting":"icon-bofang")}}'></view>
+              <slider disabled value='{{slider}}' block-size="12" style='width: calc({{item.teach_time}} * 6rpx);margin:0 16rpx;' wx:if="{{item.played}}"></slider>
+              <view style='width: calc({{item.teach_time}} * 6rpx);margin:0 16rpx;' wx:else></view>
+              <text>{{item.teach_time}}″</text>
+              <view class='audio_prompt danger_bg' wx:if="{{item.is_listen!=1}}"></view>
+            </view>
+            <text class='class_text' selectable decode wx:if="{{item.type==2}}">{{item.content}}</text>
+            <image src='{{image_url+item.content+"?x-oss-process=style/450_aout"}}' mode='aspectFill' class="class_image" bindtap='previewImage' bindload='imageLoad' data-index='{{index}}' data-image='{{item.content}}' lazy-load="{{true}}" wx:if="{{item.type==3}}" style='width:{{item.imgwidth}}px;height:{{item.imgheight}}px;'></image>
+            <view class='class_delete'>
+              <text class='class_delete_text' bindtap='logDeleteModal' data-id="{{item.log_id}}" data-index="{{index}}" wx:if="{{info.is_user==1&&!move_index}}">撤回</text>
+              <text class='class_delete_text' bindtap='logMove' data-index="{{index}}" wx:if="{{info.is_user==1&&!move_index}}">移动</text>
+              <text class='class_delete_text' bindtap='logMoveReset' wx:if="{{info.is_user==1&&move_index&&move_index==index}}">取消移动</text>
+              <text class='class_move' bindtap='logMoveAfter' data-index="{{index}}" wx:if="{{info.is_user==1&&move_index&&move_index!=index&&move_index!=index+1}}">移动到此处</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+
+  <block wx:if="{{info.is_user==1}}">
+    <view class="class_foot_bar">
+      <view bindtap='{{item.bindtap}}' data-index='{{index}}' class='class_foot_item {{tabbar_index==index?"main_color":""}}' wx:for="{{tabbar_list}}" wx:key="{{index}}">
+        <view class='iconfont {{item.icon}}'></view>
+        {{item.text}}
+      </view>
+    </view>
+
+    <!-- 语音 -->
+    <view class='class_foot_record flex_column flex_center {{tabbar_index==0?"class_foot_show":""}}'>
+      <view class='recorde_text' wx:if="{{!recorde}}">点击开始录音</view>
+      <view class='recorde_text' wx:if="{{recorde=='play'}}">
+        录音中，再录<text class='danger_color'>{{60-recorde_time}}s</text>将可发送，点击可暂停
+      </view>
+      <view class='recorde_text' wx:if="{{recorde=='stop'}}">
+        本次录音共<text class='danger_color'>{{recorde_time}}s</text>
+        <text class='main_color' style='padding-left: 20rpx;' wx:if="{{!audio_play}}" bindtap='recordeListen'>试听</text>
+        <text class='main_color' style='padding-left: 20rpx;' wx:if="{{audio_play}}" bindtap='recordeListenStop'>暂停</text>
+        <text class='main_color' style='padding-left: 20rpx;' bindtap='recordeReset'>重录</text>
+      </view>
+      <view class='recorde_view danger_border flex_row flex_center' wx:if="{{!recorde}}" bindtap='recordeStart'>
+        <view class='recorde_btn danger_bg danger_color'></view>
+      </view>
+      <view class='recorde_view danger_border flex_row flex_center' wx:if="{{recorde=='play'}}" bindtap='recordeStop'>
+        <view class='recorde_btn_stop danger_bg'></view>
+      </view>
+      <view class='recorde_view main_bg flex_row flex_center' wx:if="{{recorde=='stop'}}" bindtap='recordeSend'>发送</view>
+    </view>
+    <!-- 文字 -->
+    <view class='class_foot_text flex_row {{tabbar_index==1?"class_foot_show":""}}'>
+      <textarea auto-height maxlength='255' placeholder='来说点什么吧...' placeholder-class='input_placeholder' bindinput='textValue' bindconfirm='textSend' confirm-type='send' value="{{text_value}}" confirm-hold cursor-spacing='10' focus='{{focus}}'></textarea>
+      <button class='class_foot_btn main_button flex_row flex_center main_bg' hover-class='button_hover' bindtap='textSend'>发送</button>
+    </view>
+  </block>
+</view>
+
+<myGotoLogin >
+  <navigator bindtap='code'>
+    <view class='person_center_iconfont iconfont icon-erweima flex_row flex_center main_bg'></view>
+    <view class='main_color'>分享</view>
+    <view class='main_color'>课程</view>
+  </navigator>
+</myGotoLogin>
+
+<myOpenSetting show="{{get_userinfo}}" bind_getUserInfo="getUserInfo" type="getUserInfo" />
+
+<myModal show="{{code_show}}" title="分享课程" confirm_text='保存二维码' bindconfirm="codeConfirm">
+  <image src='{{(info.poster_img?image_url+info.poster_img:"")||canvas_img||(code_img?image_url+code_img:"")}}' mode='widthFix' style='width: 490rpx;display:block;'></image>
+</myModal>
+
+<canvas canvas-id='hiddenId' class='canvas_hidden'></canvas>
+
+<myGuide guide='{{guide}}' />

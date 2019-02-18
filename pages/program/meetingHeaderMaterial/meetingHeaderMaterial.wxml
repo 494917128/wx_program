@@ -1,0 +1,8 @@
+<view class='material_content'>
+  <view class='list'>
+    <view bindtap='select' data-id='{{item.meet_id}}' class='item flex_row' wx:for='{{list}}' wx:key='{{index}}'>
+      <image src='{{image_url+item.meet_img}}' mode='aspectFill'></image>
+      <view class='name'>{{item.meet_name}}</view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,50 @@
+<view class='class_container' wx:if="class">
+  <image src='{{image_url+class.type_img+"?x-oss-process=style/650_aout"}}' wx:if="{{class.type_img}}" mode='widthFix' class='class_image'></image>
+  <view class='class_info'>
+    <view class='class_title two_line'>{{class.type_title}}</view>
+    <view class='class_desc flex_row'>
+      共{{class.count_class||class.list.length}}课
+      <text class='flex_row flex_center' wx:if='{{class.enter_count}}'><text class='iconfont icon-zhengyan'></text>{{class.enter_count}}</text>
+    </view>
+    <!-- <view class='class_desc'>{{class.type_desc}}</view> -->
+  </view>
+  <myNavbar list="{{nav_list}}" list_index="{{nav_index}}" bind_myNavbar="navbar" />
+
+  <view class='class_intro' wx:if="{{nav_index==0}}">
+    <rich-text nodes="{{class.type_desc}}"></rich-text>
+  </view>
+
+  <view class='class_list' wx:if="{{nav_index==1}}">
+    <view class='class_list_title flex_row'>
+      <view class='class_list_title_before danger_bg'></view>
+      <text>课程列表</text>
+    </view>
+    <block wx:for="{{class.list}}" wx:key="{{index}}">
+      <navigator url='/pages/program/class/class?teach_id={{item.teach_id}}&is_open_class={{class.is_open_class}}' class='class_item' wx:if='{{item.is_open.state}}'>
+        <view class='class_item_title'>第{{index+1}}课：{{item.teach_title}}</view>
+        <view class='class_item_time flex_row'>
+          {{item.add_time}}
+          <text class='flex_row flex_center' wx:if='{{item.enter_count}}'><text class='iconfont icon-zhengyan'></text>{{item.enter_count}}</text>
+        </view>
+      </navigator>
+      <view class='class_item not_open' wx:else>
+        <view class='class_item_title'>第{{index+1}}课：{{item.teach_title}}</view>
+        <view class='class_item_time flex_row'>
+          {{item.add_time}}
+          <text class='flex_row flex_center' wx:if='{{item.enter_count}}'><text class='iconfont icon-zhengyan'></text>{{item.enter_count}}</text>
+          <text>（{{item.is_open.error}}）</text>
+        </view>
+      </view>
+    </block>
+  </view>
+</view>
+
+<myGotoLogin >
+  <navigator url="/pages/program/classAdd/classAdd?type_id={{class.type_id}}" wx:if="{{is_admin}}">
+    <view class='person_center_iconfont iconfont icon-shangchuan flex_row flex_center main_bg'></view>
+    <view class='main_color'>创建</view>
+    <view class='main_color'>课程</view>
+  </navigator>
+</myGotoLogin>
+
+<myGuide guide='{{guide}}' />

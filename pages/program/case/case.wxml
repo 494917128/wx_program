@@ -1,0 +1,67 @@
+<myNavbar list="{{nav_list}}" list_index="{{nav_index}}" bind_myNavbar="navbar" /> 
+
+<block wx:if='{{nav_index==0}}'>
+  <view class='notice_search'>
+    <view class='notice_search_view flex_row'>
+      <input type='text' value='{{search_5}}' placeholder='输入关键词搜索' class='notice_search_input' confirm-type="search" bindinput='searchValue' bindconfirm='search'></input>
+      <view class='iconfont icon-search flex_row flex_center main_color' bindtap="search"></view>
+    </view>
+  </view>
+
+  <view class='flex_row case_label_view'>
+    <!-- <scroll-view scroll-x class='case_label_scroll'> -->
+      <view class='case_item_label main_border main_color flex_row flex_center' wx:for="{{case_label}}" wx:key="index" bindtap='searchLabel' data-value="{{item.case_label}}">{{item.case_label}}</view>
+    <!-- </scroll-view> -->
+    <!-- <view class='iconfont icon-xialajiantou flex_row flex_center' bindtap='caseMore'></view> -->
+  </view>
+
+  <view class='case_label_more {{case_more?"active":""}}'>
+    <view class='case_label_close iconfont icon-close flex_row flex_center' bindtap='caseMore'></view>
+    <view class='case_item_label main_border main_color flex_row flex_center' wx:for="{{case_label}}" wx:key="index" bindtap='searchLabel' data-value="{{item.case_label}}">{{item.case_label}}</view>
+  </view>
+
+  <view class='case_img_view'>
+    <block wx:for="{{list_5}}" wx:key="index">
+      <block wx:for="{{item.case_img}}" wx:for-item="img" wx:for-index="idx" wx:key="idx">
+        <image src='{{image_url+img+"?x-oss-process=style/200_200"}}' mode='aspectFill' class='case_img' bindtap='previewImage' data-img="{{img}}"></image>
+      </block>
+    </block>
+  </view>
+
+  <view class='notice_load flex_row flex_center'>
+    <button class='notice_load_button flex_row flex_center' loading wx:if="{{loading_5}}">
+      正在加载更多
+    </button>
+    <button class='notice_load_button flex_row flex_center' bindtap='onReachBottom' wx:else>
+      <view class='iconfont icon-xialajiantou flex_row flex_center'></view>
+      上拉加载更多
+    </button>
+  </view>
+</block>
+
+<block wx:if='{{nav_index==1}}'>
+  <navigator url='/pages/program/caseVideo/caseVideo?src={{item.file}}&title={{item.title}}' class='case_video' wx:for='{{list_6}}' wx:key='{{index}}'>
+    <image src='{{image_url+item.img}}' mode='aspectFill'></image>
+    <view class='case_video_title one_line'>{{item.title}}</view>
+  </navigator>
+
+  <view class='notice_load flex_row flex_center'>
+    <button class='notice_load_button flex_row flex_center' loading wx:if="{{loading}}">
+      正在加载更多
+    </button>
+    <button class='notice_load_button flex_row flex_center' bindtap='onReachBottom' wx:else>
+      <view class='iconfont icon-xialajiantou flex_row flex_center'></view>
+      上拉加载更多
+    </button>
+  </view>
+</block>
+
+<myGotoLogin >
+  <navigator url='/pages/program/upload/upload' wx:if="{{upload_show&&nav_index==0}}">
+    <view class='person_center_iconfont iconfont icon-shangchuan flex_row flex_center main_bg'></view>
+    <view class='main_color'>上传</view>
+    <view class='main_color'>案例</view>
+  </navigator>
+</myGotoLogin>
+
+<myGuide guide='{{guide}}' />

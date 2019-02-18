@@ -1,0 +1,40 @@
+<view class='container flex_column'>
+  <view class='list'>
+    <view class='item flex_row flex_center' wx:if='{{!repertory_id}}'>
+      <view class='name'>分配仓库</view>
+      <picker class='input col-1' bindchange="bindPickerChange0" value="{{repertory_index}}" range="{{repertory_list}}" range-key='value'>
+        <view>{{repertory_list[repertory_index].value}}</view>
+      </picker>
+    </view>
+    <view class='item flex_row flex_center'>
+      <view class='name'>快递公司</view>
+      <picker class='input col-1' bindchange="bindPickerChange" value="{{shipping_index}}" range="{{shipping_list}}" range-key='value'>
+        <view>{{shipping_list[shipping_index].value}}</view>
+      </picker>
+    </view>
+    <view class='item flex_row flex_center'>
+      <view class='name'>物流码</view>
+      <input class='input col-1' type='number' value='{{invoice_no}}' placeholder='请输入物流码' placeholder-class='input_placeholder' bindinput='logisticsInput'></input>
+      <view class='iconfont icon-saoma' bindtap='scan'></view>
+    </view>
+    <view class='item flex_row flex_center'>
+      <view class='name'>运费</view>
+      <input class='input col-1' type='number' value='{{freight}}' placeholder='请输入运费' placeholder-class='input_placeholder' bindinput='freightInput'></input>
+    </view>
+    <view class='item'>
+      <view class='name'>发货凭证</view>
+      <view class='add-view flex_row'>
+        <image src='{{item?image_url+item:""}}' mode='aspectFill' bindtap='changeImage' data-index='{{index}}' wx:for='{{images}}' wx:key='{{index}}'></image>
+        <text class='flex_row flex_center' bindtap='chooseImage' wx:if='{{images.length<9}}'>+</text>
+      </view>
+    </view>
+    <view class='item'>
+      <view class='name'>备注</view>
+      <textarea class='textarea' value='{{action_note}}' bindinput='remarkInput'>
+
+      </textarea>
+    </view>
+
+  </view>
+  <view class='button main_button main_bg flex_row flex_center' bindtap='submit'>确定</view>
+</view>

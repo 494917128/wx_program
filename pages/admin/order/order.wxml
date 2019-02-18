@@ -1,0 +1,81 @@
+<view class='main_container container flex_column'>
+  <myNavbar list="{{type=='buy'?nav_list1:nav_list2}}" prompt="{{type=='buy'?prompt_list1:prompt_list2}}" list_index="{{nav_index}}" bind_myNavbar="navbar" wx:if='{{!para}}' />
+  <!-- 搜索 -->
+  <view class='notice_search'>
+    <view class='notice_search_view flex_row'>
+      <input type='text' value='{{search}}' placeholder='输入关键词搜索' class='notice_search_input' confirm-type="search" bindinput='searchValue' bindconfirm='search'></input>
+      <view class='iconfont icon-search flex_row flex_center main_color' bindtap="search"></view>
+    </view>
+  </view>
+
+  <scroll-view scroll-y class='order_list' bindscrolltolower="scrolltolower" enable-back-to-top>
+    <!-- 列表循环 -->
+    <view class='order_item' wx:for="{{list}}" wx:key="{{index}}">
+      <view class="order_item_header flex_row">
+        <image src='{{item.user.headimgurl||"/images/image_none.png"}}' mode='aspectFill' class='order_item_photo' wx:if="{{type=='sale'}}"></image>
+        <view class='order_item_text'>
+          <view wx:if="{{type=='sale'}}">会员:{{item.user.nickname}}</view>
+          <view>编号:{{item.order_sn}}</view>
+        </view>
+        <view class='flex_row'>
+          <view class="main_label danger_bg" wx:if="{{item.order_status==0}}">未确定</view>
+          <view class="main_label primary_bg" wx:elif="{{item.order_status==1}}">已确定</view>
+          <view class="main_label define_bg" wx:elif="{{item.order_status==2}}">已取消</view>
+          <view class="main_label danger_bg" wx:elif="{{item.order_status==3}}">无效</view>
+          <view class="main_label define_bg" wx:elif="{{item.order_status==4}}">退货</view>
+          <view class="main_label define_bg" wx:elif="{{item.order_status==5}}">已分单</view>
+          <view class="main_label define_bg" wx:elif="{{item.order_status==6}}">部分分单</view>
+
+          <view class="main_label define_bg" wx:if="{{item.pay_status==0}}">未付款</view>
+          <view class="main_label primary_bg" wx:elif="{{item.pay_status==1}}">部分付款</view>
+          <view class="main_label info_bg"  wx:elif="{{item.pay_status==2}}">已付款</view>
+
+          <view class="main_label define_bg" wx:if="{{item.shipping_status==0}}">未发货</view>
+          <view class="main_label primary_bg" wx:elif="{{item.shipping_status==1}}">已发货</view>
+          <view class="main_label primary_bg" wx:elif="{{item.shipping_status==2}}">已收货</view>
+          <view class="main_label define_bg" wx:elif="{{item.shipping_status==3}}">备货中</view>
+          <view class="main_label define_bg" wx:elif="{{item.shipping_status==4}}">已发货(部分商品)</view>
+          <view class="main_label define_bg" wx:elif="{{item.shipping_status==5}}">发货中(处理分单)</view>
+          <view class="main_label define_bg" wx:elif="{{item.shipping_status==6}}">已发货(部分商品)</view>
+        </view> 
+      </view>
+      <view data-info="{{item}}" bindtap='orderDetail' hover-class='button_hover' class='flex_row'>
+        <view style='flex:1'>
+          <view class='order_item_body flex_row flex_center' wx:for="{{item.goods}}" wx:key="{{index}}" wx:for-item="goods">
+            <image src='{{image_url+goods.goods_img}}' mode='aspectFill' class='order_item_image'></image>
+            <view class='order_item_info'>
+              <view class='order_item_info_name flex_row'>
+                <view class='flex_row flex_center'>
+                  <text>{{goods.goods_name}}</text>
+                  <view wx:if="{{goods.is_gift}}" class="main_label danger_bg">赠品</view>
+                </view>
+                <text style='color:#666;'>￥{{goods.goods_number*goods.goods_price}}</text>
+              </view>
+              <view class='order_item_info_num'>数量：{{goods.goods_number}}</view>
+              <view class='order_item_info_price' wx:if="{{type=='sale'}}">原价格：{{goods.market_price}}</view>
+              <view class='order_item_info_price'>{{type=='sale'?'订货价':'价格'}}：{{goods.goods_price}}</view>
+            </view>
+          </view>
+        </view>
+        <view class='iconfont icon-right flex_row flex_center'></view>
+      </view>
+      <view class='order_item_footer flex_column'>
+        <view class="order_item_footer_text"><text>共{{item.goods_sum}}件商品</text><text>合计{{item.order_amount}}元</text></view>
+        <view class="flex_row">
+
+          <navigator url='/pages/admin/orderDistribution/orderDistribution?id={{item.order_id}}' class="order_item_footer_button danger_bg" wx:if='{{item.shipping_status==0&&item.auth.allow_repertory}}'>分配发货</navigator>
+          <navigator url='/pages/admin/orderSend/orderSend?id={{item.order_id}}' class="order_item_footer_button danger_bg" wx:if='{{item.shipping_status==0&&item.auth.shipping_status}}'>订单发货</navigator>
+          <navigator url='/pages/admin/orderSure/orderSure?id={{item.order_id}}&title=订单付款&action=pay_1' class="order_item_footer_button danger_bg" wx:if='{{item.auth.pay_status}}'>订单付款</navigator>
+          <navigator url='/pages/admin/orderSure/orderSure?id={{item.order_id}}&title=确定订单&action=status_4' class="order_item_footer_button danger_bg" wx:if='{{item.auth.affirm_order}}'>确定订单</navigator>
+          <navigator url='/pages/admin/orderSure/orderSure?id={{item.order_id}}&title=确定发货&action=status_3' class="order_item_footer_button danger_bg" wx:if='{{item.auth.affirm_shipping}}'>确定发货</navigator>
+          <navigator url='/pages/admin/orderLogistics/orderLogistics?id={{item.order_id}}' class="order_item_footer_button danger_bg" wx:if='{{item.shipping_status>=1}}'>查看物流</navigator>
+          <view data-info="{{item}}" bindtap='orderDetail' class="order_item_footer_button danger_bg">查看详情</view>
+        </view>
+      </view>
+    </view>
+    <myLoading wx:if="{{loading}}" />
+    <!-- 列表无内容 -->
+    <view class='main_list_none flex_row flex_center' wx:if="{{list.length==0&&!loading}}">暂无订单</view>
+    <view style='height:80rpx;'></view>
+  </scroll-view>
+</view>

@@ -12,13 +12,15 @@ Page({
       { icon: 'icon-xiaoxi', text: '关于', bg_color: '#FE9F00', url: '/pages/program/aboutUs/aboutUs' },
       { icon: 'icon-chanpin', text: '产品', bg_color: '#FC7500', url: '/pages/program/product/product' },
       { icon: 'icon-xinwen', text: '公告', bg_color: '#AD6509', url: '/pages/program/notice/notice' },
-      { icon: 'icon-qianmishangxueyuan-', text: '商学院', bg_color: '#C7C7C7', url: '/pages/program/moments/moments' },
+      { icon: 'icon-qianmishangxueyuan-', text: '商学院', bg_color: '#FFA1A9', url: '/pages/program/moments/moments' },
     ],
     swiper_image: [
-      'https://wx.saiminet.com/images/tqy/1.webp.jpg', 
-      'https://wx.saiminet.com/images/tqy/2.jpg',
-      'https://wx.saiminet.com/images/tqy/3.jpg',
-      'https://wx.saiminet.com/images/tqy/4.jpg'
+      'images/carousel/1.webp.jpg', 
+      'images/carousel/1.png',
+      'images/carousel/2.png',
+      'images/carousel/3.jpg',
+      'images/carousel/4.jpg',
+      'images/carousel/5.jpg',
     ],
     my_code_show:false,
   },
@@ -33,12 +35,7 @@ Page({
   },
   // 点击进入内容
   noticeContent(e) {
-    var src = e.currentTarget.dataset.src
-    app.globalData.noticeContent = src
-    console.log(src)
-    wx.navigateTo({
-      url: '/pages/webView/webView',
-    })
+    util.webview(e)
   },
   buy(e) {
     wx.showModal({
@@ -55,12 +52,17 @@ Page({
       app.globalData.show_user = decodeURIComponent(options.scene)
     }
 
-    if (app.globalData.show_user){
-      util.requestIndex(this, app.globalData.show_user, true)
-    } else {
-      wx.redirectTo({
-        url: '/pages/agent/index',
+    if (!app.globalData.show_user) { 
+      wx.showToast({
+        title: '参数无效',
+        icon: 'none',
       })
+      app.globalData.show_user = app.globalData.show_user || 1
+    }
+    util.requestIndex(this, app.globalData.show_user, true)
+
+    if (options.guide) {
+      this.setData({ guide: true });
     }
   },
   onShareAppMessage: function () {

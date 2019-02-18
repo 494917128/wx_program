@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "管理员界面",
+  "navigationBarBackgroundColor": "#1616AA",
+  "usingComponents": {
+    "myNavbar": "/components/myNavbar/myNavbar"
+  }
+
+}

@@ -1,0 +1,50 @@
+@import '/pages/admin/userCount/userCount.wxss';
+
+.charts_title input{
+  flex: 1;
+  margin-top: 10rpx;
+  line-height: 1.6;
+  height: 58rpx;
+}
+
+.user-list{
+  background-color: #f2f2f2;
+  padding: 20rpx;
+}
+.user-item{
+  background-color: #fff;
+  margin: 16rpx 10rpx;
+  box-shadow: 0 0 20rpx #dcdcdc;
+  border-radius: 20rpx;
+  font-size: 28rpx;
+  overflow: hidden;
+}
+.user-item-left{
+  width: 30%;
+  flex-shrink: 0;
+  padding: 10rpx 0;
+}
+.user-item-right{
+  width: 70%;
+  padding: 10rpx 20rpx;
+  justify-content: center;
+}
+.user-item-img{
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+  margin-bottom: 10rpx;
+}
+.user-item-name{
+  width: 100%;
+  text-align: center;
+}
+.user-item-rank{
+  margin-top: 10rpx;
+  font-size: 24rpx;
+  font-weight: bold;
+}
+.user-item-info1{
+  justify-content: space-between;
+  align-items: center;
+}

@@ -1,14 +1,18 @@
 /* pages/product/product.wxss */
+@import '/pages/program/notice/notice.wxss';
+
 .product_list_view{
   flex-wrap: wrap;
+  justify-content: space-between;
 }
 .product_list{
-  width: 100%;
+  width: calc(50% - 1px);
   position: relative;
 }
 .product_list_image{
   display: block;
   width: 100%;
+  height: 50vw;
 }
 .product_list_name{
   position: absolute;

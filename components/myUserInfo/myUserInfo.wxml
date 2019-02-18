@@ -14,8 +14,8 @@
   </navigator>
   <view class='flex_row'>
     <view class='btn main_bg' bindtap='code'>
-      <view class='iconfont icon-erweima'></view>
-      TA的二维码
+      <view class='iconfont icon-shouquanshu'></view>
+      TA的授权书
     </view>
     <view class='line'></view>
     <view class='btn main_bg' bindtap='call'>

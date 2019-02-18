@@ -1,7 +1,7 @@
 @import '/fonts/iconfont.wxss';
 @import '/app.wxss';
 
-/* 联系代理商 */
+/* 联系经销商 */
 .contact{
   padding: 10rpx 20rpx 0;  
 }

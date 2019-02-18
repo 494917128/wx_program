@@ -1,0 +1,17 @@
+<view class='header_container flex_column'>
+  <movable-area class='header' scale-area>
+    <movable-view style="height: {{image.height}}px; width: {{image.width}}px;" direction="all" bindchange="onChange" bindscale="onScale" scale scale-min="0.5" scale-max="4" scale-value="0.8" animation='' x='{{windowWidth * 1.1}}' y='{{windowHeight * 1.5 - 103 - windowWidth * .4}}'>
+      <image src='{{image.url}}' class='image'></image>
+    </movable-view>
+  </movable-area>
+  <view class='frame'>
+    <image src='{{image_url+material_img}}' style='width: 80vw;height:80vw;'></image>
+    <canvas canvas-id='material' style='width: 80vw;height:80vw;'></canvas>
+  </view>
+  <input placeholder='请输入您的姓名' class='header_input header_button main_button' maxlength='3' bindinput='nameValue'></input>
+  <view class='header_button main_button main_bg flex_row flex_center' hover-class='button_hover' bindtap='uploadImage'>上传照片</view>
+  <!-- <navigator url='/pages/program/meetingHeaderMaterial/meetingHeaderMaterial' class='header_button main_button main_bg flex_row flex_center' hover-class='button_hover'>选择素材</navigator> -->
+  <view class='header_button main_button main_bg flex_row flex_center' hover-class='button_hover' bindtap='downloadImage'>点击生成</view>
+</view>
+
+<canvas canvas-id='header' class='canvas' style='width: 80vw;height:80vw;'></canvas>

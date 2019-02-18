@@ -1,0 +1,27 @@
+<view class='main_container flex_column'>
+  <view>
+    <view class='main_list' wx:for="{{nav_list}}" wx:key="{{index}}">
+      <block wx:for="{{item}}" wx:key="{{index}}">
+        <view bindtap='{{item.bindtap}}' data-name="{{item.name}}" data-text="{{item.text}}" data-title="{{item.title}}" class='main_item'>
+          <view class='main_item_content flex_row'>
+            <text>{{item.title}}</text>
+            <view class='main_item_info flex_row flex_center col-1'>
+              <view class='col-1' wx:if="{{item.name=='group_images'}}">
+                <image src='{{item.text&&image_url+item.text}}' wx:if="{{item.text}}" class='main_item_image' mode='aspectFill'></image>
+              </view>
+              <input type='{{item.type}}' value='{{item.text}}' class='col-1' data-type='{{item.name}}' bindinput='bindInput' wx:else></input>
+              <view class='iconfont icon-right' wx:if="{{item.right}}"></view>
+            </view>
+          </view>
+        </view>
+      </block>
+    </view>
+  </view>
+  <view class='login_button_view flex_column'>
+    <button class='class_button main_button flex_row flex_center main_bg' hover-class='button_hover' bindtap='submit'>确定</button>
+  </view>
+</view>
+
+<myModal show="{{modal_show}}" title="请输入您的{{modal_title}}" bindconfirm="confirm">
+  <input type='text' class='modal_input' bindinput='modalInput' value='{{modal_text}}'></input>
+</myModal>

@@ -1,0 +1,11 @@
+@import '/pages/admin/userCount/userCount.wxss';
+
+.charts_title{
+  height: initial;
+  min-height: 130rpx;
+}
+
+.table-body{
+  font-size: 34rpx;
+  line-break: 2.4;
+}

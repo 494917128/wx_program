@@ -1,0 +1,23 @@
+<view class='container flex_column flex_center'>
+  <image src='/images/bg.jpg' mode='aspectFill' class='prize_bg'></image>
+  <view class='prize flex_column flex_center'>
+    <view class='prize_title'>{{title}}</view>
+    <view class='prize_status' wx:if='{{is_status=="0"}}'>未兑换</view>
+    <view class='prize_status danger_color' wx:if='{{is_status=="1"}}'>已兑换</view>
+    <view class='prize_status danger_color' wx:if='{{is_status=="2"}}'>无效</view>
+    <view class='prize_name'>{{prize_name}}</view>
+    <image class='prize_img' mode='aspectFill' src='{{image_url+image}}'></image>
+  </view>
+  <view class='scan-btn-view flex_row flex_center'>
+    <view class='scan-btn iconfont icon-saoma flex_row flex_center main_bg' hover-class='button_hover' bindtap='scan'></view>
+    <view class='scan-btn flex_column flex_center main_bg' hover-class='button_hover' bindtap='prizeSure' wx:if='{{is_status=="0"}}'>
+      <view>确认</view>
+      <view>核销</view>
+    </view>
+    <view class='scan-btn flex_column flex_center define_bg' wx:elif='{{is_status=="1"||is_status=="2"}}'>
+      <view>确认</view>
+      <view>核销</view>
+    </view>
+  
+  </view>
+</view>

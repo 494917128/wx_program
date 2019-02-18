@@ -4,7 +4,7 @@ Component({
 
   },
   properties: {
-
+    contact_phone: String,
   },
 
   data: {
@@ -13,7 +13,7 @@ Component({
 
   methods: {
     webview(e){
-      util.webview(e)
+      // util.webview(e)
     }
   },
   ready () {

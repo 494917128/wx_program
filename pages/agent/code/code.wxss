@@ -13,7 +13,7 @@
 }
 .code_content canvas{
   width: 226px;
-  height: 226px;
+  height: 281px;
 }
 .code_button{
   flex: 0;
@@ -26,7 +26,7 @@
 .canvas_hidden{
   position: fixed;
   left: -753px;
-  top: -753px;
+  top: -843px;
   width: 753px;
-  height: 753px;
+  height: 843px;
 }

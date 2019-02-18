@@ -1,0 +1,39 @@
+@import '/components/myGotoLogin/myGotoLogin.wxss';
+
+.item{
+  margin: 20rpx;
+  background-color: #FFF;
+  border-radius: 10rpx;
+  overflow: hidden;
+  border: 1px solid #dcdcdc;
+  box-shadow: 0 0 10rpx #dcdcdc;
+}
+.name{
+  align-items: center;
+  font-size: 28rpx;
+  line-height: 1.5;
+  min-height: 50rpx;
+  padding: 10rpx;
+  border-bottom: 1px solid #dcdcdc;
+  box-sizing: border-box;
+}
+.btn{
+  font-size: 28rpx;
+  min-height: 50rpx;
+  padding: 0 10rpx;
+  border-right: 1px solid #dcdcdc;
+}
+.btn:last-child{
+  border-right: none;
+}
+
+
+
+.modal_input{
+  background-color: #fff;
+  border: 1px solid #bbb;
+  height: 60rpx;
+  border-radius: 10rpx;
+  font-size: 26rpx;
+  padding: 0 13rpx;
+}

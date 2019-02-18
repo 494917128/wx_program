@@ -105,7 +105,7 @@ Page({
     })
   },
   onLoad: function (options) {
-    util.requestIndex(this)
+    util.requestIndex(this, app.globalData.show_user)
     this.dataUpdate('headimgurl', this.data.user.headimgurl)
     this.dataUpdate('real_name', this.data.user.real_name)
     this.dataUpdate('user_name', this.data.user.user_name)

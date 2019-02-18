@@ -20,9 +20,10 @@
 
 <view class='login_button_view flex_column'>
   <button class='login_button main_button flex_row flex_center main_bg' hover-class='button_hover' bindtap='binding'>立即登录</button>
+  <button class='login_button main_button flex_row flex_center main_bg' hover-class='button_hover' bindtap='onLoad'>微信登录</button>
   <navigator open-type='navigateBack' wx:if="{{user}}" class='login_button main_button flex_row flex_center main_bg' style='background-color:#1AADFD' hover-class='button_hover'>返回首页</navigator>
 </view>
 
 <view class='login_label main_button flex_row flex_center main_bg' hover-class='button_hover' bindtap='showOfficial'>官方展示版</view>
 
-
+<myOpenSetting show="{{get_userinfo}}" bind_getUserInfo="getUserInfo" type="getUserInfo" />

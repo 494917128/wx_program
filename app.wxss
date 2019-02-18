@@ -1,5 +1,8 @@
 @import '/fonts/iconfont.wxss';
-
+rich-text .rich-img {
+  max-width: 100% ;
+  height: auto ;
+}
 .flex_row{
   display: flex;
 }
@@ -10,6 +13,10 @@
 .flex_center{
   justify-content: center;
   align-items: center;
+}
+.col-1{
+  flex: 1;
+  overflow: hidden;
 }
 
 .main_container{
@@ -182,6 +189,9 @@
 }
 .danger_color{
   color: #e51c23;
+}
+.danger_border{
+  border: 3rpx solid #e51c23;
 }
 .define_bg{
   color: #666;

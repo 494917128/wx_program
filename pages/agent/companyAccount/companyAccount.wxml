@@ -1,5 +1,5 @@
 <view class='container main_container flex_column'>
-  <image src='{{url+"sm/img/sm_logo.jpg"}}' mode='aspectFit' class='sm_logo'></image>
+  <image src='{{image_url+"sm/img/sm_logo.jpg"}}' mode='aspectFit' class='sm_logo'></image>
   <view class='main_list'>
 
       <view class='main_item'>
@@ -12,7 +12,7 @@
       </view>
       <view class='main_item'>
         <view class='main_item_content flex_row' style='border-bottom:none;'>
-          <image src='{{url+"images/bank/3.png"}}' mode='aspectFit' class='main_item_icon'></image>
+          <image src='{{image_url+"images/bank/3.png"}}' mode='aspectFit' class='main_item_icon'></image>
           <view class='main_item_info flex_column' style='align-items:flex-end;font-size:24rpx;padding:20rpx 0;'>
             <text style='font-size:34rpx;color:#333;'>6222 0812 0201 4084 436</text>
             <text>开户行：浙江省杭州市萧山区江南支行【工商银行】</text>

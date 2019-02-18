@@ -1,9 +1,26 @@
 {
   "pages": [
+    
     "pages/login/agent/agent",
     "pages/login/login",
     "pages/loading/loading",
     "pages/webView/webView",
+
+    "pages/admin/index",
+    "pages/admin/order/order",
+    "pages/admin/orderSend/orderSend",
+    "pages/admin/orderDetail/orderDetail",
+    "pages/admin/orderDistribution/orderDistribution",
+    "pages/admin/orderLogistics/orderLogistics",
+    "pages/admin/orderSure/orderSure",
+    "pages/admin/region/region",
+    "pages/admin/userCount/userCount",
+    "pages/admin/userList/userList",
+    "pages/admin/userDetail/userDetail",
+    "pages/admin/dahuiCode/dahuiCode",
+    "pages/admin/group/group",
+    "pages/admin/groupAdd/groupAdd",
+    
     "pages/agent/index",
     "pages/agent/opinion/opinion",
     "pages/agent/userInfo/userInfo",
@@ -23,8 +40,12 @@
     "pages/agent/bankCard/bankCard",
     "pages/agent/addBankCard/addBankCard",
     "pages/agent/version/version",
+
     "pages/program/index/index",
     "pages/program/moments/moments",
+    "pages/program/case/case",
+    "pages/program/caseVideo/caseVideo",
+    "pages/program/upload/upload",
     "pages/program/buy/buy",
     "pages/program/aboutUs/aboutUs",
     "pages/program/product/product",
@@ -32,7 +53,18 @@
     "pages/program/buyGoods/buyGoods",
     "pages/program/reservation/reservation",
     "pages/program/notice/notice",
-    "pages/program/join/join"
+    "pages/program/join/join",
+    "pages/program/class/class",
+    "pages/program/classType/classType",
+    "pages/program/classDetail/classDetail",
+    "pages/program/classAdd/classAdd",
+    "pages/program/meeting/meeting",
+    "pages/program/meetingSave/meetingSave",
+    "pages/program/meetingHeader/meetingHeader",
+    "pages/program/meetingHeaderExample/meetingHeaderExample",
+    "pages/program/meetingHeaderMaterial/meetingHeaderMaterial",
+    "pages/program/meetingHeaderSave/meetingHeaderSave",
+    "pages/program/picture/picture"
   ],
   "tabBar": {
     "color": "#666666",

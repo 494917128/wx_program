@@ -1,0 +1,20 @@
+<navigator url="/pages/program/classDetail/classDetail?type_id={{item.type_id}}&type_img={{item.type_img}}&type_title={{item.type_title}}&type_text={{item.type_text}}&is_fee={{item.is_fee}}&count_class={{item.count_class}}" class='class_list flex_row' wx:for="{{list}}" wx:key="{{index}}">
+  <image class='class_image' mode='aspectFill' src='{{image_url+item.type_img+"?x-oss-process=style/150_aout"}}'></image>
+  <view class='class_content flex_column'>
+    <view>
+      <text class='class_title two_line'>{{item.type_title}}</text>
+      <text class='class_desc two_line'>{{item.type_text||''}}</text>
+    </view>
+    <view class='flex_row' style='justify-content: space-between'>
+      <view class='class_desc flex_row col-1'>
+        {{item.count_class}}课
+        <text class='flex_row flex_center col-1' wx:if='{{item.enter_count}}'><text class='iconfont icon-zhengyan'></text>{{item.enter_count}}</text>
+      </view>
+      <view class='class_fee flex_row flex_center main_color'>{{item.is_fee}}</view>
+    </view>
+  </view>
+</navigator>
+
+<myGotoLogin />
+
+<myGuide guide='{{guide}}' />
